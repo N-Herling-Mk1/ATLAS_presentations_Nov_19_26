@@ -1,0 +1,19 @@
+{
+  "id": "2026-11-19_unknot-overview",
+  "stem": "UNKNOT_overview_mk1",
+  "title": "UNKNOT: project overview",
+  "subtitle": "How many backgrounds are there? Two-stage design, MaxEnt method, the four gates, and the mk1 results",
+  "author": "Nathan Herling",
+  "date": "2026-11-19",
+  "description": "UNKNOT counts the sources inside the MSVtx background using background data only: per-feature maximum-entropy curves, a mixture of K = 1-4 factorized sources, and a count believed only when four independent gates agree. Covers the two-stage design (structure, then ABCD closure-bias attribution), what MaxEnt catches and misses, the pipeline, a gate-by-gate walk-through, and the mk1 results: endcap one drifting background, barrel one candidate split by position. Internal, exploratory.",
+  "tags": ["ATLAS", "LLP", "MSVtx", "UNKNOT", "background", "MaxEnt", "mixture models", "ABCD"],
+  "notes": [
+    "UNKNOT: UNsupervised K-source Number and Origin Test. One question: how many distinct sources make up the MSVtx background, and how sure are we of each answer. Background data only; internal and exploratory.",
+    "The project is two stages. Stage 1 (structure) counts the sources; mk1 is done and frozen. Only a count that passes the gates G1-G4 and the controls moves on. Stage 2 (closure attribution) asks how far off ABCD is given those sources, splitting the bias into a within-source term (c_k) and a mixing term. Stage 2 is not started; its first step is measuring c_k inside the barrel groups.",
+    "The idea. Three suspects can each leave displaced vertices: collision debris (punch-through jets), beam-induced background, and cosmic rays. Why it matters: mixing sources with different shapes creates a correlation between the two network scores even when no single source has one, which is enough to break ABCD closure. Ground rules: background only, signal only as an acceptance reference, built blind to the rank-K study and the ATLAS paper, results frozen before comparison.",
+    "Maximum entropy: of all curves that reproduce a few measured averages, take the one that assumes nothing else. Each feature gets one smooth curve per source; features multiply inside a source; sources mix over K. Left column: what this design is good at. Right column: what it misses or fakes. Spikes, hard edges, correlation inside one source, and drift in an unsupplied variable can each fake an extra group, which is why the gates exist. The feature strip stays empty until make_feature_panels.py is run on the mk1 background file.",
+    "Pipeline. Counting lane: background file, health check and barrel/endcap split, feature sets, MaxEnt curves, mixture over K = 1-4, four gates, count. Two assumptions are flagged: each curve is smooth (A1) and features are independent inside a source (A2). Fingerprint lane: direction against detector acceptance and vertex-to-missing-momentum pointing, used to name a group only after it is counted.",
+    "One worked example: barrel, position features. G1 both scorecards pick 2; G2 the gain beats scrambled events; G3 the count holds in 30 of 30 halves and both run periods; G4 groups beat a single smooth trend at z = 9.1. Verdict: 2 groups, a candidate. Still open: the same check at fixed activity and on signal as an acceptance control. Two endcap counts stopped: timing at G1 (scorecards disagree) and activity at G4 (a smooth trend does as well, z = -1.3).",
+    "Results. Endcap: one background whose shape drifts with activity; the apparent groups dissolve once activity is known. Barrel: one candidate split by position that holds through every gate so far; detector acceptance is not yet ruled out. Direction hints at cosmics or halo in the barrel; missing-momentum pointing marks collision debris in the endcap."
+  ]
+}
