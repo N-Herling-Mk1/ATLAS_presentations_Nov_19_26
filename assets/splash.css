@@ -1,0 +1,54 @@
+/* Splash page: TRON Ares minimum, dark. Fonts are local (assets/fonts), so the page works offline. */
+@font-face{font-family:Orbitron;font-weight:700;src:url(fonts/orbitron-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:Orbitron;font-weight:900;src:url(fonts/orbitron-latin-900-normal.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:400;src:url(fonts/inter-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:600;src:url(fonts/inter-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Share Tech Mono";font-weight:400;src:url(fonts/share-tech-mono-latin-400-normal.woff2) format("woff2")}
+
+:root{--bg:#050505;--panel:#0f0f10;--line:#2a2a2c;--ink:#f2f2f2;--mute:#8d8d93;--accent:#e8230a;--amber:#ffb31a}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif;min-height:100%}
+a{color:inherit}
+.grid-bg{position:fixed;inset:0;pointer-events:none;opacity:.35;
+  background-image:linear-gradient(rgba(232,35,10,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(232,35,10,.10) 1px,transparent 1px);
+  background-size:48px 48px;mask-image:radial-gradient(ellipse at 50% 0%,#000 30%,transparent 75%)}
+
+.top{position:relative;max-width:1180px;margin:0 auto;padding:56px 28px 10px}
+.kicker{margin:0;font:700 12px Orbitron,sans-serif;letter-spacing:.24em;color:var(--accent)}
+.kicker span{color:var(--mute)}
+.top h1{margin:10px 0 6px;font:900 44px/1.1 Orbitron,sans-serif;letter-spacing:.01em}
+.who{margin:0;color:var(--mute);font-size:14px}
+
+.decks{position:relative;max-width:1180px;margin:30px auto 0;padding:0 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:26px}
+.deck{position:relative;background:var(--panel);border:1.5px solid var(--line);display:flex;flex-direction:column;outline:none;transition:border-color .15s,transform .15s}
+.deck:hover,.deck.sel{border-color:var(--accent)}
+.deck.sel{transform:translateY(-2px);box-shadow:0 0 0 1px var(--accent),0 10px 40px rgba(232,35,10,.18)}
+.deck .num{position:absolute;top:-16px;left:18px;z-index:2;background:var(--bg);padding:0 10px;font:900 26px Orbitron,sans-serif;color:var(--accent);letter-spacing:.06em}
+.deck .shot{display:block;aspect-ratio:16/9;background:#000;overflow:hidden;position:relative;border-bottom:1.5px solid var(--line)}
+.deck .shot img{width:100%;height:100%;object-fit:cover;display:block}
+.deck .shot .stamp{position:absolute;inset:auto 14px 14px auto;font:700 12px Orbitron,sans-serif;letter-spacing:.2em;color:var(--amber);border:1.5px solid var(--amber);padding:5px 10px;background:rgba(0,0,0,.7)}
+.deck .body{padding:16px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.deck .meta{font:12.5px "Share Tech Mono",monospace;letter-spacing:.06em;color:var(--mute)}
+.deck h2{margin:0;font:700 21px/1.25 Orbitron,sans-serif;letter-spacing:.02em}
+.deck h2 a{text-decoration:none}
+.deck h2 a:hover{color:var(--accent)}
+.deck .sub{margin:0;color:#cfcfd4;font-size:14.5px}
+.deck .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.deck .tag{font:11.5px "Share Tech Mono",monospace;border:1px solid var(--line);color:var(--mute);padding:1px 8px}
+.deck .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:10px}
+.btn{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--line);padding:8px 13px;font:700 11.5px Orbitron,sans-serif;letter-spacing:.12em;text-decoration:none;color:var(--ink);background:transparent}
+.btn small{font:11px "Share Tech Mono",monospace;letter-spacing:0;color:var(--mute)}
+.btn:hover,.btn:focus-visible{border-color:var(--accent);color:var(--accent);outline:none}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover,.btn.primary:focus-visible{background:#ff3a1f;color:#fff}
+.deck.planned{opacity:.8}
+.deck.planned .btn{pointer-events:none;color:var(--mute)}
+.deck .note{margin:0;font-size:13.5px;color:var(--mute)}
+
+.keys{max-width:1180px;margin:30px auto 0;padding:0 28px;color:var(--mute);font-size:13px}
+kbd{font:12px "Share Tech Mono",monospace;border:1px solid var(--line);border-bottom-width:2px;padding:0 6px;color:var(--ink)}
+.foot{max-width:1180px;margin:34px auto 0;padding:18px 28px 36px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--mute);font-size:13px}
+.foot a{color:var(--mute)}
+.foot a:hover{color:var(--accent)}
+.noscript{max-width:1180px;margin:20px auto;padding:0 28px;color:var(--amber)}
+@media (max-width:640px){.top h1{font-size:32px}.deck h2{font-size:18px}}

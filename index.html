@@ -4,34 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ATLAS presentations · 19 Nov 2026 · Nathan Herling</title>
-<meta name="description" content="Talks and group-meeting decks: view in the browser or download as PDF, PPTX or a single HTML file.">
+<meta name="description" content="Two ATLAS group-meeting decks: the UNKNOT project overview, and the project compendium with a DNCn_QN overview. Present in the browser or download as PDF, PPTX or one self-contained HTML file.">
 <link rel="icon" href="assets/icon/icon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/icon/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/splash.css">
 </head>
 <body>
+<div class="grid-bg" aria-hidden="true"></div>
+
 <header class="top">
-  <div class="wrap">
-    <h1>ATLAS presentations · 19 Nov 2026</h1>
-    <p class="who">Nathan Herling · UA ATLAS HEP Group</p>
-    <p class="lede">Two decks: the UNKNOT project overview, and the project compendium with a DNCn_QN overview. Each plays in the browser and downloads as a PDF, a PowerPoint file, or one self-contained HTML file. Part of the <a href="https://n-herling-mk1.github.io/ATLAS_presentations_/">ATLAS presentations</a> collection.</p>
-  </div>
+  <p class="kicker">ATLAS PRESENTATIONS <span>//</span> 19 NOV 2026</p>
+  <h1>Select a presentation</h1>
+  <p class="who">Nathan "_Steve" Herling · UA ATLAS HEP Group · ANA-EXOT-2025-24 · MSVtx</p>
 </header>
 
-<main class="wrap">
-  <div class="tools">
-    <input id="q" type="search" placeholder="Filter by title, topic or tag" aria-label="Filter presentations" autocomplete="off">
-    <span id="tally" class="muted"></span>
-  </div>
-  <ol id="list" class="cards"></ol>
-  <p id="empty" class="muted" hidden>No presentations match that filter.</p>
-</main>
+<main class="decks" id="decks" aria-label="Presentations"></main>
 
-<footer class="wrap foot muted">
-  <span>Static site: HTML, CSS and JS only. Keys in a deck: ← → move, G grid, N notes, D downloads, F full screen, ? help.</span>
+<p class="keys">Keys here: <kbd>1</kbd> <kbd>2</kbd> select · <kbd>Enter</kbd> present · inside a deck: <kbd>←</kbd> <kbd>→</kbd> move, <kbd>G</kbd> grid, <kbd>N</kbd> notes, <kbd>D</kbd> downloads, <kbd>⌂</kbd> back here</p>
+
+<footer class="foot">
+  <span>Static site: HTML, CSS and JS only · works on GitHub Pages and straight from disk</span>
+  <a href="https://n-herling-mk1.github.io/ATLAS_presentations_/">All ATLAS presentations ↗</a>
 </footer>
 
+<noscript><p class="noscript">This page needs JavaScript to list the decks. They live in <code>decks/</code>.</p></noscript>
 <script src="catalog.js"></script>
-<script src="assets/site.js"></script>
+<script src="assets/splash.js"></script>
 </body>
 </html>

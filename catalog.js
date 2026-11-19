@@ -4,11 +4,11 @@ window.CATALOG = {
   {
    "id": "2026-11-19_unknot-overview",
    "title": "UNKNOT: project overview",
-   "subtitle": "How many backgrounds are there? Two-stage design, MaxEnt method, the four gates, and the mk1 results",
+   "subtitle": "How many backgrounds can we detect? Built blind, maximum entropy, the experimental design (two paths), and the mk1 results",
    "author": "Nathan Herling",
    "date": "2026-11-19",
    "updated": "",
-   "description": "UNKNOT counts the sources inside the MSVtx background using background data only: per-feature maximum-entropy curves, a mixture of K = 1-4 factorized sources, and a count believed only when four independent gates agree. Covers the two-stage design (structure, then ABCD closure-bias attribution), what MaxEnt catches and misses, the pipeline, a gate-by-gate walk-through, and the mk1 results: endcap one drifting background, barrel one candidate split by position. Internal, exploratory.",
+   "description": "UNKNOT asks how many sources make up the MSVtx background, using background data only and stating a confidence for every answer. The deck covers how it was designed blind to the rank-K study and the ATLAS paper, the maximum-entropy assumption and what it gains and loses (with real mk1 phase-1 fits), the experimental design (path 1: count up to four sources; path 2: bias search in the ABCD plane), and the mk1 results: endcap one background drifting with activity, barrel one candidate split by position. Slides after 'End of vetted work' are working material. Internal, exploratory.",
    "tags": [
     "ATLAS",
     "LLP",
@@ -19,23 +19,23 @@ window.CATALOG = {
     "mixture models",
     "ABCD"
    ],
-   "slides": 7,
+   "slides": 10,
    "thumb": "thumbs/s-01.jpg",
    "files": {
     "pdf": {
      "path": "downloads/UNKNOT_overview_mk1.pdf",
      "name": "UNKNOT_overview_mk1.pdf",
-     "bytes": 1836760
+     "bytes": 2175804
     },
     "pptx": {
      "path": "downloads/UNKNOT_overview_mk1.pptx",
      "name": "UNKNOT_overview_mk1.pptx",
-     "bytes": 2390743
+     "bytes": 2993385
     },
     "html": {
      "path": "downloads/UNKNOT_overview_mk1_single_file.html",
      "name": "UNKNOT_overview_mk1_single_file.html",
-     "bytes": 498432
+     "bytes": 716258
     }
    }
   }

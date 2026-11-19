@@ -8,20 +8,26 @@ This is a static site: plain HTML, CSS and JS with no framework. It runs on GitH
 
 ## Decks
 
+Open `index.html` (the splash page) and pick a deck. Inside a deck, the ⌂ button returns to the splash page.
+
 | # | Date | Deck | Slides | Status |
 |---|---|---|---|---|
-| 1 | 19 Nov 2026 | [UNKNOT: project overview](decks/2026-11-19_unknot-overview/) | 7 | built |
-| 2 | 19 Nov 2026 | Project compendium + DNCn_QN overview | – | planned |
+| 1 | 19 Nov 2026 | [UNKNOT: project overview](decks/2026-11-19_unknot-overview/index.html) | 10 | locked |
+| 2 | 19 Nov 2026 | Project compendium + DNCn_QN overview | – | in preparation |
+
+Deck 1, slides 1–5 are the vetted overview; slide 6 marks the end of vetted work, and slides 7–10 are working material carried over from the mk1 deck.
 
 > **Internal, exploratory.** UNKNOT numbers are mk1 results on background data only. They are preliminary and are not an ATLAS result.
 
 ## Layout
 
 ```
-index.html                 landing page: one card per deck (Present / PDF / PPTX / HTML)
-catalog.js                 GENERATED list of decks for the landing page
+index.html                 splash page: one tile per presentation (Present / Live HTML / PDF / PPTX)
+catalog.js                 GENERATED list of built decks, read by the splash page
 assets/
-  site.css, site.js        landing page
+  splash.css, splash.js    splash page; splash.js also holds the fixed slot order and the "in preparation" tile
+  fonts/                   Orbitron, Inter, Share Tech Mono (woff2, SIL OFL), so the splash works offline
+  img/                     project logos for tiles that are not built yet
   player.css, player.js    the slide player, shared by every deck
   templates/player.html    template for each deck's index.html
   icon/                    repo icon

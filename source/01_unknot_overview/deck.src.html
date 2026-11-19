@@ -31,15 +31,180 @@
   .foot{position:absolute;left:52px;right:52px;bottom:22px;display:flex;justify-content:space-between;font-size:11.5px;color:var(--mute)}
   .pad{padding:44px 52px 36px}
 
-  /* ---------- cover ---------- */
-  .sc{background:#000;color:#fff}
+  /* ---------- cover: research question ---------- */
+  .sc{background:#000;color:#e6e6e6}
   .sc .kicker{position:absolute;left:52px;top:34px;z-index:2}
-  .sc .logo{position:absolute;left:220px;top:30px;width:840px;height:525px;display:block}
-  .sc .tagline{position:absolute;left:140px;right:140px;top:574px;text-align:center;font-size:20px;line-height:1.4;color:#e6e6e6}
-  .sc .tagline b{color:#fff;font-weight:600}
-  .sc .rule{position:absolute;left:560px;width:160px;top:648px;height:3px;background:var(--accent)}
+  .sc h1{position:absolute;left:52px;top:52px;margin:0;font:900 40px/1.15 Orbitron,sans-serif;color:#fff}
+  .sc .logo{position:absolute;left:40px;top:136px;width:592px;height:370px;display:block}
+  .sc .meth{position:absolute;left:660px;width:568px;border:1.5px solid #4a4a4a;padding:12px 16px;display:flex;flex-direction:column;gap:6px}
+  .sc .meth h2{margin:0;font:700 12px Orbitron,sans-serif;letter-spacing:.14em;color:#fff}
+  .sc .meth h2 span{color:var(--accent);margin-right:8px}
+  .sc .meth .q{font-weight:600;font-size:17px;color:#fff;line-height:1.3}
+  .sc .meth p{margin:0;font-size:14.5px;line-height:1.4}
+  .sc .meth .conf{border-top:1px solid #333;padding-top:6px;font-size:13.5px;color:#cfcfcf}
+  .sc .meth .conf b{font:700 10px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent);margin-right:6px}
+  .sc .con{position:absolute;left:52px;right:52px;top:556px;border:2px solid var(--accent);padding:12px 18px;display:grid;grid-template-columns:170px 1fr;gap:16px;align-items:center}
+  .sc .con b{font:700 12px Orbitron,sans-serif;letter-spacing:.16em;color:var(--accent)}
+  .sc .con p{margin:0;font-size:16px;line-height:1.4;color:#fff}
   .sc .foot{color:#9a9a9a}
   .sc .foot b{font:700 11px Orbitron,sans-serif;letter-spacing:.16em;color:#fff;margin-right:8px}
+
+  /* ---------- divider: end of vetted work ---------- */
+  .sx{background:#000;color:#fff}
+  .sx .kicker{position:absolute;left:52px;top:44px}
+  .sx .xbig{position:absolute;left:52px;top:220px;font:900 76px/1.05 Orbitron,sans-serif;letter-spacing:.02em;color:#fff}
+  .sx .xrule{position:absolute;left:52px;top:410px;width:220px;height:4px;background:var(--accent)}
+  .sx .xsub{position:absolute;left:52px;top:436px;width:820px;margin:0;font-size:19px;line-height:1.45;color:#cfcfcf}
+  .sx .foot{color:#9a9a9a}
+  .sx .xgo{position:absolute;right:56px;top:190px;width:430px;height:auto;image-rendering:pixelated;-webkit-mask-image:radial-gradient(ellipse 72% 70% at 50% 50%,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse 72% 70% at 50% 50%,#000 60%,transparent 100%)}
+  .sx .xsub{width:600px!important}
+
+  /* ---------- before the design: built blind ---------- */
+  .sb .pre{margin:8px 0 0;font-size:14px;color:var(--mute)}
+  .sb h1{font-size:31px;line-height:1.18;margin:6px 0 8px;max-width:1120px}
+  .sb h1 sup{font-size:15px;color:var(--accent);vertical-align:super;margin-left:1px}
+  .sb .sig{margin:-4px 0 8px;font:700 15px Orbitron,sans-serif;letter-spacing:.08em;color:var(--ink);text-align:right;max-width:1120px}
+  .sb .cites{margin:0;padding-left:20px;font-size:12.5px;line-height:1.4;color:var(--mute);max-width:1100px}
+  .sb .tl{display:grid;grid-template-columns:1fr 22px 1fr 22px 1fr 22px 1fr 46px 1fr;align-items:stretch;margin-top:26px}
+  .sb .ev{border:2px solid var(--ink);padding:9px 11px;display:flex;flex-direction:column;gap:4px;min-height:96px}
+  .sb .ev b{font:700 12px Orbitron,sans-serif;letter-spacing:.1em}
+  .sb .ev span{font-size:13.5px;line-height:1.35}
+  .sb .ev.me{border-color:var(--accent)}
+  .sb .ev.me b{color:var(--accent)}
+  .sb .ev.open{border-style:dashed;border-color:#777;background:var(--soft)}
+  .sb .ar{position:relative}
+  .sb .ar:before{content:"";position:absolute;left:3px;right:7px;top:50%;border-top:2px solid var(--ink)}
+  .sb .ar:after{content:"";position:absolute;right:1px;top:calc(50% - 6px);border:6px solid transparent;border-left:8px solid var(--ink);border-right:0}
+  .sb .wall{position:relative;display:flex;justify-content:center}
+  .sb .wall:before{content:"";position:absolute;top:-14px;bottom:-14px;left:50%;border-left:3px dashed var(--accent)}
+  .sb .wall span{position:absolute;top:-30px;white-space:nowrap;font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent)}
+  .sb .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:30px}
+  .sb .card{padding:11px 15px}
+  .sb .card h3{margin:0 0 5px;font:700 12px Orbitron,sans-serif;letter-spacing:.14em}
+  .sb .card p{margin:0;font-size:15px;line-height:1.42}
+  .sb .card.a{border:2px solid var(--accent)} .sb .card.a h3{color:var(--accent)}
+  .sb .buys{margin-top:26px;border-left:4px solid var(--accent);padding:6px 0 6px 16px;font-size:17px;line-height:1.45;font-style:italic;max-width:1100px}
+  .sb .buys b{font:700 11px Orbitron,sans-serif;letter-spacing:.14em;font-style:normal;color:var(--accent);display:block;margin-bottom:3px}
+  .sb .card.n{border:2px solid #9a9a9a;background:var(--soft)} .sb .card.n h3{color:#555}
+
+  /* ---------- maximum entropy: the concept ---------- */
+  .sm .grid{display:grid;grid-template-columns:540px 1fr;gap:40px;margin-top:20px}
+  .sm .princ{border:2px solid var(--ink);padding:14px 18px;margin-bottom:18px}
+  .sm .princ h2{font:700 12.5px Orbitron,sans-serif;letter-spacing:.16em;margin:0 0 8px;color:var(--accent)}
+  .sm .princ p{margin:0;font-size:17px;line-height:1.5}
+  .sm .princ .by{margin-top:8px;font-size:13px;color:var(--mute)}
+  .sm .para{margin-bottom:14px}
+  .sm .para h2{font:700 12.5px Orbitron,sans-serif;letter-spacing:.16em;margin:0 0 5px}
+  .sm .para h2 span{color:var(--accent);margin-right:8px}
+  .sm .para p{margin:0;font-size:15px;line-height:1.48}
+  .sm .fig h2{font:700 12.5px Orbitron,sans-serif;letter-spacing:.16em;margin:0 0 8px}
+  .sm .slot{border:1.5px dashed #9a9a9a;height:420px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mute);font-size:14.5px;padding:0 40px}
+  .sm .slot code{font-family:"Share Tech Mono",monospace;color:var(--ink)}
+  .sm .fig img{display:block;width:100%;height:420px;object-fit:contain;border:1px solid var(--line)}
+  .sm .cap{margin-top:8px;font-size:13.5px;color:var(--mute)}
+  .sm .fig h2 .sub{font:12px Inter,sans-serif;letter-spacing:0;color:var(--mute);margin-left:6px}
+  .sm .ex{margin-bottom:10px}
+  .sm .exh{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;border-bottom:1px solid var(--line);padding-bottom:3px;margin-bottom:4px}
+  .sm .exh b{font:700 11px Orbitron,sans-serif;letter-spacing:.1em}
+  .sm .exh span{color:var(--accent);font-weight:600}
+  .sm .exr{display:grid;grid-template-columns:252px 1fr;gap:10px;align-items:center;height:168px}
+  .sm .exr img{width:252px;height:168px;object-fit:contain;display:block;border:0}
+  .sm .exr svg{width:100%;height:168px;display:block}
+  .sm .asm{font-size:15px;line-height:1.45;margin:0 0 12px}
+  .sm .asm b{font:700 12.5px Orbitron,sans-serif;letter-spacing:.16em;display:block;margin-bottom:4px}
+  .sm .gl{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .sm .gl div{padding:9px 12px}
+  .sm .gl .g{border:2px solid var(--accent)}
+  .sm .gl .l{border:2px solid #9a9a9a;background:var(--soft)}
+  .sm .gl h3{margin:0 0 5px;font:700 11.5px Orbitron,sans-serif;letter-spacing:.14em}
+  .sm .gl .g h3{color:var(--accent)} .sm .gl .l h3{color:#555}
+  .sm .gl ul{margin:0;padding-left:16px;font-size:13.5px;line-height:1.35}
+  .sm .gl li{margin:2px 0}
+  .sm .it{position:absolute;left:52px;right:52px;top:592px;height:78px;border-top:2px solid var(--ink);display:grid;grid-template-columns:230px 330px 1fr;gap:20px;align-items:center}
+  .sm .it .h{font:700 12px/1.35 Orbitron,sans-serif;letter-spacing:.14em}
+  .sm .it .h span{color:var(--accent);display:block}
+  .sm .it .eq{font-size:16px}
+  .sm .it p{margin:0;font-size:14px;line-height:1.4;color:#333}
+  .sm .take{position:absolute;left:52px;right:52px;top:604px;border-left:4px solid var(--accent);padding:6px 0 6px 16px;font-size:17px;font-style:italic}
+
+  .sm .pad{padding:26px 34px 20px}
+  .sm .grid{grid-template-columns:488px 1fr;gap:30px;margin-top:12px}
+  .sm .princ{padding:11px 16px;margin-bottom:12px}
+  .sm .princ p{font-size:16px;line-height:1.42}
+  .sm .asm{margin-bottom:10px}
+  .sm .exr{grid-template-columns:240px 1fr;height:160px}
+  .sm .exr img{width:240px;height:160px}
+  .sm .exr svg{height:160px}
+  .sm .ex{margin-bottom:6px}
+  .sm .read{border:1.5px dashed #9a9a9a;padding:6px 10px;font-size:12.5px;line-height:1.38}
+  .sm .read b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;color:var(--mute);margin-right:6px}
+  .sm .read p{display:inline;margin:0}
+  .sm .read i{font-style:normal;font-weight:600}
+  .sm .it{left:34px;right:300px;top:624px;height:50px;grid-template-columns:200px 190px 1fr;gap:16px;border-top-width:1.5px}
+  .sm .princ h2{margin-bottom:5px}
+  .sm .princ p{font-size:15px!important;line-height:1.38!important}
+  .sm .princ .by{margin-top:4px}
+  .sm .asm{font-size:14px!important;margin-bottom:8px!important}
+  .sm .foot{bottom:8px}
+  .sm .it .h{font-size:10px;line-height:1.3}
+  .sm .it .eq{font-size:12px}
+  .sm .it p{font-size:11.5px;line-height:1.3}
+  .sm .gl ul{font-size:13px}
+  .sm .gl div{padding:7px 11px}
+  .sm .fitbox{margin-top:10px;border:2px solid var(--ink);padding:6px 11px 7px}
+  .sm .fitbox h3{margin:0 0 2px;font:700 11.5px Orbitron,sans-serif;letter-spacing:.14em}
+  .sm .fitbox .fb{display:grid;grid-template-columns:178px 1fr;gap:8px;align-items:center}
+  .sm .fitbox .feq{font-size:13px}
+  .sm .fitbox .feq mjx-container[display="true"]{margin:0!important}
+  .sm .fitbox p{margin:0;font-size:12px;line-height:1.35}
+  .sm .anchor i{color:var(--accent)}
+  .sm .anchor{border-bottom:1.5px solid var(--accent)}
+  .sm svg.conn{position:absolute;left:0;top:0;width:1280px;height:720px;pointer-events:none;z-index:3}
+  .sm .foot{left:34px;right:34px;bottom:14px}
+  /* ---------- experimental design ---------- */
+  .se .hdr{position:absolute;left:52px;top:40px;right:370px}
+  .se .zref{border-bottom:1.5px solid var(--accent)}
+  .se svg.zconn{position:absolute;left:0;top:0;width:1280px;height:720px;pointer-events:none;z-index:3}
+  .se .zbox{position:absolute;right:52px;top:12px;width:300px;border:1.5px dashed var(--accent);background:#fff;padding:7px 11px;z-index:2}
+  .se .zbox h4{margin:0 0 3px;font:700 11px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent)}
+  .se .zbox p{margin:0;font-size:11.5px;line-height:1.36;color:#222}
+  .se .zbox .zsc{margin-top:4px;color:var(--mute)}
+  .se .zbox .zsc b{color:var(--ink);font-weight:600}
+  .se .lede{margin-top:4px;font-size:15px}
+  .se svg.wires{position:absolute;left:0;top:0;width:1280px;height:720px;pointer-events:none}
+  .se .start{position:absolute;left:52px;top:170px;width:300px;height:414px;border:2.5px solid var(--ink);padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+  .se .start h3{margin:0;font:700 11.5px Orbitron,sans-serif;letter-spacing:.12em;color:var(--accent)}
+  .se .start .sub{margin:-4px 0 0;font-size:12px;color:var(--mute)}
+  .se .start ul{margin:0;padding-left:16px;font-size:13.5px;line-height:1.38}
+  .se .start li{margin:3px 0}
+  .se .counts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .se .counts div{background:var(--soft);padding:7px 9px;display:flex;flex-direction:column;font-size:12.5px}
+  .se .counts b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.12em;margin-bottom:2px}
+  .se .start .src{margin:-2px 0 0;font-size:11.5px;color:var(--mute);font-style:italic}
+  .se .start .gap{margin:auto 0 0;border-top:1px solid var(--line);padding-top:8px;font-size:13.5px;font-weight:600}
+  .se .path{position:absolute;left:400px;width:828px;border:2px solid var(--ink);background:#fff}
+  .se .p1{top:170px;height:222px}
+  .se .p2{top:406px;height:178px}
+  .se .p2{border-color:#555;border-style:dashed}
+  .se .ph{display:flex;align-items:center;gap:12px;background:var(--ink);color:#fff;padding:7px 12px;font:700 12.5px Orbitron,sans-serif;letter-spacing:.12em}
+  .se .p2 .ph{background:#555}
+  .se .ph .tag{background:var(--accent);color:#fff;padding:2px 8px;font-size:11px}
+  .se .pb{display:grid;grid-template-columns:1fr 160px 250px;gap:14px;padding:10px 14px}
+  .se .what .q{font-weight:600;font-size:16px;line-height:1.3;margin-bottom:5px}
+  .se .what p{margin:0;font-size:13.5px;line-height:1.42}
+  .se .col{border-left:1px solid var(--line);padding-left:12px}
+  .se .col h4{margin:0 0 4px;font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent)}
+  .se .col.st h4{color:var(--ink)}
+  .se .col.st p{font-size:12.5px;line-height:1.34;margin:0 0 3px}
+  .se .col p{margin:0;font-size:13px;line-height:1.38}
+  .se .feed{position:absolute;left:880px;top:357px;width:262px;text-align:right;font-size:12px;font-style:italic;color:var(--accent)}
+  .se .rule2{position:absolute;left:52px;right:300px;top:596px;border-top:1.5px solid var(--ink);padding-top:6px;font-size:12.5px;line-height:1.38;color:#333}
+  .se .rule2 p{margin:0 0 4px}
+  .se .rule2 b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;color:var(--ink);margin-right:8px}
+  .se .rule2 .lk b{color:var(--accent)}
+  .se .rule2 strong{color:var(--ink)}
+  .se .rule2 .gv{font-weight:600;color:var(--ink)}
+  .se .rule2 .bp{color:var(--mute)}
 
   /* ---------- design: two stages ---------- */
   .sd .hdr{position:absolute;left:52px;top:44px}
@@ -113,7 +278,7 @@
   .s0 .panel .ph{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;font-weight:600}
   .s0 .panel .ph span:last-child{font-weight:400;color:var(--mute);font-size:11.5px}
   .s0 .panel svg{display:block;width:100%;height:auto}
-  .s0 .fempty{border:1.5px dashed #9a9a9a;height:156px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mute);font-size:14px;padding:0 40px}
+  .s0 .fempty{border:1.5px dashed #9a9a9a;height:136px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mute);font-size:14px;padding:0 40px}
   .s0 .fempty code{font-family:"Share Tech Mono",monospace;color:var(--ink)}
 
   /* ---------- pipeline ---------- */
@@ -189,6 +354,12 @@
   .s3 .legend .h{color:var(--accent);font-weight:600}
   .s3 .legend .g{text-decoration:line-through}
 
+  /* ---------- slide-number badge (seeded histogram + numeral; same in HTML, PDF, PPTX) ---------- */
+  .pgbadge{position:absolute;right:24px;bottom:6px;display:flex;align-items:flex-end;gap:8px;z-index:4;pointer-events:none}
+  .pgbadge .pg-hist{width:91px;height:43px;display:block;margin-bottom:6px}   /* 70% of the 130x62 drawing */
+  .pgbadge .pg-num{width:108px;height:70px;display:block}
+  .slide .foot{right:300px!important}
+
   /* ---------- print: one slide per page ---------- */
   @media print{
     html,body{background:#fff;overflow:visible;height:auto}
@@ -203,79 +374,262 @@
 <body>
 <div class="stage"><div class="deck" id="deck">
 
-<!-- ================= COVER ================= -->
+<!-- ================= COVER · RESEARCH QUESTION ================= -->
 <section class="slide sc">
-  <div class="kicker">PROJECT OVERVIEW</div>
-  <img class="logo" src="assets/unknot_logo.webp" alt="UNKNOT: UNsupervised K-source Number and Origin Test" width="840" height="525">
-  <div class="tagline"><b>How many backgrounds are there?</b> A background-only count of sources in the muon-spectrometer vertex search, with a stated confidence for every answer.</div>
-  <div class="rule"></div>
+  <div class="kicker">UNKNOT · RESEARCH QUESTION</div>
+  <h1>How many backgrounds can we detect?</h1>
+  <img class="logo" src="assets/unknot_logo.webp" alt="UNKNOT: UNsupervised K-source Number and Origin Test" width="592" height="370">
+
+  <div class="meth" style="top:136px;height:192px">
+    <h2><span>METHOD 1 · mk1</span>STRUCTURE</h2>
+    <div class="q">How many sources do the physics features support?</div>
+    <p>Describe each feature with a smooth curve, fit the background as a mix of 1 to 4 sources, and let the data choose the number.</p>
+    <div class="conf"><b>CONFIDENCE</b>a count stands only when four independent tests agree</div>
+    <div class="conf"><b>STATUS</b>run complete and frozen</div>
+  </div>
+
+  <div class="meth" style="top:342px;height:192px">
+    <h2><span>METHOD 2 · mk2</span>ABCD-PLANE BIAS</h2>
+    <div class="q">How much of the ABCD bias do those sources explain?</div>
+    <p>Read the sources through the two network scores: split the bias into dependence inside each source and dependence created by mixing them.</p>
+    <div class="conf"><b>CONFIDENCE</b>bias against cut, per source, each with its error</div>
+    <div class="conf"><b>STATUS</b>next; not started</div>
+  </div>
+
+  <div class="con"><b>CONSTRAINT</b><p>Every answer is a statistical test with a stated confidence. No count and no label without one. Background data only.</p></div>
+
   <div class="foot"><span><b>UNKNOT</b>Nathan "_Steve" Herling · UA ATLAS HEP · 19 Nov 2026</span><span>ANA-EXOT-2025-24 · MSVtx · internal, exploratory</span></div>
 </section>
 
-<!-- ================= DESIGN · TWO STAGES ================= -->
-<section class="slide sd">
-  <div class="hdr">
-    <div class="kicker">UNKNOT · PROJECT DESIGN</div>
-    <h1>Two questions, two stages</h1>
+<!-- ================= BEFORE THE DESIGN · BUILT BLIND ================= -->
+<section class="slide sb"><div class="pad">
+  <div class="kicker">UNKNOT · BEFORE THE DESIGN</div>
+  <p class="pre">How this was built: a "double-blind" outline</p>
+  <h1>“I designed this experiment without looking at Laura's work<sup>1</sup> or the paper<sup>2</sup>”</h1>
+  <p class="sig">— Nathan</p>
+  <ol class="cites">
+    <li>L. Bruce, "Rank-K ABCD in pictures", internal, 23 Oct 2026.</li>
+    <li>ATLAS Collaboration, Search for massive, long-lived particles in events with displaced vertices and displaced muons in pp collisions at \(\sqrt{s}\) = 13.6 TeV, Phys. Lett. B 878 (2026) 140509.</li>
+  </ol>
+
+  <div class="tl">
+    <div class="ev"><b>23 Oct</b><span>Rank-K is built, on a toy</span></div>
+    <div class="ar"></div>
+    <div class="ev"><b>Early Nov</b><span>Only the question reaches me: model the three background sources separately</span></div>
+    <div class="ar"></div>
+    <div class="ev me"><b>10–12 Nov</b><span>UNKNOT designed and run on real background, references unopened</span></div>
+    <div class="ar"></div>
+    <div class="ev me"><b>13 Nov</b><span>Results written down and locked</span></div>
+    <div class="wall"><span>BLIND WALL</span></div>
+    <div class="ev open"><b>13 Nov</b><span>References opened, used for comparison only</span></div>
   </div>
-  <div class="quote">It's a different question. mk1 asks how many sources there are. Bias asks how far off ABCD is, given those sources.</div>
+
+  <div class="cards">
+    <div class="card a"><h3>BLIND ARM 1</h3><p>UNKNOT never saw rank-K or the paper while it was designed, run and written up.</p></div>
+    <div class="card a"><h3>BLIND ARM 2</h3><p>Rank-K existed before UNKNOT, so it could not borrow from it. Two independent constructions.</p></div>
+    <div class="card n"><h3>NOT BLIND TO</h3><p>The question, the three suspected sources, the group's ABCD method and the shared data files.</p></div>
+  </div>
+  <div class="buys"><b>WHAT THIS BUYS US</b>Where UNKNOT and rank-K agree, that is independent evidence, not one idea copied twice. Where they differ, the difference traces to a design choice we can name.</div>
+</div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>Dates from the UNKNOT mk1 record</span></div>
+</section>
+
+<!-- ================= MAXIMUM ENTROPY · THE CONCEPT ================= -->
+<section class="slide sm"><div class="pad">
+  <div class="kicker">UNKNOT · CONCEPT</div>
+  <h1>Maximum entropy: assume nothing you didn't measure</h1>
+
+  <div class="grid">
+    <div>
+      <div class="princ">
+        <h2>THE PRINCIPLE OF MAXIMUM ENTROPY</h2>
+        <p>When estimating a probability distribution from partial information, choose the distribution with the highest entropy among all those that satisfy your known constraints.</p>
+        <div class="by">Formulated by physicist Edwin T. Jaynes, 1957</div>
+      </div>
+      <p class="asm"><b>OUR ASSUMPTION</b>Inside each source, every feature follows the maximum-entropy curve for a few measured averages. A choice, not a proof.</p>
+      <div class="gl">
+        <div class="g"><h3>WHAT WE GAIN</h3><ul>
+          <li>Smooth curves, no bins to choose</li>
+          <li>Works when events are few</li>
+          <li>A likelihood to compare 1, 2, 3, 4 sources</li>
+          <li>One detail dial, set on unseen events</li>
+        </ul></div>
+        <div class="l"><h3>WHAT WE LOSE</h3><ul>
+          <li>Spikes, placeholders (<span style="white-space:nowrap">NN1 = 0</span>)</li>
+          <li>Hard edges get smoothed</li>
+          <li>Structure finer than the averages taken</li>
+          <li>Too little detail: extra sources absorb the misfit</li>
+        </ul></div>
+      </div>
+      <div class="fitbox" id="fitbox">
+        <h3>HOW EACH FOLD IS FIT</h3>
+        <div class="fb">
+          <div class="feq">\[\min_{\boldsymbol\lambda}\; \log Z(\boldsymbol\lambda) - \boldsymbol\lambda\cdot\hat{\boldsymbol\mu}\]</div>
+          <p>Negative mean log-likelihood of the 80% fit events (cross-entropy). Convex: one exact answer by Newton steps, no neural net. The solution is the max-entropy curve matching the \(M\) averages \(\hat{\boldsymbol\mu}\).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <h2>FROM THE mk1 RUN <span class="sub">phase 1 · one curve per feature · scored on held-out events (5-fold)</span></h2>
+      <!-- Real mk1 output: unknot_out/phase1_plots_*/ (images) and phase1_{barrel,endcap}.csv columns ll_M*, ll_hist40, M_star (charts). -->
+      <div class="ex">
+        <div class="exh"><b>BARREL · |z| · 1,089 events</b><span>beats the histogram from M = 4; mk1 keeps M = 6</span></div>
+        <div class="exr"><img src="assets/mk1_phase1_barrel_absZ.png" alt="mk1 phase 1: barrel |z|, background histogram with MaxEnt curve, M = 6"><svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+<line x1="46" y1="82.2" x2="310" y2="82.2" stroke="#9a9a9a" stroke-dasharray="4 3"/>
+<text x="310" y="78.2" font-size="9" text-anchor="end" fill="#6b6b6b">40-bin histogram = 0</text>
+<line x1="46" y1="12" x2="46" y2="130" stroke="#111"/><line x1="46" y1="130" x2="310" y2="130" stroke="#111"/>
+<text x="41" y="127.0" font-size="9" text-anchor="end" fill="#6b6b6b">-0.02</text><text x="41" y="85.2" font-size="9" text-anchor="end" fill="#6b6b6b">+0.00</text><text x="41" y="43.5" font-size="9" text-anchor="end" fill="#6b6b6b">+0.02</text><text x="46.0" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">2</text><text x="75.3" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">4</text><text x="104.7" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">6</text><text x="134.0" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">8</text><text x="163.3" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">10</text><text x="192.7" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">12</text><text x="251.3" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">16</text><text x="310.0" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">20</text>
+<polyline points="46.0,119.2 75.3,78.3 104.7,43.6 134.0,47.5 163.3,32.5 192.7,30.9 251.3,29.3 310.0,31.9" fill="none" stroke="#111" stroke-width="1.4"/><circle cx="46.0" cy="119.2" r="2.6" fill="#111"/><circle cx="75.3" cy="78.3" r="2.6" fill="#111"/><circle cx="104.7" cy="43.6" r="2.6" fill="#111"/><circle cx="134.0" cy="47.5" r="2.6" fill="#111"/><circle cx="163.3" cy="32.5" r="2.6" fill="#111"/><circle cx="192.7" cy="30.9" r="2.6" fill="#111"/><circle cx="251.3" cy="29.3" r="2.6" fill="#111"/><circle cx="310.0" cy="31.9" r="2.6" fill="#111"/>
+<circle cx="104.7" cy="43.6" r="5.5" fill="#e8230a"/><text x="104.7" y="33.6" font-size="10.5" font-weight="600" text-anchor="middle" fill="#e8230a">chosen M = 6</text>
+<text y="103" font-size="9.5" font-style="italic" fill="#333"><tspan x="170.0" dy="0">flat past 6: extra detail</tspan><tspan x="170.0" dy="11.5">stays within the noise</tspan></text>
+<text x="178.0" y="157" font-size="9.5" text-anchor="middle" fill="#333">M = number of averages matched</text>
+<text transform="translate(10 71.0) rotate(-90)" font-size="9.5" text-anchor="middle" fill="#333">held-out gain, nats/event</text>
+</svg></div>
+      </div>
+      <div class="ex">
+        <div class="exh"><b>ENDCAP · cluster time · 35% sit at −1</b><span>spike set aside; the curve fits the other 65%</span></div>
+        <div class="exr"><img src="assets/mk1_phase1_endcap_maxclustime.png" alt="mk1 phase 1: endcap max cluster time, continuous part with MaxEnt curve, M = 20; point mass at -1 holds 35%"><svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+<line x1="46" y1="53.7" x2="310" y2="53.7" stroke="#9a9a9a" stroke-dasharray="4 3"/>
+<text x="310" y="49.7" font-size="9" text-anchor="end" fill="#6b6b6b">40-bin histogram = 0</text>
+<line x1="46" y1="12" x2="46" y2="130" stroke="#111"/><line x1="46" y1="130" x2="310" y2="130" stroke="#111"/>
+<text x="41" y="120.7" font-size="9" text-anchor="end" fill="#6b6b6b">-0.06</text><text x="41" y="99.4" font-size="9" text-anchor="end" fill="#6b6b6b">-0.04</text><text x="41" y="78.0" font-size="9" text-anchor="end" fill="#6b6b6b">-0.02</text><text x="41" y="56.7" font-size="9" text-anchor="end" fill="#6b6b6b">+0.00</text><text x="41" y="35.4" font-size="9" text-anchor="end" fill="#6b6b6b">+0.02</text><text x="46.0" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">2</text><text x="75.3" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">4</text><text x="104.7" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">6</text><text x="134.0" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">8</text><text x="163.3" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">10</text><text x="192.7" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">12</text><text x="251.3" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">16</text><text x="310.0" y="143" font-size="9.5" text-anchor="middle" fill="#6b6b6b">20</text>
+<polyline points="46.0,119.2 75.3,56.0 104.7,53.0 134.0,48.4 163.3,46.0 192.7,43.2 251.3,33.7 310.0,29.3" fill="none" stroke="#111" stroke-width="1.4"/><circle cx="46.0" cy="119.2" r="2.6" fill="#111"/><circle cx="75.3" cy="56.0" r="2.6" fill="#111"/><circle cx="104.7" cy="53.0" r="2.6" fill="#111"/><circle cx="134.0" cy="48.4" r="2.6" fill="#111"/><circle cx="163.3" cy="46.0" r="2.6" fill="#111"/><circle cx="192.7" cy="43.2" r="2.6" fill="#111"/><circle cx="251.3" cy="33.7" r="2.6" fill="#111"/><circle cx="310.0" cy="29.3" r="2.6" fill="#111"/>
+<circle cx="310.0" cy="29.3" r="5.5" fill="#e8230a"/><text x="302.0" y="21.3" font-size="10.5" font-weight="600" text-anchor="end" fill="#e8230a">chosen M = 20 (top of grid)</text>
+<text y="85.7" font-size="9.5" font-style="italic" fill="#333"><tspan x="126.7" dy="0">still rising at 20:</tspan><tspan x="126.7" dy="11.5">real structure left</tspan></text>
+<text x="178.0" y="157" font-size="9.5" text-anchor="middle" fill="#333">M = number of averages matched</text>
+<text transform="translate(10 71.0) rotate(-90)" font-size="9.5" text-anchor="middle" fill="#333">held-out gain, nats/event</text>
+</svg></div>
+      </div>
+      <div class="read"><b>HOW TO READ</b>
+        <p><span class="anchor" id="ho-anchor"><i>Held-out</i>: <span style="white-space:nowrap">5-fold</span></span>, fit on 80% of events, score on the 20% it never saw, every event tested once. <i>M</i> = how many averages [summary statistics] the curve matches (the detail dial). <i>Gain</i> = how much better the curve predicts those unseen events than a 40-bin histogram (+0.02 nats/event ≈ 2% more probable per event). <i>Chosen M</i> = the smallest M within one standard error of the best.</p>
+      </div>
+    </div>
+  </div>
+  <svg class="conn" id="conn" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg"><defs><marker id="carr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e8230a"/></marker></defs><circle cx="700" cy="513" r="2.5" fill="#e8230a"/><polyline points="700,513 700,503 537,503 537,548 524,548" fill="none" stroke="#e8230a" stroke-width="1.5" marker-end="url(#carr)"/></svg>
+  <div class="it">
+    <div class="h"><span>FROM INFORMATION THEORY</span>SHANNON ENTROPY, 1948</div>
+    <div class="eq">\(H = -\sum_{x} p(x)\,\log p(x)\)</div>
+    <p>Entropy measures how uncertain, or spread out, a distribution is. For a feature described by a smooth density \(f(x)\), the continuous version of \(p(x)\), the sum becomes \(-\int f(x) \ln f(x)\,dx\). Maximum entropy makes this as large as the measured averages allow.</p>
+  </div>
+</div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>C. E. Shannon, Bell Syst. Tech. J. 27 (1948) · E. T. Jaynes, Phys. Rev. 106, 620 (1957)</span></div>
+</section>
+
+<!-- ================= EXPERIMENTAL DESIGN ================= -->
+<section class="slide se">
+  <div class="hdr">
+    <div class="kicker">UNKNOT · EXPERIMENTAL DESIGN</div>
+    <h1>From features to the whole background</h1>
+    <p class="lede">Maximum entropy describes each feature on its own. Two paths turn those curves into statements about the background as a whole.</p>
+  </div>
+
+  <div class="zbox" id="zbox">
+    <h4>WHAT IS \(z\)?</h4>
+    <p>A z-score, not the \(|z|\) position and not a Legendre term. For each held-out event, \(d_i = \log p_{\text{groups}}(x_i) - \log p_{\text{trend}}(x_i)\); then \(z = \bar d \,/\, (s_d/\sqrt{n})\): how many standard errors the groups beat a single smooth trend.</p>
+    <p class="zsc"><b>|z| &lt; 2</b> no real difference · <b>z = 9</b> far beyond noise · <b>z &lt; 0</b> the trend wins</p>
+  </div>
 
   <svg class="wires" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
-    <defs><marker id="hd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker></defs>
-    <g stroke="#111" stroke-width="2" fill="none" marker-end="url(#hd)">
-      <line x1="202" y1="345" x2="230" y2="345"/>
-      <line x1="532" y1="345" x2="560" y2="345"/>
-      <line x1="692" y1="345" x2="720" y2="345"/>
-      <line x1="1052" y1="345" x2="1080" y2="345"/>
-      <line x1="887" y1="470" x2="887" y2="443"/>
+    <defs><marker id="he" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker>
+          <marker id="hea" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e8230a"/></marker></defs>
+    <g stroke="#111" stroke-width="2" fill="none" marker-end="url(#he)">
+      <polyline points="352,375 374,375 374,281 398,281"/>
+      <polyline points="374,375 374,495 398,495"/>
     </g>
   </svg>
 
-  <div class="b" style="left:52px;top:250px;width:150px;height:190px;justify-content:center">
-    <h3>BACKGROUND FILE</h3>
-    <p>MSVtx data, background only</p>
+  <div class="start">
+    <h3>START · WHAT MAXENT GIVES US</h3>
+    <p class="sub">phase 1 · each feature on its own · per region</p>
+    <ul>
+      <li><b>One smooth curve per feature</b>, its detail M chosen on held-out events</li>
+      <li><b>A likelihood:</b> any event can be scored under any curve</li>
+      <li><b>Flags:</b> spikes and placeholders set aside, dead features dropped</li>
+    </ul>
+    <div class="counts">
+      <div><b>BARREL</b><span>1,089 vertices</span><span>168 usable features</span></div>
+      <div><b>ENDCAP</b><span>34,970 vertices</span><span>214 usable features</span></div>
+    </div>
+    <p class="src">From the most recent background files (DataHTMissLow, data24), mk1 run.</p>
+    <p class="gap">Missing: how the features combine. One background, or several?</p>
   </div>
 
-  <div class="b stg" style="left:232px;top:250px;width:300px;height:190px">
-    <h3><span>STAGE 1</span>STRUCTURE</h3>
-    <div class="q">How many sources are there?</div>
-    <p>Physics features → MaxEnt curves → mixture of \(K\) sources</p>
-    <div class="o"><b>OUT</b>\(K\), \(\pi_k\), one curve per feature per source</div>
+  <div class="path p1">
+    <div class="ph"><span class="tag">PATH 1 · mk1</span><b>COUNT THE SOURCES</b></div>
+    <div class="pb">
+      <div class="what">
+        <div class="q">How many background sources do the features support?</div>
+        <p>Assume the background is a mix of up to four sources: try \(K = 1, 2, 3, 4\). Take 2 or 3 features at a time. Inside a source they are independent, so their curves multiply; the sources mix by their shares. Fit each \(K\), then let four independent gates decide.</p>
+      </div>
+      <div class="col"><h4>OUT</h4><p>\(K\) with a stated confidence; each source's share and its shape in every feature</p></div>
+      <div class="col st"><h4>WHAT THIS TELLS US · CONFIDENCE</h4><p><b>Endcap:</b> one background drifting with activity; at fixed activity a smooth trend does as well as groups: <span class="zref" id="zref1">\(z = -1.3\)</span></p><p><b>Barrel:</b> one candidate split by position, 56/44; passes all four gates (<span style="white-space:nowrap">30/30 re-draws</span>); acceptance not yet ruled out. Groups beat a smooth trend: <span class="zref" id="zref2">\(z = 9.1\)</span></p></div>
+    </div>
   </div>
 
-  <div class="b gate" style="left:562px;top:250px;width:130px;height:190px">
-    <h3>GATE</h3>
-    <p>Only a count that passed G1–G4 and the controls moves on</p>
+  <div class="path p2">
+    <div class="ph"><span class="tag">PATH 2 · mk1</span><b>BIAS SEARCH IN THE ABCD PLANE</b></div>
+    <div class="pb">
+      <div class="what">
+        <div class="q">How much of ABCD's non-closure do those sources explain?</div>
+        <p>Add NN1 and NN2, the two network scores that define the ABCD plane. Split the non-closure into dependence inside each source and dependence created by mixing sources, and follow it as the cuts move.</p>
+      </div>
+      <div class="col"><h4>OUT</h4><p>Bias against cut, per source, each with its error</p></div>
+      <div class="col st"><h4>WHAT THIS TELLS US · CONFIDENCE</h4><p>How much of the ABCD bias comes from mixing and how much from inside each source, cut by cut, with errors from resampling. <b>Not yet run:</b> no confidence to state yet.</p></div>
+    </div>
   </div>
 
-  <div class="b stg" style="left:722px;top:250px;width:330px;height:190px">
-    <h3><span>STAGE 2</span>CLOSURE ATTRIBUTION</h3>
-    <div class="q">How far off is ABCD, given those sources?</div>
-    <p>\(\text{bias} = \tfrac{1}{D}\big[\sum_k \pi_k c_k + \sum_{k&lt;l}\pi_k\pi_l\,\Delta a\,\Delta b\big]\)</p>
-    <div class="lbl"><span>inside each source</span><span>from mixing</span></div>
-    <div class="o"><b>OUT</b>bias vs cut, per source pair, with errors</div>
+  <div class="rule2">
+    <p class="lk"><b>WHAT IS A LIKELIHOOD?</b><strong>A likelihood scores each hypothesis by how probable it makes the data we actually observed, so hypotheses can be compared on the same data.</strong> Per event it is the curve's height \(f(x_i)\); over all events, \(\log L = \sum_i \log f(x_i)\). <span class="gv">What it gives us:</span> one score for 1 source against 2, a curve against a histogram, M = 6 against M = 20, measured on events the fit never saw.</p>
+    <p class="bp"><b>BOTH PATHS</b>Background data only · every answer a statistical test with a stated confidence · built blind to the rank-K study and the ATLAS paper</p>
   </div>
 
-  <div class="b out" style="left:1082px;top:250px;width:146px;height:190px">
-    <h3>ABCD BIAS, EXPLAINED</h3>
-    <p>which sources, how much, how sure</p>
+  <svg class="zconn" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg"><defs><marker id="zarr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e8230a"/></marker></defs><g fill="none" stroke="#e8230a" stroke-width="1.4" marker-end="url(#zarr)"><polyline points="1180,288 1217,288 1217,163"/><polyline points="1025,374 1223,374 1223,163"/></g><circle cx="1180" cy="288" r="2.2" fill="#e8230a"/><circle cx="1025" cy="374" r="2.2" fill="#e8230a"/></svg>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>Counts: mk1 phase 1 output</span></div>
+</section>
+
+<!-- ================= RESULTS OVERVIEW ================= -->
+<section class="slide s3"><div class="pad">
+  <div class="kicker">UNKNOT MK1 · RESULTS</div>
+  <h1>One background, or several?</h1>
+
+  <div class="box qb">MSVtx background (data only): how many sources?</div>
+  <div class="v"></div>
+  <div class="fork"><i></i></div>
+
+  <div class="cols">
+    <section class="region">
+      <h2>BARREL</h2>
+      <div class="chain"><div class="n area">Timing</div><div class="a"></div><div class="n test">Count groups</div><div class="a"></div><div class="n res">1 source</div></div>
+      <div class="chain"><div class="n area">Position</div><div class="a"></div><div class="n test">Count groups + trend test</div><div class="a"></div><div class="n res hold">2 groups — holds</div></div>
+      <div class="chain"><div class="n area">Direction</div><div class="a"></div><div class="n test">vs acceptance</div><div class="a"></div><div class="n res">Cosmic / halo hint</div></div>
+    </section>
+    <section class="region">
+      <h2>ENDCAP</h2>
+      <div class="chain"><div class="n area">Timing</div><div class="a"></div><div class="n test">Count groups</div><div class="a"></div><div class="n res">Inconclusive</div></div>
+      <div class="chain"><div class="n area">Activity</div><div class="a"></div><div class="n test">Trend vs groups</div><div class="a"></div><div class="n res gone">2 groups</div></div>
+      <div class="chain"><div class="n area">Missing momentum</div><div class="a"></div><div class="n test">Pointing vs chance</div><div class="a"></div><div class="n res">Collision debris</div></div>
+    </section>
   </div>
 
-  <div class="tag" style="left:232px;top:470px;width:300px"><b>STATUS · STAGE 1</b>mk1 done and frozen. mk2 fixes: model the score spike at 0, signal-file control, activity-matched barrel check.</div>
-
-  <div class="b in" style="left:722px;top:470px;width:330px;height:64px;justify-content:center;gap:3px">
-    <p><b>+</b> NN1, NN2 scores, spike at 0 modeled</p>
-    <p><b>+</b> dependence inside each source, \(c_k \neq 0\)</p>
+  <div class="fork merge"><i></i></div>
+  <div class="v"></div>
+  <div class="box end">
+    <p><b>ENDCAP</b>One background, drifting with activity.</p>
+    <p><b>BARREL</b><span class="hl">One candidate split by position</span>; acceptance not yet ruled out.</p>
   </div>
+  <div class="legend"><span>sub-area → test → result</span><span class="h">holds</span><span class="g">dissolved</span></div>
+</div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>Results as reported in the UNKNOT mk1 deck</span></div>
+</section>
 
-  <div class="tag" style="left:722px;top:560px;width:330px"><b>STATUS · STAGE 2</b>Not started. First step: measure \(c_k\) inside the barrel groups.</div>
-
-  <div class="links">
-    <b>LINKS</b>
-    <p><span class="k">ABCD-plane health</span> detects non-closure on trained models; stage 2 explains it.</p>
-    <p><span class="k">KERF · GAUGE</span>: if the within-source term dominates, stage 2 becomes a dependence study.</p>
-  </div>
-
+<!-- ================= END OF VETTED WORK ================= -->
+<section class="slide sx">
+  <div class="kicker">UNKNOT · PROJECT OVERVIEW</div>
+  <div class="xbig">END OF<br>VETTED WORK</div>
+  <div class="xrule"></div>
+  <img class="xgo" src="assets/game_over.png" alt="Game over, insert coin">
+  <p class="xsub">The slides that follow are working material from the mk1 deck. They have not yet been re-vetted for this overview.</p>
   <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>ANA-EXOT-2025-24 · MSVtx</span></div>
 </section>
 
@@ -331,10 +685,9 @@
     <div class="me">
       <h2>MAXIMUM ENTROPY, BRIEFLY</h2>
       <p>Of every curve that reproduces a few measured averages of a feature, take the one with the most entropy: it assumes nothing else.</p>
-      <div class="eq">\[\max_f\, -\!\int f \ln f \, dx \quad\text{s.t.}\quad \int f\, T_m \, dx = \hat{\mu}_m\]
-        \[\Longrightarrow\quad f(x) = \frac{1}{Z(\boldsymbol{\lambda})}\exp\!\Big(\sum_{m=1}^{M} \lambda_m T_m(x)\Big)\]</div>
+      <div class="eq">\[f(x) \propto \exp\!\Big(\sum_{m=1}^{M} \lambda_m T_m(x)\Big)\]</div>
       <ul>
-        <li>\(M\) = curve detail (\(6\ldots20\) in mk1) · no bins · a likelihood, in nats</li>
+        <li>\(M\) sets the curve detail (6 to 20 in mk1) · no bins · gives a likelihood</li>
         <li>UNKNOT: one curve per feature, per source; product inside a source; mixed over \(K\)</li>
       </ul>
     </div>
@@ -367,7 +720,7 @@
     <div class="lab"><span>FEATURE SHAPES · mk1 BACKGROUND</span><span id="fstrip-note"></span></div>
     <div id="fpanels"><div class="fempty"><div>Feature panels appear here after running <code>make_feature_panels.py</code> on the mk1 background file. No data embedded yet.</div></div></div>
   </div>
-  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>MaxEnt basis \(T_m\): see mk1 code</span></div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>MaxEnt details: see mk1 code</span></div>
 </section>
 
 <!-- ================= PIPELINE ================= -->
@@ -411,13 +764,13 @@
   </div>
   <div class="b me" style="left:562px;top:200px;width:140px;height:180px">
     <h3><span>4</span>MAXENT CURVES</h3>
-    <p>\(f(x) \propto e^{\sum_{m} \lambda_m T_m(x)}\)</p>
-    <p class="m">one per feature, per source · \(M\) terms · no bins</p>
+    <p>A smooth curve per feature, built from a few measured averages</p>
+    <p class="m">one per feature, per source · no bins</p>
   </div>
   <div class="b me" style="left:732px;top:200px;width:140px;height:180px">
     <h3><span>5</span>MIXTURE</h3>
-    <p>\(\sum_k \pi_k \prod_j f_{kj}(x_j)\)</p>
-    <p class="m">try \(K = 1, 2, 3, 4\) sources</p>
+    <p>Background = weighted sum of sources</p>
+    <p class="m">try 1, 2, 3, 4 sources</p>
   </div>
   <div class="b" style="left:902px;top:200px;width:140px;height:180px">
     <h3><span>6</span>GATES</h3>
@@ -441,7 +794,7 @@
     <p>cosmics · beam halo · collision debris</p>
   </div>
 
-  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>MaxEnt basis \(T_m\): see mk1 code (deck shows placeholders)</span></div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>MaxEnt details: see mk1 code</span></div>
 </section>
 
 <!-- ================= GATES ================= -->
@@ -495,46 +848,47 @@
   <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>Results as reported in the UNKNOT mk1 deck</span></div>
 </section>
 
-<!-- ================= RESULTS OVERVIEW ================= -->
-<section class="slide s3"><div class="pad">
-  <div class="kicker">UNKNOT MK1 · RESULTS</div>
-  <h1>One background, or several?</h1>
-
-  <div class="box qb">MSVtx background (data only): how many sources?</div>
-  <div class="v"></div>
-  <div class="fork"><i></i></div>
-
-  <div class="cols">
-    <section class="region">
-      <h2>BARREL</h2>
-      <div class="chain"><div class="n area">Timing</div><div class="a"></div><div class="n test">Count groups</div><div class="a"></div><div class="n res">1 source</div></div>
-      <div class="chain"><div class="n area">Position</div><div class="a"></div><div class="n test">Count groups + trend test</div><div class="a"></div><div class="n res hold">2 groups — holds</div></div>
-      <div class="chain"><div class="n area">Direction</div><div class="a"></div><div class="n test">vs acceptance</div><div class="a"></div><div class="n res">Cosmic / halo hint</div></div>
-    </section>
-    <section class="region">
-      <h2>ENDCAP</h2>
-      <div class="chain"><div class="n area">Timing</div><div class="a"></div><div class="n test">Count groups</div><div class="a"></div><div class="n res">Inconclusive</div></div>
-      <div class="chain"><div class="n area">Activity</div><div class="a"></div><div class="n test">Trend vs groups</div><div class="a"></div><div class="n res gone">2 groups</div></div>
-      <div class="chain"><div class="n area">Missing momentum</div><div class="a"></div><div class="n test">Pointing vs chance</div><div class="a"></div><div class="n res">Collision debris</div></div>
-    </section>
-  </div>
-
-  <div class="fork merge"><i></i></div>
-  <div class="v"></div>
-  <div class="box end">
-    <p><b>ENDCAP</b>One background, drifting with activity.</p>
-    <p><b>BARREL</b><span class="hl">One candidate split by position</span>; acceptance not yet ruled out.</p>
-  </div>
-  <div class="legend"><span>sub-area → test → result</span><span class="h">holds</span><span class="g">dissolved</span></div>
-</div>
-  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>Results as reported in the UNKNOT mk1 deck</span></div>
-</section>
-
 </div></div>
 
-<div class="nav"><button id="prev" aria-label="Previous">‹</button><span id="count">1 / 7</span><button id="next" aria-label="Next">›</button></div>
+<div class="nav"><button id="prev" aria-label="Previous">‹</button><span id="count">1 / 10</span><button id="next" aria-label="Next">›</button></div>
 <div class="prog" id="prog"></div>
 
+<script>
+/* Slide-number badge: a seeded histogram (one bar per slide, current bar lit with a +/- sqrt(k) error bar),
+   a large Orbitron numeral drawn twice with an accent offset, a seeded Gaussian dot scatter, and "of N · ±√k".
+   Fixed seeds, so every render (HTML, PDF, PPTX) is identical. Skips slides that already carry a badge. */
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')), N=slides.length, NS='http://www.w3.org/2000/svg';
+  function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  function gauss(r){var u=1-r(),v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
+  var hr=rng(20261119), H=[]; for(var i=0;i<N;i++) H.push(0.45+0.55*hr());
+  slides.forEach(function(sl,idx){
+    if(sl.querySelector('.pgbadge')) return;
+    var k=idx+1, dark=sl.classList.contains('sc')||sl.classList.contains('sx');
+    var ink=dark?'#ffffff':'#111111', acc='#e8230a', grey=dark?'#5a5a5a':'#d3d6d9', mute=dark?'#9a9a9a':'#7b838a', dot=dark?'#6f6f6f':'#9aa3ab';
+    var bw=Math.min(13,Math.floor(124/N)-3), gap=3, x0=4, base=58, hmax=40, out='', hist='';
+    for(var i=0;i<N;i++){
+      var h=H[i]*hmax, x=x0+i*(bw+gap), on=(i===idx);
+      hist+='<rect x="'+x+'" y="'+(base-h).toFixed(1)+'" width="'+bw+'" height="'+h.toFixed(1)+'" fill="'+(on?acc:grey)+'"/>';
+      if(on){var e=Math.min(14,2.6*Math.sqrt(k)), cx=x+bw/2, ty=base-h;
+        hist+='<g stroke="'+ink+'" stroke-width="1.6"><line x1="'+cx+'" y1="'+(ty-e).toFixed(1)+'" x2="'+cx+'" y2="'+(ty+e).toFixed(1)+'"/><line x1="'+(cx-3.5)+'" y1="'+(ty-e).toFixed(1)+'" x2="'+(cx+3.5)+'" y2="'+(ty-e).toFixed(1)+'"/><line x1="'+(cx-3.5)+'" y1="'+(ty+e).toFixed(1)+'" x2="'+(cx+3.5)+'" y2="'+(ty+e).toFixed(1)+'"/></g>';}
+    }
+    var dr=rng(1000+k), ncx=205, ncy=27;
+    for(var j=0;j<26;j++){
+      var dx=gauss(dr)*24, dy=gauss(dr)*11, r=1.1+1.5*dr(), a=(j%7===0);
+      out+='<circle cx="'+(ncx+dx).toFixed(1)+'" cy="'+(ncy+dy).toFixed(1)+'" r="'+r.toFixed(1)+'" fill="'+(a?acc:dot)+'" opacity="'+(a?0.8:0.6)+'"/>';
+    }
+    var num=(k<10?'0':'')+k, jt=rng(500+k), jx=(jt()-0.5)*1.6, jy=(jt()-0.5)*1.6;
+    out+='<text x="'+(ncx+2.4+jx).toFixed(1)+'" y="'+(ncy+14.4+jy).toFixed(1)+'" font-family="Orbitron" font-weight="900" font-size="34" letter-spacing="4" text-anchor="middle" fill="'+acc+'" opacity="0.55">'+num+'</text>';
+    out+='<text x="'+ncx+'" y="'+(ncy+12)+'" font-family="Orbitron" font-weight="900" font-size="34" letter-spacing="4" text-anchor="middle" fill="'+ink+'">'+num+'</text>';
+    out+='<text x="'+ncx+'" y="'+(ncy+38)+'" font-family="Share Tech Mono, monospace" font-size="11.5" letter-spacing="1" text-anchor="middle" fill="'+mute+'">of '+N+' · ±'+Math.sqrt(k).toFixed(1)+'</text>';
+    var box=document.createElement('div'); box.className='pgbadge';
+    box.innerHTML='<svg class="pg-hist" viewBox="0 0 130 62" xmlns="'+NS+'">'+hist+'</svg>'+
+                  '<svg class="pg-num" viewBox="150 0 108 70" xmlns="'+NS+'">'+out+'</svg>';
+    sl.appendChild(box);
+  });
+})();
+</script>
 <!-- Feature-panel data: written by make_feature_panels.py. Leave as null until real data is embedded. -->
 <script id="feature-data" type="application/json">null</script>
 <script>
