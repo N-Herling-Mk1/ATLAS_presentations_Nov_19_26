@@ -72,6 +72,32 @@
     }
   }
 
+  // ---- clickable links: deck.json "links" per slide, boxes as fractions of the slide ----
+  const hot = $("hot"), stage = $("stage");
+  function placeHot() {
+    const r = img.getBoundingClientRect(), q = stage.getBoundingClientRect();
+    hot.style.left = (r.left - q.left) + "px"; hot.style.top = (r.top - q.top) + "px";
+    hot.style.width = r.width + "px"; hot.style.height = r.height + "px";
+  }
+  function renderHot() {
+    hot.replaceChildren();
+    (D.slides[cur - 1].links || []).forEach((l) => {
+      const a = document.createElement("a");
+      a.href = l.href; a.title = l.href;
+      if (!/^#/.test(l.href)) { a.target = "_blank"; a.rel = "noopener"; }
+      a.style.left = (100 * l.x) + "%"; a.style.top = (100 * l.y) + "%";
+      a.style.width = (100 * l.w) + "%"; a.style.height = (100 * l.h) + "%";
+      a.setAttribute("aria-label", l.text || l.href);
+      a.addEventListener("click", (e) => e.stopPropagation());
+      hot.appendChild(a);
+    });
+    placeHot();
+  }
+  img.addEventListener("load", placeHot);
+  window.addEventListener("resize", placeHot);
+  stage.addEventListener("transitionend", placeHot);
+  document.addEventListener("fullscreenchange", () => setTimeout(placeHot, 60));
+
   // ---- navigation ----
   const cache = new Map();
   function preload(i) {
@@ -87,6 +113,7 @@
     try { history.replaceState(null, "", "#" + cur); } catch (e) { /* some sandboxed viewers forbid this */ }
     ov.querySelectorAll(".thumb").forEach((t) => t.classList.toggle("on", +t.dataset.i === cur));
     if (!notes.hidden) renderNotes();
+    renderHot();
     preload(cur + 1); preload(cur + 2); preload(cur - 1);
   }
 

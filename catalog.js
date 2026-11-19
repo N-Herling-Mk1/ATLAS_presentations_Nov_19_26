@@ -28,7 +28,7 @@ window.CATALOG = {
     "pptx": {
      "path": "downloads/ATLAS_ML_projects_overview_mk1.pptx",
      "name": "ATLAS_ML_projects_overview_mk1.pptx",
-     "bytes": 3296157
+     "bytes": 3296444
     },
     "html": {
      "path": "downloads/ATLAS_ML_projects_overview_mk1_single_file.html",

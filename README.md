@@ -81,6 +81,8 @@ The build prints a progress line per stage:
 
 `--no-install` stops after step 5 and leaves the output in `build/<id>/`, which is git-ignored.
 
+**Links:** every `<a href>` on a slide stays clickable. The build records each link's box in `deck.json` (`links`), and the player lays a click area over the slide image; links to other sites open in a new tab. The PDF keeps them as link annotations, and the PPTX has a transparent hyperlinked box over each one.
+
 **PPTX note:** each PowerPoint slide is a picture of the HTML slide, with editable speaker notes. The slide text itself is not editable in PowerPoint. The single-file HTML is the sharp, live version.
 
 ## Player keys

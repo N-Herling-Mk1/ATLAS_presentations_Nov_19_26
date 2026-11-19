@@ -7,6 +7,9 @@ html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); 
 
 #stage { position: fixed; inset: 0 0 var(--bar) 0; display: flex; align-items: center; justify-content: center; padding: 12px; transition: right .18s; }
 #slide { max-width: 100%; max-height: 100%; border-radius: 6px; box-shadow: 0 4px 18px rgba(0,0,0,.45); background: #fff; cursor: pointer; user-select: none; }
+#hot { position: absolute; left: 0; top: 0; width: 0; height: 0; pointer-events: none; }
+#hot a { position: absolute; display: block; pointer-events: auto; cursor: pointer; border-radius: 3px; }
+#hot a:hover, #hot a:focus-visible { outline: 2px solid #e8230a; outline-offset: 2px; }
 body.notes-open #stage { right: var(--notes-w); }
 
 /* bottom bar */

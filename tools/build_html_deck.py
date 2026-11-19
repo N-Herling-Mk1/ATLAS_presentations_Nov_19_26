@@ -164,6 +164,17 @@ def build(src_dir: Path, out: Path, meta: dict) -> dict:
                 page.screenshot(path=str(p), clip={"x": 0, "y": 0, "width": 1280, "height": 720})
                 pngs.append(p)
                 bar(i + 1, n, "slides")
+            links = page.evaluate("""() => [...document.querySelectorAll('.slide')].map(s => {
+                s.classList.add('active');
+                const r = s.getBoundingClientRect();
+                const out = [...s.querySelectorAll('a[href]')].map(a => { const q = a.getBoundingClientRect();
+                    return {href: a.getAttribute('href'), text: a.textContent.trim().slice(0, 80),
+                            x: +((q.left - r.left) / r.width).toFixed(4), y: +((q.top - r.top) / r.height).toFixed(4),
+                            w: +(q.width / r.width).toFixed(4), h: +(q.height / r.height).toFixed(4)}; })
+                    .filter(l => l.w > 0 && l.h > 0);
+                s.classList.remove('active'); return out; })""")
+            (out / "links.json").write_text(json.dumps(links, indent=1), encoding="utf-8")
+            info(f"{sum(len(l) for l in links)} link(s) found; they stay clickable in the player, PDF and PPTX")
             overflow = page.evaluate("""() => [...document.querySelectorAll('.slide')].map((s, i) => {
                 s.classList.add('active');
                 const r = s.getBoundingClientRect(); let bad = 0;
@@ -195,9 +206,16 @@ def build(src_dir: Path, out: Path, meta: dict) -> dict:
     pres.core_properties.title = meta["title"]
     pres.core_properties.author = meta.get("author", "")
     notes = meta.get("notes", [])
+    links = json.loads((out / "links.json").read_text(encoding="utf-8"))
+    from pptx.enum.shapes import MSO_SHAPE
     for i, p in enumerate(pngs):
         s = pres.slides.add_slide(pres.slide_layouts[6])
         s.shapes.add_picture(str(p), 0, 0, width=pres.slide_width, height=pres.slide_height)
+        for l in (links[i] if i < len(links) else []):                # transparent click box over each link
+            W, H = pres.slide_width, pres.slide_height
+            box = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, int(l["x"] * W), int(l["y"] * H), int(l["w"] * W), int(l["h"] * H))
+            box.fill.background(); box.line.fill.background(); box.shadow.inherit = False
+            box.click_action.hyperlink.address = l["href"]
         if i < len(notes) and notes[i]:
             s.notes_slide.notes_text_frame.text = notes[i]
         bar(i + 1, len(pngs), "PPTX slides")
@@ -219,6 +237,15 @@ def install(out: Path, meta: dict) -> None:
     r = subprocess.run(cmd)
     if r.returncode:
         die("deck_tool.py add failed")
+    links = json.loads((out / "links.json").read_text(encoding="utf-8"))
+    dj = ROOT / "decks" / meta["id"] / "deck.json"
+    d = json.loads(dj.read_text(encoding="utf-8"))
+    d["links"] = links
+    dj.write_text(json.dumps(d, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    r = subprocess.run([sys.executable, str(ROOT / "tools" / "deck_tool.py"), "build"])
+    if r.returncode:
+        die("deck_tool.py build failed")
+    info(f"links written to decks/{meta['id']}/deck.json")
 
 
 def main() -> None:

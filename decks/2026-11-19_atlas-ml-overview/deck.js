@@ -26,7 +26,17 @@ window.DECK = {
   {
    "src": "slides/s-02.png",
    "thumb": "thumbs/s-02.jpg",
-   "notes": "What every project page holds, for one general project: name and expansion; status and whether the code is internal or public; an outline of problem, value, approach and goals; the three questions it is built to answer; components, meaning sub-projects and phases each marked done, active or next; the initial literature review by category with why each paper matters; a dated progress timeline; links to the projects it feeds or draws on; and its repositories, private code, public presentations and public site, where they exist. The button opens the Master View, the Gallery of Rogues site, in a new tab."
+   "notes": "What every project page holds, for one general project: name and expansion; status and whether the code is internal or public; an outline of problem, value, approach and goals; the three questions it is built to answer; components, meaning sub-projects and phases each marked done, active or next; the initial literature review by category with why each paper matters; a dated progress timeline; links to the projects it feeds or draws on; and its repositories, private code, public presentations and public site, where they exist. The button opens the Master View, the Gallery of Rogues site, in a new tab.",
+   "links": [
+    {
+     "href": "https://n-herling-mk1.github.io/ATLAS_Master_Project_Repo/",
+     "text": "OPEN THE MASTER VIEW ↗",
+     "x": 0.7194,
+     "y": 0.5083,
+     "w": 0.2143,
+     "h": 0.0556
+    }
+   ]
   },
   {
    "src": "slides/s-03.png",
@@ -78,7 +88,7 @@ window.DECK = {
   "pptx": {
    "path": "downloads/ATLAS_ML_projects_overview_mk1.pptx",
    "name": "ATLAS_ML_projects_overview_mk1.pptx",
-   "bytes": 3296157
+   "bytes": 3296444
   },
   "html": {
    "path": "downloads/ATLAS_ML_projects_overview_mk1_single_file.html",

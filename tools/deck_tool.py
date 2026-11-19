@@ -849,6 +849,7 @@ def build_deck(dest: Path) -> dict:
     if not (dest / "thumbs").is_dir() and Image is not None:
         make_thumbs(dest)
     notes = meta.get("notes") or []
+    links = meta.get("links") or []
     entries = []
     for i, p in enumerate(slides):
         t = dest / "thumbs" / (p.stem + ".jpg")
@@ -857,6 +858,8 @@ def build_deck(dest: Path) -> dict:
             "thumb": f"thumbs/{t.name}" if t.exists() else f"slides/{p.name}",
             "notes": notes[i] if i < len(notes) else "",
         })
+        if i < len(links) and links[i]:
+            entries[-1]["links"] = links[i]
     files = {k: e for k, rel in (meta.get("files") or {}).items() if (e := file_entry(dest, rel))}
     deck = {k: meta.get(k, "") for k in ("id", "title", "subtitle", "author", "date", "updated", "description", "tags", "width", "height")}
     deck.update({"slides": entries, "files": files})
