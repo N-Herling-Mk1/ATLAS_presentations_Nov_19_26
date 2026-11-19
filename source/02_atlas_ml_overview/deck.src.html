@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arizona ATLAS ML projects: overview</title>
+<meta name="description" content="Overview of the UA ATLAS machine-learning project line (the Gallery of Rogues) and the BASELINE pipeline every project is measured against.">
+<!-- BUILD:HEAD  (tools/build_html_deck.py inlines the fonts and pre-renders the math here; the built file needs no network) -->
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"}};</script>
+<style>
+  :root{--accent:#e8230a;--ink:#111;--mute:#6b6b6b;--line:#d6d6d6;--soft:#f4f4f4}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:#e9e9e9}
+  body{overflow:hidden;font:14px/1.35 Inter,system-ui,sans-serif;color:var(--ink)}
+
+  /* ---------- deck engine ---------- */
+  .stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  .deck{width:1280px;height:720px;position:relative;flex:none;transform-origin:center center}
+  .slide{position:absolute;inset:0;width:1280px;height:720px;background:#fff;overflow:hidden;display:none}
+  .slide.active{display:block}
+  .nav{position:fixed;right:18px;top:14px;display:flex;gap:8px;align-items:center;font:700 11px Orbitron,sans-serif;letter-spacing:.14em;color:var(--mute);z-index:5}
+  .nav button{border:1.5px solid var(--ink);background:#fff;color:var(--ink);font:700 13px Orbitron,sans-serif;width:30px;height:30px;cursor:pointer}
+  .nav button:hover{background:var(--ink);color:#fff}
+  .prog{position:fixed;left:0;bottom:0;height:4px;background:var(--accent);transition:width .25s;z-index:5}
+  body.render .nav,body.render .prog{display:none}
+
+  /* ---------- shared slide parts ---------- */
+  .kicker{font:700 12px Orbitron,sans-serif;letter-spacing:.22em;color:var(--accent)}
+  .slide h1{font:900 34px/1.1 Orbitron,sans-serif;margin:10px 0 6px}
+  .lede{color:var(--mute);font-size:16px;margin:0}
+  .foot{position:absolute;left:52px;right:52px;bottom:22px;display:flex;justify-content:space-between;font-size:11.5px;color:var(--mute)}
+  .pad{padding:44px 52px 36px}
+
+  /* ---------- cover: research question ---------- */
+  .sc{background:#000;color:#e6e6e6}
+  .sc .kicker{position:absolute;left:52px;top:34px;z-index:2}
+  .sc h1{position:absolute;left:52px;top:52px;margin:0;font:900 40px/1.15 Orbitron,sans-serif;color:#fff}
+  .sc .logo{position:absolute;left:40px;top:136px;width:592px;height:370px;display:block}
+  .sc .meth{position:absolute;left:660px;width:568px;border:1.5px solid #4a4a4a;padding:12px 16px;display:flex;flex-direction:column;gap:6px}
+  .sc .meth h2{margin:0;font:700 12px Orbitron,sans-serif;letter-spacing:.14em;color:#fff}
+  .sc .meth h2 span{color:var(--accent);margin-right:8px}
+  .sc .meth .q{font-weight:600;font-size:17px;color:#fff;line-height:1.3}
+  .sc .meth p{margin:0;font-size:14.5px;line-height:1.4}
+  .sc .meth .conf{border-top:1px solid #333;padding-top:6px;font-size:13.5px;color:#cfcfcf}
+  .sc .meth .conf b{font:700 10px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent);margin-right:6px}
+  .sc .con{position:absolute;left:52px;right:52px;top:556px;border:2px solid var(--accent);padding:12px 18px;display:grid;grid-template-columns:170px 1fr;gap:16px;align-items:center}
+  .sc .con b{font:700 12px Orbitron,sans-serif;letter-spacing:.16em;color:var(--accent)}
+  .sc .con p{margin:0;font-size:16px;line-height:1.4;color:#fff}
+  .sc .foot{color:#9a9a9a}
+  .sc .foot b{font:700 11px Orbitron,sans-serif;letter-spacing:.16em;color:#fff;margin-right:8px}
+
+  /* ---------- divider: end of vetted work ---------- */
+  .sx{background:#000;color:#fff}
+  .sx .kicker{position:absolute;left:52px;top:44px}
+  .sx .xbig{position:absolute;left:52px;top:220px;font:900 76px/1.05 Orbitron,sans-serif;letter-spacing:.02em;color:#fff}
+  .sx .xrule{position:absolute;left:52px;top:410px;width:220px;height:4px;background:var(--accent)}
+  .sx .xsub{position:absolute;left:52px;top:436px;width:820px;margin:0;font-size:19px;line-height:1.45;color:#cfcfcf}
+  .sx .foot{color:#9a9a9a}
+  .sx .xgo{position:absolute;right:56px;top:190px;width:430px;height:auto;image-rendering:pixelated;-webkit-mask-image:radial-gradient(ellipse 72% 70% at 50% 50%,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse 72% 70% at 50% 50%,#000 60%,transparent 100%)}
+  .sx .xsub{width:600px!important}
+
+  /* ---------- before the design: built blind ---------- */
+  .sb .pre{margin:8px 0 0;font-size:14px;color:var(--mute)}
+  .sb h1{font-size:31px;line-height:1.18;margin:6px 0 8px;max-width:1120px}
+  .sb h1 sup{font-size:15px;color:var(--accent);vertical-align:super;margin-left:1px}
+  .sb .sig{margin:-4px 0 8px;font:700 15px Orbitron,sans-serif;letter-spacing:.08em;color:var(--ink);text-align:right;max-width:1120px}
+  .sb .cites{margin:0;padding-left:20px;font-size:12.5px;line-height:1.4;color:var(--mute);max-width:1100px}
+  .sb .tl{display:grid;grid-template-columns:1fr 22px 1fr 22px 1fr 22px 1fr 46px 1fr;align-items:stretch;margin-top:26px}
+  .sb .ev{border:2px solid var(--ink);padding:9px 11px;display:flex;flex-direction:column;gap:4px;min-height:96px}
+  .sb .ev b{font:700 12px Orbitron,sans-serif;letter-spacing:.1em}
+  .sb .ev span{font-size:13.5px;line-height:1.35}
+  .sb .ev.me{border-color:var(--accent)}
+  .sb .ev.me b{color:var(--accent)}
+  .sb .ev.open{border-style:dashed;border-color:#777;background:var(--soft)}
+  .sb .ar{position:relative}
+  .sb .ar:before{content:"";position:absolute;left:3px;right:7px;top:50%;border-top:2px solid var(--ink)}
+  .sb .ar:after{content:"";position:absolute;right:1px;top:calc(50% - 6px);border:6px solid transparent;border-left:8px solid var(--ink);border-right:0}
+  .sb .wall{position:relative;display:flex;justify-content:center}
+  .sb .wall:before{content:"";position:absolute;top:-14px;bottom:-14px;left:50%;border-left:3px dashed var(--accent)}
+  .sb .wall span{position:absolute;top:-30px;white-space:nowrap;font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent)}
+  .sb .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:30px}
+  .sb .card{padding:11px 15px}
+  .sb .card h3{margin:0 0 5px;font:700 12px Orbitron,sans-serif;letter-spacing:.14em}
+  .sb .card p{margin:0;font-size:15px;line-height:1.42}
+  .sb .card.a{border:2px solid var(--accent)} .sb .card.a h3{color:var(--accent)}
+  .sb .buys{margin-top:26px;border-left:4px solid var(--accent);padding:6px 0 6px 16px;font-size:17px;line-height:1.45;font-style:italic;max-width:1100px}
+  .sb .buys b{font:700 11px Orbitron,sans-serif;letter-spacing:.14em;font-style:normal;color:var(--accent);display:block;margin-bottom:3px}
+  .sb .card.n{border:2px solid #9a9a9a;background:var(--soft)} .sb .card.n h3{color:#555}
+
+  /* ---------- maximum entropy: the concept ---------- */
+  .sm .grid{display:grid;grid-template-columns:540px 1fr;gap:40px;margin-top:20px}
+  .sm .princ{border:2px solid var(--ink);padding:14px 18px;margin-bottom:18px}
+  .sm .princ h2{font:700 12.5px Orbitron,sans-serif;letter-spacing:.16em;margin:0 0 8px;color:var(--accent)}
+  .sm .princ p{margin:0;font-size:17px;line-height:1.5}
+  .sm .princ .by{margin-top:8px;font-size:13px;color:var(--mute)}
+  .sm .para{margin-bottom:14px}
+  .sm .para h2{font:700 12.5px Orbitron,sans-serif;letter-spacing:.16em;margin:0 0 5px}
+  .sm .para h2 span{color:var(--accent);margin-right:8px}
+  .sm .para p{margin:0;font-size:15px;line-height:1.48}
+  .sm .fig h2{font:700 12.5px Orbitron,sans-serif;letter-spacing:.16em;margin:0 0 8px}
+  .sm .slot{border:1.5px dashed #9a9a9a;height:420px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mute);font-size:14.5px;padding:0 40px}
+  .sm .slot code{font-family:"Share Tech Mono",monospace;color:var(--ink)}
+  .sm .fig img{display:block;width:100%;height:420px;object-fit:contain;border:1px solid var(--line)}
+  .sm .cap{margin-top:8px;font-size:13.5px;color:var(--mute)}
+  .sm .fig h2 .sub{font:12px Inter,sans-serif;letter-spacing:0;color:var(--mute);margin-left:6px}
+  .sm .ex{margin-bottom:10px}
+  .sm .exh{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;border-bottom:1px solid var(--line);padding-bottom:3px;margin-bottom:4px}
+  .sm .exh b{font:700 11px Orbitron,sans-serif;letter-spacing:.1em}
+  .sm .exh span{color:var(--accent);font-weight:600}
+  .sm .exr{display:grid;grid-template-columns:252px 1fr;gap:10px;align-items:center;height:168px}
+  .sm .exr img{width:252px;height:168px;object-fit:contain;display:block;border:0}
+  .sm .exr svg{width:100%;height:168px;display:block}
+  .sm .asm{font-size:15px;line-height:1.45;margin:0 0 12px}
+  .sm .asm b{font:700 12.5px Orbitron,sans-serif;letter-spacing:.16em;display:block;margin-bottom:4px}
+  .sm .gl{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .sm .gl div{padding:9px 12px}
+  .sm .gl .g{border:2px solid var(--accent)}
+  .sm .gl .l{border:2px solid #9a9a9a;background:var(--soft)}
+  .sm .gl h3{margin:0 0 5px;font:700 11.5px Orbitron,sans-serif;letter-spacing:.14em}
+  .sm .gl .g h3{color:var(--accent)} .sm .gl .l h3{color:#555}
+  .sm .gl ul{margin:0;padding-left:16px;font-size:13.5px;line-height:1.35}
+  .sm .gl li{margin:2px 0}
+  .sm .it{position:absolute;left:52px;right:52px;top:592px;height:78px;border-top:2px solid var(--ink);display:grid;grid-template-columns:230px 330px 1fr;gap:20px;align-items:center}
+  .sm .it .h{font:700 12px/1.35 Orbitron,sans-serif;letter-spacing:.14em}
+  .sm .it .h span{color:var(--accent);display:block}
+  .sm .it .eq{font-size:16px}
+  .sm .it p{margin:0;font-size:14px;line-height:1.4;color:#333}
+  .sm .take{position:absolute;left:52px;right:52px;top:604px;border-left:4px solid var(--accent);padding:6px 0 6px 16px;font-size:17px;font-style:italic}
+
+  .sm .pad{padding:26px 34px 20px}
+  .sm .grid{grid-template-columns:488px 1fr;gap:30px;margin-top:12px}
+  .sm .princ{padding:11px 16px;margin-bottom:12px}
+  .sm .princ p{font-size:16px;line-height:1.42}
+  .sm .asm{margin-bottom:10px}
+  .sm .exr{grid-template-columns:240px 1fr;height:160px}
+  .sm .exr img{width:240px;height:160px}
+  .sm .exr svg{height:160px}
+  .sm .ex{margin-bottom:6px}
+  .sm .read{border:1.5px dashed #9a9a9a;padding:6px 10px;font-size:12.5px;line-height:1.38}
+  .sm .read b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;color:var(--mute);margin-right:6px}
+  .sm .read p{display:inline;margin:0}
+  .sm .read i{font-style:normal;font-weight:600}
+  .sm .it{left:34px;right:300px;top:624px;height:50px;grid-template-columns:200px 190px 1fr;gap:16px;border-top-width:1.5px}
+  .sm .princ h2{margin-bottom:5px}
+  .sm .princ p{font-size:15px!important;line-height:1.38!important}
+  .sm .princ .by{margin-top:4px}
+  .sm .asm{font-size:14px!important;margin-bottom:8px!important}
+  .sm .foot{bottom:8px}
+  .sm .it .h{font-size:10px;line-height:1.3}
+  .sm .it .eq{font-size:12px}
+  .sm .it p{font-size:11.5px;line-height:1.3}
+  .sm .gl ul{font-size:13px}
+  .sm .gl div{padding:7px 11px}
+  .sm .fitbox{margin-top:10px;border:2px solid var(--ink);padding:6px 11px 7px}
+  .sm .fitbox h3{margin:0 0 2px;font:700 11.5px Orbitron,sans-serif;letter-spacing:.14em}
+  .sm .fitbox .fb{display:grid;grid-template-columns:178px 1fr;gap:8px;align-items:center}
+  .sm .fitbox .feq{font-size:13px}
+  .sm .fitbox .feq mjx-container[display="true"]{margin:0!important}
+  .sm .fitbox p{margin:0;font-size:12px;line-height:1.35}
+  .sm .anchor i{color:var(--accent)}
+  .sm .anchor{border-bottom:1.5px solid var(--accent)}
+  .sm svg.conn{position:absolute;left:0;top:0;width:1280px;height:720px;pointer-events:none;z-index:3}
+  .sm .foot{left:34px;right:34px;bottom:14px}
+  /* ---------- experimental design ---------- */
+  .se .hdr{position:absolute;left:52px;top:40px;right:370px}
+  .se .zref{border-bottom:1.5px solid var(--accent)}
+  .se svg.zconn{position:absolute;left:0;top:0;width:1280px;height:720px;pointer-events:none;z-index:3}
+  .se .zbox{position:absolute;right:52px;top:12px;width:300px;border:1.5px dashed var(--accent);background:#fff;padding:7px 11px;z-index:2}
+  .se .zbox h4{margin:0 0 3px;font:700 11px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent)}
+  .se .zbox p{margin:0;font-size:11.5px;line-height:1.36;color:#222}
+  .se .zbox .zsc{margin-top:4px;color:var(--mute)}
+  .se .zbox .zsc b{color:var(--ink);font-weight:600}
+  .se .lede{margin-top:4px;font-size:15px}
+  .se svg.wires{position:absolute;left:0;top:0;width:1280px;height:720px;pointer-events:none}
+  .se .start{position:absolute;left:52px;top:170px;width:300px;height:414px;border:2.5px solid var(--ink);padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+  .se .start h3{margin:0;font:700 11.5px Orbitron,sans-serif;letter-spacing:.12em;color:var(--accent)}
+  .se .start .sub{margin:-4px 0 0;font-size:12px;color:var(--mute)}
+  .se .start ul{margin:0;padding-left:16px;font-size:13.5px;line-height:1.38}
+  .se .start li{margin:3px 0}
+  .se .counts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .se .counts div{background:var(--soft);padding:7px 9px;display:flex;flex-direction:column;font-size:12.5px}
+  .se .counts b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.12em;margin-bottom:2px}
+  .se .start .src{margin:-2px 0 0;font-size:11.5px;color:var(--mute);font-style:italic}
+  .se .start .gap{margin:auto 0 0;border-top:1px solid var(--line);padding-top:8px;font-size:13.5px;font-weight:600}
+  .se .path{position:absolute;left:400px;width:828px;border:2px solid var(--ink);background:#fff}
+  .se .p1{top:170px;height:222px}
+  .se .p2{top:406px;height:178px}
+  .se .p2{border-color:#555;border-style:dashed}
+  .se .ph{display:flex;align-items:center;gap:12px;background:var(--ink);color:#fff;padding:7px 12px;font:700 12.5px Orbitron,sans-serif;letter-spacing:.12em}
+  .se .p2 .ph{background:#555}
+  .se .ph .tag{background:var(--accent);color:#fff;padding:2px 8px;font-size:11px}
+  .se .pb{display:grid;grid-template-columns:1fr 160px 250px;gap:14px;padding:10px 14px}
+  .se .what .q{font-weight:600;font-size:16px;line-height:1.3;margin-bottom:5px}
+  .se .what p{margin:0;font-size:13.5px;line-height:1.42}
+  .se .col{border-left:1px solid var(--line);padding-left:12px}
+  .se .col h4{margin:0 0 4px;font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent)}
+  .se .col.st h4{color:var(--ink)}
+  .se .col.st p{font-size:12.5px;line-height:1.34;margin:0 0 3px}
+  .se .col p{margin:0;font-size:13px;line-height:1.38}
+  .se .feed{position:absolute;left:880px;top:357px;width:262px;text-align:right;font-size:12px;font-style:italic;color:var(--accent)}
+  .se .rule2{position:absolute;left:52px;right:300px;top:596px;border-top:1.5px solid var(--ink);padding-top:6px;font-size:12.5px;line-height:1.38;color:#333}
+  .se .rule2 p{margin:0 0 4px}
+  .se .rule2 b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;color:var(--ink);margin-right:8px}
+  .se .rule2 .lk b{color:var(--accent)}
+  .se .rule2 strong{color:var(--ink)}
+  .se .rule2 .gv{font-weight:600;color:var(--ink)}
+  .se .rule2 .bp{color:var(--mute)}
+
+  /* ---------- design: two stages ---------- */
+  .sd .hdr{position:absolute;left:52px;top:44px}
+  .sd .quote{position:absolute;left:52px;top:142px;width:1000px;border-left:4px solid var(--accent);padding:4px 0 4px 16px;font-size:19px;line-height:1.4;font-style:italic}
+  .sd .b{position:absolute;border:2px solid var(--ink);background:#fff;padding:11px 13px;display:flex;flex-direction:column;gap:7px;text-align:left}
+  .sd .b h3{margin:0;font:700 11.5px/1.2 Orbitron,sans-serif;letter-spacing:.1em}
+  .sd .b h3 span{color:var(--accent);margin-right:6px}
+  .sd .b .q{font-weight:600;font-size:16px;line-height:1.3}
+  .sd .b p{margin:0;font-size:13.5px}
+  .sd .b .o{margin-top:auto;border-top:1px solid var(--line);padding-top:7px;font-size:13px}
+  .sd .b .o b{font:700 10px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent);margin-right:6px}
+  .sd .b.stg{border-width:2.5px}
+  .sd .b.gate{border-style:dashed;border-color:#555;justify-content:center;text-align:center}
+  .sd .b.out{background:var(--accent);border-color:var(--accent);color:#fff;justify-content:center}
+  .sd .b.out h3 span{color:#fff}
+  .sd .b.in{background:var(--soft);border-color:#9a9a9a;border-width:1.5px}
+  .sd .b .lbl{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mute)}
+  .sd .tag{position:absolute;border:1.5px dashed #9a9a9a;padding:7px 10px;font-size:12.5px;line-height:1.35;background:#fff}
+  .sd .tag b{font:700 10px Orbitron,sans-serif;letter-spacing:.14em;display:block;margin-bottom:2px;color:var(--mute)}
+  .sd .links{position:absolute;left:52px;top:560px;width:640px;font-size:13px;line-height:1.5}
+  .sd .links b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;display:block;margin-bottom:3px;color:var(--mute)}
+  .sd .links p{margin:0}
+  .sd .links .k{font-weight:600}
+  .sd svg.wires{position:absolute;left:0;top:0;width:1280px;height:720px;pointer-events:none}
+
+  /* ---------- intro: the idea ---------- */
+  .si .grid{display:grid;grid-template-columns:1.45fr 1fr;gap:44px;margin-top:26px}
+  .si .para{margin-bottom:20px}
+  .si .para h2,.si .side h2{font:700 12.5px Orbitron,sans-serif;letter-spacing:.16em;margin:0 0 6px}
+  .si .para h2 span{color:var(--accent);margin-right:8px}
+  .si .para p{margin:0;font-size:16.5px;line-height:1.5}
+  .si .side{display:flex;flex-direction:column;gap:18px}
+  .si .sus{border:2px solid var(--ink);padding:12px 16px}
+  .si .sus .s{display:grid;grid-template-columns:150px 1fr;gap:10px;padding:7px 0;border-top:1px solid var(--line);font-size:14px}
+  .si .sus .s:first-of-type{border-top:0}
+  .si .sus .s b{font-weight:600}
+  .si .rules{border:1.5px dashed #9a9a9a;padding:12px 16px}
+  .si .rules ul{margin:0;padding-left:18px;font-size:14px}
+  .si .rules li{margin:4px 0}
+  .si .name{font-size:13.5px;color:var(--mute)}
+  .si .name b{font-family:Orbitron,sans-serif;color:var(--ink);letter-spacing:.06em}
+
+  /* ---------- maximum entropy ---------- */
+  .s0 .grid{display:grid;grid-template-columns:1fr 1.2fr;margin-top:14px;gap:30px}
+  .s0 .me{border:2px solid var(--ink);padding:12px 18px}
+  .s0 h2{font:700 12.5px Orbitron,sans-serif;letter-spacing:.16em;margin:0 0 6px}
+  .s0 h2 span{color:var(--accent)}
+  .s0 .me p{margin:0 0 4px;font-size:14px}
+  .s0 .eq{margin:6px 0 8px;font-size:14px}
+  .s0 .eq mjx-container[display="true"]{margin:4px 0!important}
+  .s0 ul{margin:6px 0 0;padding-left:18px;font-size:13.5px}
+  .s0 li{margin:4px 0}
+  .s0 .cm{display:flex;flex-direction:column;gap:12px}
+  .s0 .col{padding:10px 14px 8px}
+  .s0 .catch{border:2px solid var(--accent)}
+  .s0 .catch h2{color:var(--accent)}
+  .s0 .miss{border:2px solid #9a9a9a;background:var(--soft)}
+  .s0 .miss h2{color:#555}
+  .s0 .col ul{margin:0;padding-left:0;list-style:none}
+  .s0 .col li{display:grid;grid-template-columns:22px 1fr;font-size:13.5px;margin:3px 0}
+  .s0 .catch li:before{content:"✓";color:var(--accent);font-weight:700}
+  .s0 .miss li:before{content:"✗";color:#777;font-weight:700}
+  .s0 .arrow{color:var(--accent);font-weight:600}
+
+  /* feature strip (filled by make_feature_panels.py) */
+  .s0 .fstrip{position:absolute;left:52px;right:52px;top:478px;height:184px}
+  .s0 .fstrip .lab{font:700 11px Orbitron,sans-serif;letter-spacing:.16em;color:var(--mute);display:flex;justify-content:space-between;margin-bottom:6px}
+  .s0 .fstrip .lab span:last-child{font:12px Inter,sans-serif;letter-spacing:0;text-transform:none}
+  .s0 .panels{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .s0 .panel{border:1px solid var(--line);padding:6px 8px 4px}
+  .s0 .panel .ph{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;font-weight:600}
+  .s0 .panel .ph span:last-child{font-weight:400;color:var(--mute);font-size:11.5px}
+  .s0 .panel svg{display:block;width:100%;height:auto}
+  .s0 .fempty{border:1.5px dashed #9a9a9a;height:136px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mute);font-size:14px;padding:0 40px}
+  .s0 .fempty code{font-family:"Share Tech Mono",monospace;color:var(--ink)}
+
+  /* ---------- pipeline ---------- */
+  .s1 .hdr{position:absolute;left:52px;top:44px}
+  .s1 .lane{position:absolute;left:52px;font:700 11px Orbitron,sans-serif;letter-spacing:.18em;color:var(--mute)}
+  .s1 .b{position:absolute;border:2px solid var(--ink);background:#fff;padding:10px 11px;display:flex;flex-direction:column;gap:6px}
+  .s1 .b h3{margin:0;font:700 11.5px/1.2 Orbitron,sans-serif;letter-spacing:.1em}
+  .s1 .b h3 span{color:var(--accent);margin-right:5px}
+  .s1 .b p{margin:0;font-size:13px}
+  .s1 .b .m{color:var(--mute);font-size:12px}
+  .s1 .b.me{border-color:var(--accent);box-shadow:inset 0 4px 0 var(--accent)}
+  .s1 .b.out{border-color:var(--accent);background:var(--accent);color:#fff}
+  .s1 .b.out h3 span{color:#fff}
+  .s1 .b.fp{background:var(--soft);border-color:#9a9a9a}
+  .s1 .tag{position:absolute;border:1.5px dashed var(--accent);color:var(--accent);padding:6px 9px;font-size:12px;line-height:1.3;background:#fff}
+  .s1 .tag b{font:700 10px Orbitron,sans-serif;letter-spacing:.14em;display:block;margin-bottom:2px}
+  .s1 svg.wires{position:absolute;left:0;top:0;width:1280px;height:720px;pointer-events:none}
+
+  /* ---------- gates walk-through ---------- */
+  .s2 .ex{font-size:16px;color:var(--mute);margin:0 0 26px}
+  .s2 .ex b{color:var(--ink)}
+  .s2 .pipe{display:grid;grid-template-columns:1fr 26px 1fr 26px 1fr 26px 1fr 26px 0.95fr;align-items:stretch}
+  .s2 .gate{border:2px solid var(--ink);display:flex;flex-direction:column}
+  .s2 .gh{background:var(--ink);color:#fff;padding:9px 12px;font:700 12px Orbitron,sans-serif;letter-spacing:.14em}
+  .s2 .gh span{color:var(--accent);margin-right:6px}
+  .s2 .gb{padding:12px 13px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .s2 .q{font-weight:600;font-size:16.5px;line-height:1.3}
+  .s2 .how{font-size:13.5px;color:#333}
+  .s2 .pass{margin-top:auto;border-top:1px solid var(--line);padding-top:9px;font-size:13.5px}
+  .s2 .pass .t{font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent);display:block;margin-bottom:3px}
+  .s2 .blind{font-size:12px;color:var(--mute);font-style:italic}
+  .s2 .arr{position:relative}
+  .s2 .arr:before{content:"";position:absolute;left:3px;right:8px;top:50%;border-top:2px solid var(--ink)}
+  .s2 .arr:after{content:"";position:absolute;right:1px;top:calc(50% - 6px);border:6px solid transparent;border-left:9px solid var(--ink);border-right:0}
+  .s2 .verdict{border:2px solid var(--accent);display:flex;flex-direction:column}
+  .s2 .verdict .gh{background:var(--accent)}
+  .s2 .big{font:900 22px/1.15 Orbitron,sans-serif;color:var(--accent)}
+  .s2 .next{border:1.5px dashed #9a9a9a;padding:8px 10px;font-size:13px;margin-top:auto}
+  .s2 .next .t{font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;color:var(--mute);display:block;margin-bottom:3px}
+  .s2 .stops{margin-top:22px;display:grid;grid-template-columns:180px 1fr 1fr;gap:16px;align-items:stretch}
+  .s2 .stops .lab{font:700 12px/1.3 Orbitron,sans-serif;letter-spacing:.12em;align-self:center}
+  .s2 .stop{background:var(--soft);border-left:4px solid #9a9a9a;padding:10px 14px;font-size:14px}
+  .s2 .stop b{font-family:Orbitron,sans-serif;font-size:12px;letter-spacing:.08em}
+  .s2 .stop .x{color:var(--accent);font-weight:600}
+
+  /* ---------- results overview ---------- */
+  .s3 .box{border:2px solid var(--ink);padding:11px 18px;text-align:center;font-weight:600;font-size:15px}
+  .s3 .qb{width:560px;margin:18px auto 0}
+  .s3 .v{width:2px;height:20px;background:var(--ink);margin:0 auto}
+  .s3 .fork{position:relative;height:20px;margin:0 25%}
+  .s3 .fork:before{content:"";position:absolute;left:0;right:0;top:0;border-top:2px solid var(--ink)}
+  .s3 .fork:after,.s3 .fork i{content:"";position:absolute;top:0;height:20px;border-left:2px solid var(--ink)}
+  .s3 .fork:after{right:0}.s3 .fork i{left:0}
+  .s3 .merge{transform:scaleY(-1)}
+  .s3 .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .s3 .region{border-top:4px solid var(--ink);padding-top:10px}
+  .s3 .region h2{font:900 17px Orbitron,sans-serif;letter-spacing:.14em;margin:0 0 10px;text-align:center}
+  .s3 .chain{display:grid;grid-template-columns:1fr 18px 1fr 18px 1.1fr;align-items:center;margin-bottom:9px}
+  .s3 .n{padding:8px 10px;font-size:14px;text-align:center;min-height:48px;display:flex;align-items:center;justify-content:center}
+  .s3 .area{border-left:4px solid var(--ink);outline:1px solid var(--line);outline-offset:-1px;font-weight:600}
+  .s3 .test{background:var(--soft);border:1px solid var(--line)}
+  .s3 .res{border:1.5px solid var(--line)}
+  .s3 .res.hold{border-color:var(--accent);color:var(--accent);font-weight:600}
+  .s3 .res.gone{color:#8a8a8a;text-decoration:line-through;text-decoration-thickness:1px}
+  .s3 .a{height:2px;background:var(--ink);position:relative}
+  .s3 .a:after{content:"";position:absolute;right:-1px;top:-5px;border:6px solid transparent;border-left:8px solid var(--ink);border-right:0}
+  .s3 .end{width:760px;margin:0 auto;text-align:left;font-weight:400}
+  .s3 .end p{margin:3px 0}
+  .s3 .end b{font-family:Orbitron,sans-serif;font-size:12.5px;letter-spacing:.1em;margin-right:8px}
+  .s3 .end .hl{color:var(--accent)}
+  .s3 .legend{margin-top:14px;text-align:center;font-size:13px;color:var(--mute)}
+  .s3 .legend span{margin:0 10px}
+  .s3 .legend .h{color:var(--accent);font-weight:600}
+  .s3 .legend .g{text-decoration:line-through}
+
+  /* ---------- slide-number badge (seeded histogram + numeral; same in HTML, PDF, PPTX) ---------- */
+  .pgbadge{position:absolute;right:24px;bottom:6px;display:flex;align-items:flex-end;gap:8px;z-index:4;pointer-events:none}
+  .pgbadge .pg-hist{width:91px;height:43px;display:block;margin-bottom:6px}   /* 70% of the 130x62 drawing */
+  .pgbadge .pg-num{width:108px;height:70px;display:block}
+  .slide .foot{right:300px!important}
+
+  /* ---------- print: one slide per page ---------- */
+  @media print{
+    html,body{background:#fff;overflow:visible;height:auto}
+    .stage{position:static;display:block}
+    .deck{transform:none!important;width:auto;height:auto}
+    .slide{display:block!important;position:relative;page-break-after:always;break-after:page}
+    .nav,.prog{display:none}
+    @page{size:1280px 720px;margin:0}
+  }
+
+  /* ================= deck 2 ================= */
+  /* cover */
+  .tc{background:#000;color:#fff}
+  .tc .kicker{position:absolute;left:52px;top:44px}
+  .tc .hub{position:absolute;left:52px;top:118px;width:250px;height:250px}
+  .tc h1{position:absolute;left:340px;top:128px;width:880px;margin:0;font:900 46px/1.1 Orbitron,sans-serif;color:#fff}
+  .tc .sub{position:absolute;left:340px;top:250px;width:860px;margin:0;font-size:19px;line-height:1.45;color:#d4d4d4}
+  .tc .mosaic{position:absolute;left:52px;right:52px;top:430px;display:grid;grid-template-columns:repeat(13,1fr);gap:6px}
+  .tc .mosaic img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;opacity:.92}
+  .tc .mcap{position:absolute;left:52px;top:520px;font:12px "Share Tech Mono",monospace;letter-spacing:.08em;color:#8d8d93}
+  .tc .foot{color:#9a9a9a}
+  .tc .foot b{font:700 11px Orbitron,sans-serif;letter-spacing:.16em;color:#fff;margin-right:8px}
+
+  .tc .goal{position:absolute;left:340px;top:318px;width:860px;margin:0;font-size:15px;line-height:1.45;color:#fff;border-left:3px solid var(--accent);padding-left:14px}
+  .tc .goal b{display:block;font:700 10.5px Orbitron,sans-serif;letter-spacing:.16em;color:var(--accent);margin-bottom:2px}
+  .tc .mosaic{top:452px!important} .tc .mcap{top:540px!important}
+  /* anatomy of a project */
+  .ta .lede{margin:4px 0 0}
+  .ta .agrid{display:grid;grid-template-columns:1fr 340px;gap:40px;margin-top:24px;align-items:start}
+  .ta ul.anat{margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+  .ta ul.anat li{display:grid;grid-template-columns:170px 1fr;gap:14px;padding:9px 4px;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.35}
+  .ta ul.anat li b{font:700 12px Orbitron,sans-serif;letter-spacing:.1em;color:var(--accent);padding-top:3px}
+  .ta .ast{display:flex;flex-direction:column;gap:2px}
+  .ta .ast span:before{content:"*";color:var(--accent);font-weight:700;margin-right:8px}
+  .ta .mv{background:#000;color:#fff;padding:26px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px}
+  .ta .mv img{width:170px;height:170px}
+  .ta .mvlink{display:inline-block;white-space:nowrap;font-size:13px!important;background:var(--accent);color:#fff;text-decoration:none;font:700 14px Orbitron,sans-serif;letter-spacing:.12em;padding:12px 18px}
+  .ta .mvlink:hover{background:#ff3a1f}
+  .ta .mv .url{margin:0;font:11px "Share Tech Mono",monospace;color:#cfcfcf;white-space:nowrap}
+  .ta .mv .hint{margin:0;font-size:12px;color:#8d8d93}
+  /* overview anatomy */
+  .to .lede{margin:4px 0 0;font-size:15px}
+  .to table.anat{width:100%;border-collapse:collapse;margin-top:14px;font-size:12.5px}
+  .to .anat th{font:700 9.5px Orbitron,sans-serif;letter-spacing:.1em;color:var(--mute);text-align:center;padding:0 4px 5px;border-bottom:2px solid var(--ink)}
+  .to .anat th:first-child{text-align:left}
+  .to .anat td{text-align:center;padding:2px 4px;border-bottom:1px solid var(--line);height:28px}
+  .to .anat td.pn{text-align:left;display:flex;align-items:center;gap:8px;border-left:4px solid var(--c);padding-left:6px;height:28px}
+  .to .anat td.pn img{width:38px;height:24px;object-fit:cover;background:#000}
+  .to .anat td.pn b{font:700 11.5px Orbitron,sans-serif;letter-spacing:.05em}
+  .to .anat td.st{font:10px "Share Tech Mono",monospace;letter-spacing:.06em}
+  .to .anat td.st.planning{color:#b07a00}
+  .to .anat i.y{font-style:normal;color:var(--accent);font-size:13px}
+  .to .anat i.n{font-style:normal;color:#b5b5b5}
+  .to .legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-size:11.5px;color:var(--mute)}
+  .to .legend b{font:700 9.5px Orbitron,sans-serif;letter-spacing:.1em;color:var(--ink);margin-right:4px}
+  /* concept flow */
+  .tf .lede{margin:4px 0 0}
+  .tf .flow{display:grid;grid-template-columns:1fr 22px 1fr 22px 1fr 22px 1fr 22px 1fr;margin-top:22px;align-items:stretch}
+  .tf .col{border-top:3px solid var(--ink);padding-top:8px;display:flex;flex-direction:column;gap:8px}
+  .tf .col h3{margin:0;font:700 12px Orbitron,sans-serif;letter-spacing:.12em}
+  .tf .col>p{margin:0 0 4px;font-size:13px;color:var(--mute);min-height:36px}
+  .tf .cb{border:2px solid var(--c);border-left-width:6px;padding:8px 10px;background:#fff}
+  .tf .cb b{font:700 13px Orbitron,sans-serif;letter-spacing:.06em}
+  .tf .cb span{display:block;font-size:11.5px;color:var(--mute)}
+  .tf .cb.spine{background:var(--accent);border-color:var(--accent)}
+  .tf .cb.spine b,.tf .cb.spine span{color:#fff}
+  .tf .arr{position:relative}
+  .tf .arr:before{content:"";position:absolute;left:4px;right:8px;top:120px;border-top:2px solid var(--ink)}
+  .tf .arr:after{content:"";position:absolute;right:2px;top:114px;border:6px solid transparent;border-left:8px solid var(--ink);border-right:0}
+  .tf .under{display:flex;align-items:center;gap:16px;margin-top:26px;border-top:1.5px dashed #9a9a9a;padding-top:14px}
+  .tf .under .cb{flex:none}
+  .tf .under p{margin:0;font-size:14px;color:#333}
+  .tf .draftnote,.tn .draftnote{margin-top:14px;font-size:12.5px;color:var(--mute);font-style:italic}
+  /* spine */
+  .ts .lede{margin:4px 0 0}
+  .ts .spine{display:grid;grid-template-columns:1fr 26px 1fr 26px 1.25fr 26px 1fr;margin-top:22px;align-items:stretch}
+  .ts .sp{border:2px solid var(--ink);border-top:6px solid var(--c,var(--accent));display:flex;flex-direction:column;gap:6px;padding:0 0 10px;background:#fff}
+  .ts .sp .sh{position:relative;display:flex;background:#000;height:108px}
+  .ts .sp .sh img{flex:1;min-width:0;height:108px;object-fit:cover}
+  .ts .sp .sh span{position:absolute;left:8px;top:6px;font:900 22px Orbitron,sans-serif;color:#fff;text-shadow:0 0 6px #000}
+  .ts .sp .ph{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;font:900 17px/1.15 Orbitron,sans-serif;color:var(--accent);letter-spacing:.06em}
+  .ts .sp .nm{padding:4px 12px 0;font:700 13px Orbitron,sans-serif;letter-spacing:.06em}
+  .ts .sp .nm em{font-style:normal;color:var(--accent)}
+  .ts .sp p{margin:0;padding:0 12px;font-size:13.5px;line-height:1.38}
+  .ts .sp .o{font-size:13px} .ts .sp .o i{font:700 10px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent);margin-right:6px;font-style:normal}
+  .ts .sp .s{margin-top:auto;font:11.5px "Share Tech Mono",monospace;color:var(--mute);border-top:1px solid var(--line);padding-top:6px;margin-left:12px;margin-right:12px;padding-left:0}
+  .ts .sp.pair{border-top-color:var(--accent)}
+  .ts .sp.plane{border-style:solid;border-top-color:var(--accent)}
+  .ts .arr{position:relative}
+  .ts .arr:before{content:"";position:absolute;left:4px;right:8px;top:54px;border-top:2.5px solid var(--ink)}
+  .ts .arr:after{content:"";position:absolute;right:2px;top:47px;border:7px solid transparent;border-left:9px solid var(--ink);border-right:0}
+  .ts .goalbar{margin-top:18px;border-left:4px solid var(--accent);padding:6px 0 6px 16px;font-size:16px;line-height:1.45;font-style:italic;max-width:1060px}
+  .ts .goalbar b{display:block;font:700 10.5px Orbitron,sans-serif;letter-spacing:.16em;color:var(--accent);font-style:normal;margin-bottom:2px}
+  .ts .goalbar.top{margin:8px 0 6px;max-width:none;font-size:15.5px}
+  .ts h1{margin-top:4px}
+  .ts .spine{margin-top:14px!important}
+  .ts .sp .sh{height:84px!important} .ts .sp .sh img{height:84px!important}
+  .ts .gbx{margin-top:14px;border:2px solid #1ff0b0;border-left-width:6px;padding:8px 12px 10px}
+  .ts .gbx h3{margin:0 0 6px;display:flex;align-items:center;gap:10px;font:700 12px Orbitron,sans-serif;letter-spacing:.14em}
+  .ts .gbx h3 img{width:48px;height:30px;object-fit:cover;background:#000}
+  .ts .gcols{display:grid;grid-template-columns:.8fr 2.2fr .9fr 1.2fr;gap:16px;font-size:12.8px;line-height:1.38}
+  .ts .gcols i{font-style:normal;font-weight:600}
+  .ts .gcols b{display:block;font:700 10px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent);margin-bottom:2px}
+  .tn .nlogos{display:flex;gap:22px;margin-top:14px}
+  .tn .nlogos div{display:flex;align-items:center;gap:12px}
+  .tn .nlogos img{width:150px;height:94px;object-fit:cover;background:#000}
+  .tn .nlogos p{margin:0;font-size:13px;color:#333;width:200px;line-height:1.35}
+  .tn .nlogos b{display:block;font:700 12px Orbitron,sans-serif;letter-spacing:.1em;margin-bottom:2px}
+  .tn table.nlp{margin-top:12px!important} .tn .nlp td{padding:5px 10px!important}
+  /* the queen */
+  .qa .lede,.qb .lede,.qc .lede{margin:4px 0 0}
+  .qa .qgrid{display:grid;grid-template-columns:1fr 330px;gap:34px;margin-top:20px}
+  .qa .idea{border-left:5px solid #c43cff;padding:4px 0 4px 18px;font-size:22px;line-height:1.45}
+  .qa .idea b{color:#c43cff}
+  .qa .steps{margin:18px 0 0;padding:0;list-style:none}
+  .qa .steps li{display:grid;grid-template-columns:34px 1fr;padding:8px 0;border-top:1px solid var(--line);font-size:15.5px;line-height:1.4}
+  .qa .steps li span{font:900 18px Orbitron,sans-serif;color:#c43cff}
+  .qa .side{display:flex;flex-direction:column;gap:14px}
+  .qa .side img{width:100%;aspect-ratio:16/10;object-fit:cover;background:#000}
+  .qa .side .nm{font-size:13px;color:#333}
+  .qa .side .nm b{display:block;font:700 11px Orbitron,sans-serif;letter-spacing:.12em;margin-bottom:2px;color:#c43cff}
+  .qa .vs{border:1.5px dashed #9a9a9a;padding:9px 12px;font-size:13.5px;line-height:1.4}
+  .qa .vs b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.12em;color:var(--mute);display:block;margin-bottom:2px}
+  .lay{background:#f6effc;border-left:4px solid #c43cff;padding:8px 12px;font-size:14px;line-height:1.42;font-style:italic}
+  .lay b{font:700 10px Orbitron,sans-serif;letter-spacing:.14em;color:#c43cff;font-style:normal;margin-right:6px}
+  .qb .vgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px}
+  .qb .v{border:2px solid var(--ink);border-top:6px solid var(--c);padding:10px 14px;display:flex;flex-direction:column;gap:8px}
+  .qb .v h3{margin:0;font:700 15px Orbitron,sans-serif;letter-spacing:.06em}
+  .qb .v h3 small{display:block;font:12px "Share Tech Mono",monospace;letter-spacing:0;color:var(--mute);margin-top:3px}
+  .qb .v dl{margin:0;display:grid;grid-template-columns:96px 1fr;gap:5px 10px;font-size:13.5px;line-height:1.38}
+  .qb .v dt{font:700 10px Orbitron,sans-serif;letter-spacing:.12em;color:var(--accent);padding-top:3px}
+  .qb .v dd{margin:0}
+  .qb .shared{margin-top:14px;display:grid;grid-template-columns:200px 1fr;gap:14px;align-items:start;font-size:14px}
+  .qb .shared>b{font:700 12px Orbitron,sans-serif;letter-spacing:.12em;padding-top:8px}
+  .qc .cgrid{display:grid;grid-template-columns:1.25fr 1fr;gap:24px;margin-top:14px}
+  .qc .eqb{background:var(--soft);padding:9px 14px 10px;margin-bottom:12px}
+  .qc .eqb h3{margin:0 0 2px;font:700 11px Orbitron,sans-serif;letter-spacing:.12em}
+  .qc .eqb p{margin:4px 0 0;font-size:12.8px;line-height:1.4;color:#333}
+  .qc .eqb mjx-container[display="true"]{margin:5px 0!important}
+  .qc .where h3{margin:0 0 8px;font:700 12px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent)}
+  .qc .where .w{border:2px solid var(--c);border-left-width:6px;padding:8px 12px;margin-bottom:10px;font-size:13.8px;line-height:1.42}
+  .qc .where .w b{font:700 11px Orbitron,sans-serif;letter-spacing:.08em;display:block;margin-bottom:2px}
+  .qc .where .x{border:1.5px dashed #9a9a9a;padding:8px 12px;font-size:13.3px;line-height:1.42}
+  .qc .where .x b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.12em;color:var(--mute);display:block;margin-bottom:2px}
+  /* queen figures */
+  .qf h1{font-size:28px;margin:6px 0 2px}
+  .qf .fgrid{display:grid;grid-template-columns:auto 1fr;gap:22px;margin-top:10px;align-items:start}
+  .qf .fig .wrap{position:relative;display:inline-block;line-height:0}
+  .qf .fig img{display:block;height:505px;width:auto;border:1px solid var(--line)}
+  .qf .fig svg.ann{position:absolute;left:0;top:0;width:100%;height:100%}
+  .qf .cap{margin:4px 0 0;font-size:11px;color:var(--mute);max-width:610px}
+  .qf .key{margin:5px 0 0;font-size:11.5px;color:#333;display:flex;flex-wrap:wrap;gap:3px 13px;align-items:center;max-width:610px}
+  .qf .key span{white-space:nowrap}
+  .qf .key i{display:inline-block;width:14px;height:4px;margin-right:4px;vertical-align:middle}
+  .qf .txt{display:flex;flex-direction:column;gap:10px}
+  .qf .ax{border-left:4px solid var(--ink);padding:3px 0 3px 11px;font-size:13.5px;line-height:1.42}
+  .qf .ax b,.qf .syn b{display:block;font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;margin-bottom:3px}
+  .qf .syn{border:2px solid var(--accent);padding:9px 13px;font-size:14px;line-height:1.45}
+  .qf .syn b{color:var(--accent)}
+  /* queen synopsis */
+  .tq .lede,.tq2 .lede{margin:4px 0 0}
+  .tq table.qr{width:100%;border-collapse:collapse;margin-top:18px;font-size:15.5px}
+  .tq .qr th{font:700 12px Orbitron,sans-serif;letter-spacing:.12em;text-align:left;padding:0 14px 7px;border-bottom:2px solid var(--ink)}
+  .tq .qr th span{font:12px "Share Tech Mono",monospace;letter-spacing:0;color:var(--mute);margin-left:8px}
+  .tq .qr td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.38}
+  .tq .qr td.k{width:300px;font-weight:600}
+  .tq .qr td.k small{font-weight:400;color:var(--mute);font-size:12.5px}
+  .tq .qr b.o{color:#777;font-weight:600}
+  .tq .qr b.n{color:var(--accent)}
+  .tq .qlegend{margin-top:16px;font-size:13.5px;color:#333;border-left:4px solid #c43cff;padding:4px 0 4px 14px;max-width:1080px}
+  .tq .qlegend b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;color:#c43cff;margin-right:8px}
+  .tq2 .lgrid{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:18px;margin-top:20px}
+  .tq2 .lc{padding:11px 15px;border:2px solid}
+  .tq2 .lc h3{margin:0 0 6px;font:700 12px Orbitron,sans-serif;letter-spacing:.14em}
+  .tq2 .lc p{margin:0 0 8px;font-size:14.5px;line-height:1.42}
+  .tq2 .lc.ok{border-color:var(--accent)} .tq2 .lc.ok h3{color:var(--accent)}
+  .tq2 .lc.no{border-color:#555;background:var(--soft)} .tq2 .lc.no h3{color:#333}
+  .tq2 .lc.nx{border-color:#9a9a9a;border-style:dashed} .tq2 .lc.nx h3{color:var(--mute)}
+  .tq2 .verdict{margin-top:20px;border-left:4px solid var(--accent);padding:6px 0 6px 16px;font-size:17px;line-height:1.45;font-style:italic;max-width:1080px}
+  .tq2 .verdict b{display:block;font:700 10.5px Orbitron,sans-serif;letter-spacing:.16em;color:var(--accent);font-style:normal;margin-bottom:2px}
+  .tq2 .full{display:inline-block;margin-top:18px;background:#c43cff;color:#fff;text-decoration:none;font:700 12.5px Orbitron,sans-serif;letter-spacing:.12em;padding:10px 16px}
+  /* INFO 555 */
+  .tn .lede{margin:4px 0 0}
+  .tn table.nlp{width:100%;border-collapse:collapse;margin-top:16px;font-size:13.5px}
+  .tn .nlp th{white-space:nowrap;font:700 10px Orbitron,sans-serif;letter-spacing:.12em;color:var(--mute);text-align:left;padding:0 10px 6px;border-bottom:2px solid var(--ink)}
+  .tn .nlp td{padding:6px 10px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.35}
+  .tn .nlp td.t{font-weight:600;width:330px}
+  .tn .nlp td.f{width:210px;font:12px "Share Tech Mono",monospace}
+  .tn .nlp td.f.pa{color:var(--accent)} .tn .nlp td.f.ct{color:#333}
+  /* gallery */
+  .tg .lede{margin:4px 0 0}
+  .tg .gal{display:grid;grid-template-columns:repeat(7,1fr);gap:12px 12px;margin-top:20px}
+  .tg .tile{border:1.5px solid var(--line);border-top:4px solid var(--c);display:flex;flex-direction:column;background:#fff}
+  .tg .tile img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:#000}
+  .tg .tile .tb{padding:6px 8px 7px;display:flex;flex-direction:column;gap:3px}
+  .tg .tile .nm{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+  .tg .tile .nm b{font:700 11.5px Orbitron,sans-serif;letter-spacing:.06em}
+  .tg .tile .nm span{font:9.5px "Share Tech Mono",monospace;letter-spacing:.06em;color:var(--mute)}
+  .tg .tile .nm span.pl{color:#b07a00}
+  .tg .tile p{margin:0;font-size:11.5px;line-height:1.3;color:#333;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+  .tg .tile.base{border-color:var(--ink);border-width:2px;border-top-width:4px}
+  .tg .note{margin-top:14px;font-size:13px;color:var(--mute)}
+  /* pipeline */
+  .tp .hdr{position:absolute;left:52px;top:36px;right:52px}
+  .tp .lede{margin-top:2px;font-size:15px}
+  .tp svg.wires{position:absolute;left:0;top:0;width:1280px;height:720px;pointer-events:none}
+  .tp .lane{position:absolute;left:52px;font:700 10.5px Orbitron,sans-serif;letter-spacing:.18em;color:var(--mute)}
+  .tp .n{position:absolute;border:2px solid var(--ink);background:#fff;padding:8px 10px;display:flex;flex-direction:column;gap:4px}
+  .tp .n h3{margin:0;font:700 11px/1.2 Orbitron,sans-serif;letter-spacing:.1em}
+  .tp .n h3 span{color:var(--accent);margin-right:5px}
+  .tp .n p{margin:0;font-size:12.2px;line-height:1.32}
+  .tp .n .m{color:var(--mute);font-size:11.5px}
+  .tp .n.stop{border-color:var(--accent)}
+  .tp .n.loop{border-color:var(--accent);box-shadow:inset 0 4px 0 var(--accent)}
+  .tp .n.next{border-style:dashed;border-color:#777}
+  .tp .n.out{background:var(--accent);border-color:var(--accent);color:#fff}
+  .tp .n.out h3 span{color:#fff}
+  .tp .chip{display:inline-block;font:700 9.5px Orbitron,sans-serif;letter-spacing:.12em;padding:1px 6px;border:1.2px solid currentColor;margin-left:6px;vertical-align:1px}
+  .tp .chip.a{color:var(--accent)} .tp .chip.x{color:#777}
+  .tp .loopbox{position:absolute;border:1.5px dashed var(--accent)}
+  .tp .looplab{position:absolute;font:700 10px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent);background:#fff;padding:0 6px}
+  .tp .loss{position:absolute;font-size:13.5px}
+  /* map */
+  .tm .hdr{position:absolute;left:52px;top:44px;right:52px}
+  .tm svg.map{position:absolute;left:0;top:0;width:1280px;height:720px}
+  .tm .side{position:absolute;right:52px;top:160px;width:300px;font-size:13.5px;line-height:1.45}
+  .tm .side h3{margin:0 0 6px;font:700 11.5px Orbitron,sans-serif;letter-spacing:.14em}
+  .tm .side p{margin:0 0 12px}
+  .tm .side .solo{border:1.5px dashed #9a9a9a;padding:8px 12px}
+</style>
+</head>
+<body>
+<div class="stage"><div class="deck" id="deck">
+
+<!-- ================= COVER ================= -->
+<section class="slide tc">
+  <div class="kicker">UA ATLAS HEP · MACHINE LEARNING</div>
+  <img class="hub" src="assets/hub_icon.png" alt="">
+  <h1>Arizona ATLAS machine-learning projects: an overview</h1>
+  <p class="sub">13 projects in the Gallery of Rogues, compiled since August 2026, and the main spine they serve.</p>
+  <p class="goal"><b>GOAL · DRAFT</b>Two network scores that separate signal from background as well as possible while staying independent on background, so the ABCD estimate of the background in the signal region closes, with a stated confidence.</p>
+  <div class="mosaic"><img src="assets/thumbs/baseline.webp" alt="BASELINE"><img src="assets/thumbs/stave.webp" alt="STAVE"><img src="assets/thumbs/truss.webp" alt="TRUSS"><img src="assets/thumbs/lathe.webp" alt="LATHE"><img src="assets/thumbs/gambit.webp" alt="GAMBIT"><img src="assets/thumbs/lexicon.webp" alt="LEXICON"><img src="assets/thumbs/info-theory.webp" alt="INFO THEORY"><img src="assets/thumbs/beam-agent.webp" alt="BEAM AGENT"><img src="assets/thumbs/kerf.webp" alt="KERF"><img src="assets/thumbs/forge.webp" alt="FORGE"><img src="assets/thumbs/dncn-qn.webp" alt="DNCn_QN"><img src="assets/thumbs/sig-bg.webp" alt="SIG/BG"><img src="assets/thumbs/unknot.webp" alt="UNKNOT"></div>
+  <div class="mcap">THE GALLERY OF ROGUES · n-herling-mk1.github.io/ATLAS_Master_Project_Repo</div>
+  <div class="foot"><span><b>OVERVIEW</b>Nathan "_Steve" Herling · UA ATLAS HEP · 19 Nov 2026</span><span>ANA-EXOT-2025-24 · MSVtx · internal</span></div>
+</section>
+
+<!-- ================= ANATOMY OF A PROJECT ================= -->
+<section class="slide ta"><div class="pad">
+  <div class="kicker">THE PROJECT LINE · MASTER VIEW</div>
+  <h1>What every project page holds</h1>
+  <p class="lede">One general project, as the Gallery of Rogues lays it out.</p>
+  <div class="agrid">
+    <ul class="anat">
+      <li><b>Name and expansion</b> the acronym and what it stands for</li>
+      <li><b>Status</b> active · planning · paused · complete; code internal or public</li>
+      <li><b>Outline</b> problem · value · approach · goals</li>
+      <li><b>Questions</b> the three it is built to answer</li>
+      <li><b>Components</b> sub-projects and phases, each done · active · next</li>
+      <li><b>Literature</b> the initial review, by category, each paper with why it matters</li>
+      <li><b>Progress</b> a dated timeline</li>
+      <li><b>Links</b> which other projects it feeds or draws on</li>
+      <li><b>Repositories</b><span class="ast"><span>private code repos</span><span>public static pages [progress / demos]</span><span>presentation decks (repos)</span></span></li>
+    </ul>
+    <div class="mv">
+      <img src="assets/hub_icon.png" alt="">
+      <a class="mvlink" href="https://n-herling-mk1.github.io/ATLAS_Master_Project_Repo/" target="_blank" rel="noopener">OPEN THE MASTER VIEW ↗</a>
+      <p class="url">n-herling-mk1.github.io/ATLAS_Master_Project_Repo</p>
+      <p class="hint">Opens in a new tab</p>
+    </div>
+  </div>
+</div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>Gallery of Rogues · Master View</span></div>
+</section>
+
+<!-- ================= OVERVIEW PICTURE ================= -->
+<section class="slide to"><div class="pad">
+  <div class="kicker">THE PROJECT LINE · OVERVIEW</div>
+  <h1>Thirteen projects, one anatomy</h1>
+  <p class="lede">Compiled and dreamed up since August 2026. Every project page in the Gallery of Rogues carries the same parts; this is what each one holds today.</p>
+  <table class="anat">
+    <thead><tr><th>PROJECT</th><th>STATUS</th><th>FIRST ENTRY</th><th>OUTLINE</th><th>QUESTIONS</th><th>COMPONENTS</th><th>LITERATURE</th><th>PROGRESS</th><th>PRIVATE CODE</th><th>PRESENTATION</th><th>PUBLIC SITE</th><th>CODE</th></tr></thead>
+    <tbody><tr style="--c:#18d6f0"><td class="pn"><img src="assets/thumbs/baseline.webp" alt=""><b>BASELINE</b></td><td class="st active">ACTIVE</td><td>Oct 26</td><td><i class="y">●</i></td><td>3</td><td>10</td><td>8</td><td>12</td><td><i class="y">●</i></td><td><i class="n">—</i></td><td><i class="n">—</i></td><td>internal</td></tr><tr style="--c:#ff2a3c"><td class="pn"><img src="assets/thumbs/stave.webp" alt=""><b>STAVE</b></td><td class="st active">ACTIVE</td><td>Jul 26</td><td><i class="y">●</i></td><td>3</td><td>3</td><td>19</td><td>9</td><td><i class="n">—</i></td><td><i class="n">—</i></td><td><i class="n">—</i></td><td>internal</td></tr><tr style="--c:#ffd21f"><td class="pn"><img src="assets/thumbs/truss.webp" alt=""><b>TRUSS</b></td><td class="st active">ACTIVE</td><td>Oct 26</td><td><i class="y">●</i></td><td>3</td><td>3</td><td>30</td><td>16</td><td><i class="y">●</i></td><td><i class="y">●</i></td><td><i class="n">—</i></td><td>internal</td></tr><tr style="--c:#22e3ff"><td class="pn"><img src="assets/thumbs/lathe.webp" alt=""><b>LATHE</b></td><td class="st planning">PLANNING</td><td>Oct 26</td><td><i class="y">●</i></td><td>3</td><td>4</td><td>26</td><td>13</td><td><i class="n">—</i></td><td><i class="n">—</i></td><td><i class="y">●</i></td><td>internal</td></tr><tr style="--c:#1ff0b0"><td class="pn"><img src="assets/thumbs/gambit.webp" alt=""><b>GAMBIT</b></td><td class="st active">ACTIVE</td><td>Aug 26</td><td><i class="y">●</i></td><td>3</td><td>3</td><td>18</td><td>10</td><td><i class="n">—</i></td><td><i class="n">—</i></td><td><i class="n">—</i></td><td>internal</td></tr><tr style="--c:#a6ff1f"><td class="pn"><img src="assets/thumbs/lexicon.webp" alt=""><b>LEXICON</b></td><td class="st active">ACTIVE</td><td>Jun 26</td><td><i class="y">●</i></td><td>3</td><td>7</td><td>49</td><td>34</td><td><i class="y">●</i></td><td><i class="n">—</i></td><td><i class="n">—</i></td><td>internal</td></tr><tr style="--c:#ff2a2a"><td class="pn"><img src="assets/thumbs/info-theory.webp" alt=""><b>INFO THEORY</b></td><td class="st active">ACTIVE</td><td>Aug 26</td><td><i class="y">●</i></td><td>3</td><td>0</td><td>3</td><td>8</td><td><i class="n">—</i></td><td><i class="n">—</i></td><td><i class="n">—</i></td><td>internal</td></tr><tr style="--c:#22c8ff"><td class="pn"><img src="assets/thumbs/beam-agent.webp" alt=""><b>BEAM AGENT</b></td><td class="st active">ACTIVE</td><td>Sep 26</td><td><i class="y">●</i></td><td>3</td><td>5</td><td>10</td><td>11</td><td><i class="n">—</i></td><td><i class="n">—</i></td><td><i class="n">—</i></td><td>internal</td></tr><tr style="--c:#ff2030"><td class="pn"><img src="assets/thumbs/kerf.webp" alt=""><b>KERF</b></td><td class="st planning">PLANNING</td><td>Jun 26</td><td><i class="y">●</i></td><td>3</td><td>5</td><td>17</td><td>17</td><td><i class="y">●</i></td><td><i class="n">—</i></td><td><i class="n">—</i></td><td>internal</td></tr><tr style="--c:#22c8ff"><td class="pn"><img src="assets/thumbs/forge.webp" alt=""><b>FORGE</b></td><td class="st active">ACTIVE</td><td>May 26</td><td><i class="y">●</i></td><td>3</td><td>5</td><td>12</td><td>11</td><td><i class="n">—</i></td><td><i class="n">—</i></td><td><i class="y">●</i></td><td>public</td></tr><tr style="--c:#c43cff"><td class="pn"><img src="assets/thumbs/dncn-qn.webp" alt=""><b>DNCn_QN</b></td><td class="st active">ACTIVE</td><td>Oct 26</td><td><i class="y">●</i></td><td>3</td><td>3</td><td>5</td><td>9</td><td><i class="n">—</i></td><td><i class="y">●</i></td><td><i class="n">—</i></td><td>internal</td></tr><tr style="--c:#ff3030"><td class="pn"><img src="assets/thumbs/sig-bg.webp" alt=""><b>SIG/BG</b></td><td class="st active">ACTIVE</td><td>Oct 26</td><td><i class="y">●</i></td><td>3</td><td>4</td><td>5</td><td>8</td><td><i class="n">—</i></td><td><i class="n">—</i></td><td><i class="y">●</i></td><td>public</td></tr><tr style="--c:#ffb31a"><td class="pn"><img src="assets/thumbs/unknot.webp" alt=""><b>UNKNOT</b></td><td class="st active">ACTIVE</td><td>Nov 26</td><td><i class="y">●</i></td><td>3</td><td>2</td><td>11</td><td>11</td><td><i class="n">—</i></td><td><i class="y">●</i></td><td><i class="n">—</i></td><td>internal</td></tr></tbody>
+  </table>
+  <div class="legend"><span><b>OUTLINE</b> problem · value · approach · goals</span><span><b>COMPONENTS</b> sub-projects and phases</span><span><b>LITERATURE</b> papers in the initial review</span><span><b>PROGRESS</b> dated timeline entries</span><span><i class="y">●</i> listed on the page · <i class="n">—</i> not listed</span><span><b>Totals</b> 54 components · 213 papers</span></div>
+</div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>Counts from projects/*/project.json, 19 Nov 2026</span></div>
+</section>
+
+<!-- ================= MAIN SPINE ================= -->
+<section class="slide ts"><div class="pad">
+  <div class="kicker">THE MAIN SPINE</div>
+  <div class="goalbar top"><b>GOAL · DRAFT</b>Two network scores that separate signal from background as well as possible while staying independent on background, so the ABCD estimate of the background in the signal region closes, with a stated confidence.</div>
+  <h1>From features to a healthy ABCD plane</h1>
+  <div class="spine">
+    <div class="sp" style="--c:#ff3030"><div class="sh"><span>1</span><img src="assets/thumbs/sig-bg.webp" alt=""></div><b class="nm">SIG/BG</b><p class="q">Which inputs separate signal from background, and which only appear to?</p><p class="o"><i>OUT</i>ranked candidate features per region</p><p class="s">public site live</p></div>
+    <div class="arr"></div>
+    <div class="sp" style="--c:#1ff0b0"><div class="sh"><span>2</span><img src="assets/thumbs/gambit.webp" alt=""></div><b class="nm">GAMBIT</b><p class="q">Which features go to NN1 and which to NN2, so the two scores stay independent?</p><p class="o"><i>OUT</i>NN1 and NN2 feature rosters per region</p><p class="s">barrel result; endcap planned</p></div>
+    <div class="arr"></div>
+    <div class="sp pair"><div class="sh"><span>3</span><img src="assets/thumbs/baseline.webp" alt=""><img src="assets/thumbs/dncn-qn.webp" alt=""></div><b class="nm">BASELINE <em>|</em> DNCn_QN + DisCo</b><p class="q">Train both networks on one fixed procedure, with DisCo decorrelation and the queen's closure term.</p><p class="o"><i>OUT</i>a locked baseline per region</p><p class="s">Stage A running</p></div>
+    <div class="arr"></div>
+    <div class="sp plane"><div class="sh"><span>4</span><div class="ph">ABCD<br>PLANE<br>HEALTH</div></div><b class="nm">PLANE HEALTH</b><p class="q">Is the trained ABCD plane healthy: does it close, and are the pulls what the counts allow?</p><p class="o"><i>OUT</i>a verdict per plane, with its health checks</p><p class="s">checks listed; project to be named</p></div>
+  </div>
+  <div class="gbx">
+    <h3><img src="assets/thumbs/gambit.webp" alt="">GAMBIT, IN SHORT</h3>
+    <div class="gcols">
+      <div><b>WHAT</b>Decides which features each network gets, instead of splitting them by hand.</div>
+      <div><b>HOW</b>① <i>Cooperative game:</i> features are players; each is scored by leaving it out, against shuffled real columns; the pool is pruned.<br>② <i>Adversarial game:</i> NN1 and NN2 claim, release or drop features; a move stands only if it beats a measured noise floor.<br>③ Re-graded on seeds the search never used.</div>
+      <div><b>OUTPUT</b>Per region: the NN1 feature roster, the NN2 roster, and the dropped features.</div>
+      <div><b>STATUS</b>Barrel run end to end: closure improved, NN2 lost discrimination, a trade, not yet a win. Next: closure as the referee, then the endcap.</div>
+    </div>
+  </div>
+</div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>Status lines from each project's page and current runs</span></div>
+</section>
+
+<!-- ================= INFO 555 TECHNIQUES ================= -->
+<section class="slide tn"><div class="pad">
+  <div class="kicker">FROM INFO 555 · APPLIED NLP</div>
+  <h1>Language-model techniques we (Nathan) want to bring in</h1>
+  <p class="lede">What we (Nathan) have picked up in the course, and where each one would go in the project line.</p>
+  <table class="nlp"><thead><tr><th>TECHNIQUE</th><th>WHERE WE (NATHAN) MET IT</th><th>WHERE WE (NATHAN) WANT IT</th></tr></thead><tbody><tr><td class="t">Tokenization, lemmas, custom tokenizers</td><td class="f pa">PA1 · deck 1.3</td><td>LEXICON: binned features become tokens; an event is a bag of tokens</td></tr><tr><td class="t">Word embeddings, cosine similarity</td><td class="f pa">PA2 · decks 2.2, 2.4</td><td>LEXICON / Evt2Vec: one vector per token and per event</td></tr><tr><td class="t">Word Mover&#x27;s Distance</td><td class="f pa">PA2 · deck 2.4</td><td>Compare events, or signal and background populations, as token distributions</td></tr><tr><td class="t">TF-IDF + logistic regression, class weights</td><td class="f pa">PA3 · decks 2.1, 3.1</td><td>A plain baseline on token bags before any deep model; class weights for rare signal</td></tr><tr><td class="t">n-grams, co-occurrence, PMI</td><td class="f ct">decks 2.1, 5.1</td><td>LEXICON grammar search; INFO THEORY mutual information between features</td></tr><tr><td class="t">Skip-gram (word2vec)</td><td class="f ct">deck 2.2</td><td>Evt2Vec: token vectors from co-occurrence in events</td></tr><tr><td class="t">Masked language model (BERT-style)</td><td class="f ct">decks 5.1, 5.2</td><td>CutFormer: masked-token surprise as a label-free ABCD axis</td></tr><tr><td class="t">Autoregressive next-token model</td><td class="f ct">decks 5.1, 5.3</td><td>Exact-likelihood surprise; signal-or-background from an event&#x27;s token list</td></tr><tr><td class="t">RNN / GRU</td><td class="f ct">decks 4.1, 4.2</td><td>Sequence model over tokens in a measured order</td></tr><tr><td class="t">Attention / transformers</td><td class="f ct">decks 4.6, 5.3</td><td>LEXICON across the board; attention add-ons for TRUSS, KERF, FORGE, LATHE</td></tr><tr><td class="t">Retrieval over a document library</td><td class="f ct">deck 6.3 (RAG)</td><td>BEAM AGENT: local research agent over the tokenized literature</td></tr></tbody></table>
+  <div class="nlogos">
+    <div><img src="assets/thumbs/lexicon.webp" alt="LEXICON"><p><b>LEXICON</b>tokens, embeddings, masked and next-token models</p></div>
+    <div><img src="assets/thumbs/beam-agent.webp" alt="BEAM AGENT"><p><b>BEAM AGENT</b>retrieval over the tokenized literature</p></div>
+  </div>
+  <p class="draftnote"><b>PA</b> = graded assignment completed this term (red). Deck numbers are the INFO 555 lecture decks, Fall 2026; every row was checked against them.</p>
+</div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>INFO 555, Fall 2026 · draft</span></div>
+</section>
+
+<!-- ================= THE QUEEN · IN WORDS ================= -->
+<section class="slide qa"><div class="pad">
+  <div class="kicker">DNCn_QN · THE QUEEN · 1 / 3 · IN WORDS</div>
+  <h1>The queen: a loss built on noisy closure</h1>
+  <p class="lede">DNCn_QN: Debiased NonClosure under the null, Quantile-Normalized. Added on top of DisCo while the two networks train.</p>
+  <div class="qgrid">
+    <div>
+      <div class="idea">She was designed as a loss function from one idea: <b>\(|nc|\) is a random variable.</b> Even two truly independent scores miss the ABCD prediction by some amount, set by counting noise. Only the part above that noise is a real problem.</div>
+      <ul class="steps">
+        <li><span>1</span>At each training step, draw cut pairs inside the trained band of the ABCD plane.</li>
+        <li><span>2</span>Count the background in regions A–D with soft (smooth) membership, and work out how big the closure error should be from counting noise alone.</li>
+        <li><span>3</span>Penalise only the error above that noise. Inside the noise she adds nothing, so the networks are never pushed to fit noise.</li>
+      </ul>
+    </div>
+    <div class="side">
+      <img src="assets/dncn_qn_logo.webp" alt="DNCn_QN">
+      <div class="lay"><b>FOR THE LAYMAN</b>The queen is a loss term that assumes \(|nc|\) is a random variable and only penalises the part that is larger than its expected noise.</div>
+      <div class="vs"><b>HOW SHE DIFFERS FROM DISCO</b>DisCo penalises distance correlation over all background event pairs: no cuts, no sign, no noise floor. The queen looks at closure itself, cut by cut, in units of its own noise.</div>
+    </div>
+  </div>
+</div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>From the queens endcap summary and the 3 Nov DisCo vs queen deck</span></div>
+</section>
+
+<!-- ================= QUEEN FIG ENDCAP ================= -->
+<section class="slide qf"><div class="pad">
+  <div class="kicker">DISCO + DNCn_QN · THE PULL PICTURE · ENDCAP</div>
+  <h1>Endcap: random cuts over the whole plane</h1>
+  <div class="fgrid">
+    <div class="fig e"><div class="wrap"><img src="assets/qn_endcap_random_cuts_plot.png" alt="Endcap pull histograms for DisCo alone and the queen arms against the shuffle null"><svg class="ann" viewBox="0 0 890 880" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+  <defs><marker id="are" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e8230a"/></marker></defs>
+  <line x1="610" y1="172" x2="468" y2="172" stroke="#e8230a" stroke-width="5" marker-end="url(#are)"/>
+  <rect x="618" y="150" width="200" height="38" fill="#fff" opacity=".92"/><text x="624" y="178" font-size="25" font-weight="700" fill="#e8230a">shift toward 0</text>
+  <line x1="562" y1="258" x2="456" y2="345" stroke="#0f7a4a" stroke-width="3"/>
+  <rect x="558" y="204" width="324" height="104" fill="#fff" opacity=".92"/><text x="564" y="232" font-size="22" font-weight="700" fill="#0f7a4a">DisCo + queen: mean</text><text x="564" y="260" font-size="22" font-weight="700" fill="#0f7a4a">+1.66 to +2.20</text><text x="564" y="292" font-size="19" fill="#0f7a4a">QDR, τ̂²: width 2.71 → 1.8–2.0</text>
+  <line x1="700" y1="440" x2="690" y2="598" stroke="#2f7fe0" stroke-width="3"/>
+  <rect x="582" y="330" width="300" height="110" fill="#fff" opacity=".92"/><text x="588" y="358" font-size="22" font-weight="700" fill="#2f7fe0">DisCo alone: mean +3.33</text><text x="588" y="390" font-size="19" fill="#2f7fe0">bump near +6: ABCD</text><text x="588" y="418" font-size="19" fill="#2f7fe0">badly under-predicts</text>
+  <line x1="240" y1="246" x2="296" y2="378" stroke="#777" stroke-width="2.5"/>
+  <rect x="142" y="208" width="160" height="38" fill="#fff" opacity=".92"/><text x="148" y="236" font-size="23" fill="#555">null: 0 / 1</text>
+</svg></div>
+      <p class="key"><span><i style="background:#c8c8c8"></i>shuffle null</span><span><i style="background:#2f7fe0"></i>DisCo α8</span><span><i style="background:#f07a3a"></i>+ QB β 0.1</span><span><i style="background:#2bbf86"></i>+ QDR β 0.025</span><span><i style="background:#0f7a4a"></i>+ QDR β 0.05</span><span><i style="background:#222"></i>+ \(\hat\tau^2\)</span></p>
+      <p class="cap">All queen arms are mk2 (the source legend's "mk1 (QB)" is the mk2 QB). 20,000 random cut pairs · 50 runs · 34,970 background each.</p></div>
+    <div class="txt">
+      <div class="ax"><b>Y-AXIS · DENSITY</b>How often a pull of that size occurs across all the random cut pairs; each curve is normalised to area 1, so the curves compare directly.</div>
+      <div class="ax"><b>X-AXIS · PULL</b>\(\mathrm{pull} = (N_A - \hat N_A)/\sigma\): how far ABCD misses region A at one cut pair, in units of its expected counting noise. Perfect closure gives mean 0, width 1: the shaded grey shuffle null.</div>
+      <div class="syn"><b>WHAT THIS SHOWS</b>DisCo alone (blue) sits far right of the null, with a second bump near +6: cut pairs where ABCD badly under-predicts. Every queen arm pulls the curve back toward 0 (mean 3.33 → 1.66–2.20). QDR and \(\hat\tau^2\) also narrow it (width 2.71 → 1.78–1.98) and remove most of that bump: the cut-to-cut structure DisCo leaves behind. QB moves the mean most but keeps DisCo's width.</div>
+    </div>
+  </div>
+</div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>Figure: "DisCo + the queen, endcap and barrel", slide 5 (R15 confirm)</span></div>
+</section>
+
+<!-- ================= QUEEN FIG BARREL ================= -->
+<section class="slide qf"><div class="pad">
+  <div class="kicker">DISCO + DNCn_QN · THE PULL PICTURE · BARREL</div>
+  <h1>Barrel: random cuts over the whole plane</h1>
+  <div class="fgrid">
+    <div class="fig b"><div class="wrap"><img src="assets/qn_barrel_random_cuts.png" alt="Barrel pull histograms for BCE, DisCo alone and DisCo plus queen arms against the shuffle null"><svg class="ann" viewBox="0 0 1120 925" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e8230a"/></marker></defs>
+  <line x1="592" y1="112" x2="478" y2="112" stroke="#e8230a" stroke-width="5" marker-end="url(#ar)"/>
+  <rect x="600" y="92" width="214" height="34" fill="#fff" opacity=".92"/><text x="606" y="117" font-size="25" font-weight="700" fill="#e8230a">shift toward 0</text>
+  <line x1="700" y1="168" x2="590" y2="215" stroke="#2f7fe0" stroke-width="3"/>
+  <rect x="696" y="140" width="410" height="40" fill="#fff" opacity=".92"/><text x="702" y="169" font-size="25" font-weight="700" fill="#2f7fe0">DisCo alone α2: mean +2.22</text>
+  <line x1="700" y1="222" x2="505" y2="190" stroke="#0f7a4a" stroke-width="3"/>
+  <rect x="696" y="194" width="410" height="72" fill="#fff" opacity=".92"/><text x="702" y="223" font-size="25" font-weight="700" fill="#0f7a4a">DisCo + queen: mean</text><text x="702" y="255" font-size="25" font-weight="700" fill="#0f7a4a">+1.08 to +1.92</text>
+  <rect x="868" y="330" width="236" height="68" fill="#fff" opacity=".92"/><text x="874" y="358" font-size="22" fill="#666">BCE only (no</text><text x="874" y="388" font-size="22" fill="#666">decorrelation) +5.21</text>
+  <line x1="300" y1="290" x2="345" y2="390" stroke="#777" stroke-width="2.5"/>
+  <rect x="160" y="252" width="190" height="40" fill="#fff" opacity=".92"/><text x="166" y="281" font-size="23" fill="#555">null: 0 / 1</text>
+</svg></div>
+      <p class="key"><span><i style="background:#c8c8c8"></i>shuffle null</span><span><i style="background:#9a9a9a"></i>BCE only</span><span><i style="background:#2f7fe0"></i>DisCo α2</span><span><i style="background:#173d7a"></i>DisCo α8</span><span><i style="background:#f07a3a"></i>+ QB</span><span><i style="background:#0f7a4a"></i>+ QDR</span><span><i style="background:#222"></i>+ \(\hat\tau^2\)</span><span><i style="background:#2bbf86"></i>QDR alone</span></p>
+      <p class="cap">52,000 random cut pairs · 130 runs on fresh seeds · 1,089 background each.</p></div>
+    <div class="txt">
+      <div class="ax"><b>Y-AXIS · DENSITY</b>How often a pull of that size occurs across all the random cut pairs; each curve is normalised to area 1, so the curves compare directly.</div>
+      <div class="ax"><b>X-AXIS · PULL</b>\(\mathrm{pull} = (N_A - \hat N_A)/\sigma\): how far ABCD misses region A at one cut pair, in units of its expected counting noise. Perfect closure gives mean 0, width 1: the shaded grey shuffle null.</div>
+      <div class="syn"><b>WHAT THIS SHOWS</b>Every DisCo + queen arm sits left of DisCo alone: mean 2.22 → 1.08–1.92. The widths stay at 1.1–1.4, close to the null's 1, because with only 1,089 background events the spread is mostly counting noise. So in the barrel the gain is the offset, not the width. More DisCo does not do it: DisCo α8 (navy) is worse than α2, mean 2.81, width 2.26.</div>
+    </div>
+  </div>
+</div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>Figure: "DisCo + the queen, endcap and barrel", slide 6 (R16 confirm); annotations added</span></div>
+</section>
+
+<!-- ================= THE QUEEN · TWO VARIANTS ================= -->
+<section class="slide qb"><div class="pad">
+  <div class="kicker">DNCn_QN · THE QUEEN · 2 / 3 · HER TWO VARIANTS</div>
+  <h1>Two variants, two jobs</h1>
+  <p class="lede">Both are mk2 queens, added on top of DisCo α 8. Endcap R15 confirm block: 34,970 background events, seeds 3000–3009, 10 per arm.</p>
+  <div class="vgrid">
+    <div class="v" style="--c:#ff7a2a">
+      <h3>QB<small>β 0.1 · training batch · 3 cuts · probabilities</small></h3>
+      <div class="lay"><b>FOR THE LAYMAN</b>The queen is a loss term that assumes \(|nc|\) is a random variable and only penalises the part that is larger than its expected noise. This version checks 3 cuts on each training batch; that tweak has been shown to halve how much the two networks' scores move together and to halve the closure bias, but not to make closure even from one cut to the next.</div>
+      <dl>
+        <dt>DOES</dt><dd>Halves overall dependence (\(|z_{11}|\) 5.8 → 2.8, lowest of any arm) and the trained-band bias (+6.5% → +3.3%); leaves NN2's shape alone.</dd>
+        <dt>DOESN'T</dt><dd>Even out closure across cuts: pull width stays at 2.01, same as DisCo.</dd>
+        <dt>COSTS</dt><dd>AUC1 −0.005; the slowest arm, 3× DisCo's wall time.</dd>
+      </dl>
+    </div>
+    <div class="v" style="--c:#1ba86a">
+      <h3>QDR / \(\hat\tau^2\)<small>4,096-event background draw · 9 cuts · logit counts</small></h3>
+      <div class="lay"><b>FOR THE LAYMAN</b>The queen is a loss term that assumes \(|nc|\) is a random variable and only penalises the part that is larger than its expected noise. This version checks 9 cuts on a separate 4,096-event background sample at every step; that tweak has been shown to make closure even across the whole ABCD plane, at the cost of stretching NN2's scores.</div>
+      <dl>
+        <dt>DOES</dt><dd>The only version that evens out closure: pull width 2.01 → 1.29–1.43. Matches QB on dependence and bias. Trained out to \(q = 0.95\), it also reaches the tail: tail \(|nc|\) 17.6% → 14.2%.</dd>
+        <dt>COSTS</dt><dd>NN2's background logits stretch 2.4–3.3×; AUC1 drops about 0.0065.</dd>
+        <dt>TWO FORMS</dt><dd>QDR: a hinge on each of the 9 cuts. \(\hat\tau^2\): one pooled excess over a shuffle null, scale-free by construction.</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="shared"><b>SHARED LIMIT</b><div class="lay"><b>FOR THE LAYMAN</b>Both versions shrink the error but don't change its direction: the method still predicts slightly too few background events in the signal region, every time. (\(N_A\) is above the ABCD prediction in all 50 runs.)</div></div>
+</div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>From the queens endcap summary (R15 confirm, endcap)</span></div>
+</section>
+
+<!-- ================= THE QUEEN · EQUATIONS ================= -->
+<section class="slide qc"><div class="pad">
+  <div class="kicker">DNCn_QN · THE QUEEN · 3 / 3 · THE LOSS, AND WHERE SHE WORKS</div>
+  <h1>The loss in full, and where she should work</h1>
+  <div class="cgrid">
+    <div>
+      <div class="eqb"><h3>EVERY ARM · TWO NETWORKS TRAINED TOGETHER</h3>
+        \[L = \mathrm{BCE}_1 + \mathrm{BCE}_2 + \alpha\,\mathrm{dCor}^2(s_1, s_2 \mid \mathrm{bkg}) + \beta\,L_Q\]
+        <p>The epoch is chosen on \(\mathrm{BCE}_1 + \mathrm{BCE}_2 + \alpha\,\mathrm{dCor}^2\); \(L_Q\) never picks it.</p></div>
+      <div class="eqb"><h3>PER CUT PAIR k · SOFT COUNTS, NOISE FLOOR HELD FIXED</h3>
+        \[z_k^2 = \frac{g_k^2}{\tilde F_k},\qquad g_k = N_A - \frac{N_B N_C}{N_D},\qquad N_X = \sum_i w_i\, m_X(i)\]
+        <p>\(\tilde F_k\): the variance of \(g_k\) propagated from the four soft counts. \(z_k^2 \approx 1\) is what counting noise alone gives.</p></div>
+      <div class="eqb"><h3>THE TWO VARIANTS</h3>
+        \[L_{\mathrm{QB}} = \tfrac13\sum_{k=1}^{3}\max(0,\,z_k^2 - 1)\qquad L_{\mathrm{QDR}} = \tfrac1K\sum_{k=1}^{K}\max(0,\,z_k^2 - 1)\qquad L_{\tau^2} = \hat\tau^2 = \frac{\max(0,\,Q - Q_{\mathrm{null}})}{W}\]
+        <p>\(Q = \sum_k z_k^2\); \(Q_{\mathrm{null}}\) = mean of \(Q\) over 4 shuffles of NN2. QB: training batch, probabilities, 3 cuts. QDR / \(\hat\tau^2\): 4,096-event background draw, logits, \(K = 9\) cuts in \([0.3, 0.8]^2\) (background quantiles).</p></div>
+    </div>
+    <div class="where">
+      <h3>WHERE SHE SHOULD WORK</h3>
+      <div class="w" style="--c:#ff7a2a"><b>QB</b>The working point is locked, and you want less bias without stretching the score shapes.</div>
+      <div class="w" style="--c:#1ba86a"><b>QDR / \(\hat\tau^2\)</b>The working point is not locked: you scan cuts, use several signal regions, or the analysis region sits in the tail.</div>
+      <div class="x"><b>BOTH, AND ONLY</b>On top of DisCo; on cuts inside the band she trains on; on a background mix like the one she trained on (she does not survive an HTmiss shift). β is set per region: in the barrel the 4,096-event draw is larger than a fold's ~740 background events, so the same β is about 5× weaker.</div>
+    </div>
+  </div>
+</div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>Equations from the 3 Nov DisCo vs queen deck (slide 3)</span></div>
+</section>
+
+
+</div></div>
+
+<div class="nav"><button id="prev" aria-label="Previous">‹</button><span id="count">1 / 12</span><button id="next" aria-label="Next">›</button></div>
+<div class="prog" id="prog"></div>
+
+<script>
+/* Slide-number badge: a seeded histogram (one bar per slide, current bar lit with a +/- sqrt(k) error bar),
+   a large Orbitron numeral drawn twice with an accent offset, a seeded Gaussian dot scatter, and "of N · ±√k".
+   Fixed seeds, so every render (HTML, PDF, PPTX) is identical. Skips slides that already carry a badge. */
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')), N=slides.length, NS='http://www.w3.org/2000/svg';
+  function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  function gauss(r){var u=1-r(),v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
+  var hr=rng(20261119), H=[]; for(var i=0;i<N;i++) H.push(0.45+0.55*hr());
+  slides.forEach(function(sl,idx){
+    if(sl.querySelector('.pgbadge')) return;
+    var k=idx+1, dark=sl.classList.contains('sc')||sl.classList.contains('sx')||sl.classList.contains('tc')||sl.classList.contains('dark');
+    var ink=dark?'#ffffff':'#111111', acc='#e8230a', grey=dark?'#5a5a5a':'#d3d6d9', mute=dark?'#9a9a9a':'#7b838a', dot=dark?'#6f6f6f':'#9aa3ab';
+    var bw=Math.min(13,Math.floor(124/N)-3), gap=3, x0=4, base=58, hmax=40, out='', hist='';
+    for(var i=0;i<N;i++){
+      var h=H[i]*hmax, x=x0+i*(bw+gap), on=(i===idx);
+      hist+='<rect x="'+x+'" y="'+(base-h).toFixed(1)+'" width="'+bw+'" height="'+h.toFixed(1)+'" fill="'+(on?acc:grey)+'"/>';
+      if(on){var e=Math.min(14,2.6*Math.sqrt(k)), cx=x+bw/2, ty=base-h;
+        hist+='<g stroke="'+ink+'" stroke-width="1.6"><line x1="'+cx+'" y1="'+(ty-e).toFixed(1)+'" x2="'+cx+'" y2="'+(ty+e).toFixed(1)+'"/><line x1="'+(cx-3.5)+'" y1="'+(ty-e).toFixed(1)+'" x2="'+(cx+3.5)+'" y2="'+(ty-e).toFixed(1)+'"/><line x1="'+(cx-3.5)+'" y1="'+(ty+e).toFixed(1)+'" x2="'+(cx+3.5)+'" y2="'+(ty+e).toFixed(1)+'"/></g>';}
+    }
+    var dr=rng(1000+k), ncx=205, ncy=27;
+    for(var j=0;j<26;j++){
+      var dx=gauss(dr)*24, dy=gauss(dr)*11, r=1.1+1.5*dr(), a=(j%7===0);
+      out+='<circle cx="'+(ncx+dx).toFixed(1)+'" cy="'+(ncy+dy).toFixed(1)+'" r="'+r.toFixed(1)+'" fill="'+(a?acc:dot)+'" opacity="'+(a?0.8:0.6)+'"/>';
+    }
+    var num=(k<10?'0':'')+k, jt=rng(500+k), jx=(jt()-0.5)*1.6, jy=(jt()-0.5)*1.6;
+    out+='<text x="'+(ncx+2.4+jx).toFixed(1)+'" y="'+(ncy+14.4+jy).toFixed(1)+'" font-family="Orbitron" font-weight="900" font-size="34" letter-spacing="4" text-anchor="middle" fill="'+acc+'" opacity="0.55">'+num+'</text>';
+    out+='<text x="'+ncx+'" y="'+(ncy+12)+'" font-family="Orbitron" font-weight="900" font-size="34" letter-spacing="4" text-anchor="middle" fill="'+ink+'">'+num+'</text>';
+    out+='<text x="'+ncx+'" y="'+(ncy+38)+'" font-family="Share Tech Mono, monospace" font-size="11.5" letter-spacing="1" text-anchor="middle" fill="'+mute+'">of '+N+' · ±'+Math.sqrt(k).toFixed(1)+'</text>';
+    var box=document.createElement('div'); box.className='pgbadge';
+    box.innerHTML='<svg class="pg-hist" viewBox="0 0 130 62" xmlns="'+NS+'">'+hist+'</svg>'+
+                  '<svg class="pg-num" viewBox="150 0 108 70" xmlns="'+NS+'">'+out+'</svg>';
+    sl.appendChild(box);
+  });
+})();
+</script>
+<script>
+(function(){
+  var deck=document.getElementById('deck');
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var n=slides.length, i=0;
+  function fit(){
+    if(document.body.classList.contains('render')){deck.style.transform='none';return;}
+    var k=Math.min(window.innerWidth/1280,window.innerHeight/720)*0.96;deck.style.transform='scale('+k+')';
+  }
+  function show(j){
+    i=Math.max(0,Math.min(n-1,j));
+    slides.forEach(function(s,t){s.classList.toggle('active',t===i);});
+    document.getElementById('count').textContent=(i+1)+' / '+n;
+    document.getElementById('prog').style.width=((i+1)/n*100)+'%';
+    try{ if(location.hash!=='#slide-'+(i+1))history.replaceState(null,'','#slide-'+(i+1)); }catch(e){}
+  }
+  function fromHash(){try{var m=/^#slide-(\d+)$/.exec(location.hash);return m?parseInt(m[1],10)-1:0;}catch(e){return 0;}}
+  document.getElementById('prev').onclick=function(){show(i-1);};
+  document.getElementById('next').onclick=function(){show(i+1);};
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();show(i+1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1);}
+    else if(e.key==='Home'){show(0);} else if(e.key==='End'){show(n-1);}
+  });
+  window.addEventListener('hashchange',function(){show(fromHash());});
+  window.addEventListener('resize',fit);
+  window.deckShow=show; window.deckFit=fit;   // used by tools/build_html_deck.py when rendering
+  fit(); show(fromHash());
+})();
+</script>
+</body>
+</html>

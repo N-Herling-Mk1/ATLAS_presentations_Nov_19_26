@@ -13,11 +13,26 @@ Open `index.html` (the splash page) and pick a deck. Inside a deck, the ⌂ butt
 | # | Date | Deck | Slides | Status |
 |---|---|---|---|---|
 | 1 | 19 Nov 2026 | [UNKNOT: project overview](decks/2026-11-19_unknot-overview/index.html) | 10 | locked |
-| 2 | 19 Nov 2026 | Project compendium + DNCn_QN overview | – | in preparation |
+| 2 | 19 Nov 2026 | [Arizona ATLAS ML projects: overview](decks/2026-11-19_atlas-ml-overview/index.html) | 10 | draft |
 
 Deck 1, slides 1–5 are the vetted overview; slide 6 marks the end of vetted work, and slides 7–10 are working material carried over from the mk1 deck.
 
-> **Internal, exploratory.** UNKNOT numbers are mk1 results on background data only. They are preliminary and are not an ATLAS result.
+Deck 2 covers the whole project line in the [Gallery of Rogues](https://n-herling-mk1.github.io/ATLAS_Master_Project_Repo/):
+
+| Slide | Content |
+|---|---|
+| 1 | Cover: the thirteen project logos |
+| 2 | What every project page holds, with a link to the master view |
+| 3 | Thirteen projects, one anatomy (matrix) |
+| 4 | Main spine: SIG/BG → GAMBIT → BASELINE \| DNCn_QN + DisCo → ABCD plane health, and GAMBIT in short |
+| 5 | INFO 555 techniques we (Nathan) want to bring in |
+| 6 | The queen (DNCn_QN) in words |
+| 7 | Endcap pull figure, annotated |
+| 8 | Barrel pull figure, annotated |
+| 9 | The queen's two mk2 variants: QB and QDR / τ̂² |
+| 10 | The loss in full, and where she should work |
+
+> **Internal, exploratory.** UNKNOT numbers are mk1 results on background data only. DNCn_QN / DisCo numbers are internal studies. None of this is an ATLAS result.
 
 ## Layout
 
@@ -27,7 +42,6 @@ catalog.js                 GENERATED list of built decks, read by the splash pag
 assets/
   splash.css, splash.js    splash page; splash.js also holds the fixed slot order and the "in preparation" tile
   fonts/                   Orbitron, Inter, Share Tech Mono (woff2, SIL OFL), so the splash works offline
-  img/                     project logos for tiles that are not built yet
   player.css, player.js    the slide player, shared by every deck
   templates/player.html    template for each deck's index.html
   icon/                    repo icon
@@ -53,6 +67,7 @@ pip install playwright pillow python-pptx
 python -m playwright install chromium
 
 python tools/build_html_deck.py source/01_unknot_overview
+python tools/build_html_deck.py source/02_atlas_ml_overview
 ```
 
 The build prints a progress line per stage:
@@ -83,7 +98,8 @@ The build prints a progress line per stage:
 
 ## Sources
 
-- UNKNOT logo: [ATLAS_Master_Project_Repo · unknot](https://n-herling-mk1.github.io/ATLAS_Master_Project_Repo/#unknot)
+- Project logos: [ATLAS_Master_Project_Repo](https://n-herling-mk1.github.io/ATLAS_Master_Project_Repo/) (Gallery of Rogues)
+- Deck 2, slides 7–8: figures from [DisCo + the queen, endcap and barrel](https://n-herling-mk1.github.io/ATLAS_presentations_DNCn_QN/) (slides 5–6), annotations added; the endcap legend was replaced by an HTML key
 - MathJax 3.2.2 (Apache-2.0, `tools/vendor/LICENSE_MathJax.txt`). Fonts: Orbitron, Inter, Share Tech Mono (SIL OFL, `tools/vendor/fonts/LICENSE_OFL.txt`).
 
 Part of the [ATLAS presentations](https://n-herling-mk1.github.io/ATLAS_presentations_/) collection · Nathan Herling · UA ATLAS HEP Group

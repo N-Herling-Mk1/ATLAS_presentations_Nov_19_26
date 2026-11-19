@@ -2,6 +2,42 @@
 window.CATALOG = {
  "decks": [
   {
+   "id": "2026-11-19_atlas-ml-overview",
+   "title": "Arizona ATLAS ML projects: overview",
+   "subtitle": "Thirteen projects since August 2026: the project anatomy, the INFO 555 techniques, the main spine, and the queen (DNCn_QN) with DisCo",
+   "author": "Nathan Herling",
+   "date": "2026-11-19",
+   "updated": "",
+   "description": "Overview of the UA ATLAS machine-learning project line: what every project page in the Gallery of Rogues holds, the thirteen projects in one matrix, the main spine (SIG/BG -> GAMBIT -> BASELINE | DNCn_QN + DisCo -> ABCD plane health), the INFO 555 techniques we (Nathan) want to bring in, and the queen: her idea, the endcap and barrel pull figures, her two mk2 variants and her loss. Internal, draft.",
+   "tags": [
+    "ATLAS",
+    "LLP",
+    "machine learning",
+    "DNCn_QN",
+    "DisCo",
+    "overview"
+   ],
+   "slides": 10,
+   "thumb": "thumbs/s-01.jpg",
+   "files": {
+    "pdf": {
+     "path": "downloads/ATLAS_ML_projects_overview_mk1.pdf",
+     "name": "ATLAS_ML_projects_overview_mk1.pdf",
+     "bytes": 3895541
+    },
+    "pptx": {
+     "path": "downloads/ATLAS_ML_projects_overview_mk1.pptx",
+     "name": "ATLAS_ML_projects_overview_mk1.pptx",
+     "bytes": 3296157
+    },
+    "html": {
+     "path": "downloads/ATLAS_ML_projects_overview_mk1_single_file.html",
+     "name": "ATLAS_ML_projects_overview_mk1_single_file.html",
+     "bytes": 2360318
+    }
+   }
+  },
+  {
    "id": "2026-11-19_unknot-overview",
    "title": "UNKNOT: project overview",
    "subtitle": "How many backgrounds can we detect? Built blind, maximum entropy, the experimental design (two paths), and the mk1 results",

@@ -5,10 +5,7 @@
   "use strict";
   const SLOTS = [
     { num: 1, id: "2026-11-19_unknot-overview" },
-    { num: 2, id: "", title: "Project compendium + DNCn_QN overview",
-      sub: "The project line at a glance, then DNCn_QN (the queen): debiased non-closure under the null, quantile-normalized.",
-      thumb: "assets/img/dncn_qn_thumb.webp", tags: ["ATLAS", "LLP", "DNCn_QN", "compendium"] },
-  ];
+    { num: 2, id: "2026-11-19_atlas-ml-overview" },  ];
   const cat = (window.CATALOG && window.CATALOG.decks) || [];
   const byId = Object.fromEntries(cat.map((d) => [d.id, d]));
   const host = document.getElementById("decks");
