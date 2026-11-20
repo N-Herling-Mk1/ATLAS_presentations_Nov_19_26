@@ -26,109 +26,119 @@ window.DECK = {
   {
    "src": "slides/s-02.png",
    "thumb": "thumbs/s-02.jpg",
-   "notes": "The test. Pool: DisCo alone and DisCo plus each queen, alpha above zero; BCE only and queen alone are out. Closure is graded on the q grid 0.3 to 0.8 in steps of 0.05 with the usual ABCD prediction, non-closure and pull; a cut pair needs at least 20 in A and 10 in B, C and D. R1 is the absolute band bias, R2 the absolute mean pull, both from r16_map.grade, the grader of the 13 Nov deck. The AUC gate is r16_map's pick rule: AUC1 may drop at most 0.025 and AUC2 at most 0.05 from the region's BCE-only mean. The table gives the counts; note the pool is unbalanced, DisCo alone is 13 percent of the gated endcap runs and 6 percent of the barrel's."
+   "notes": "The test: two ranking metrics on one grader. Shared: every run is graded by r16_map.grade, the grader of the 13 Nov deck, on the q grid 0.3 to 0.8 in steps of 0.05, with the usual ABCD prediction, non-closure nc and pull; a cut pair counts only with at least 20 in A and 10 in B, C and D. The same K cut pairs are then averaged two ways. R1, the band bias, is the absolute mean of 100 times nc: how far off the prediction is as a percent of N_A, independent of event count. R2 is the absolute mean pull: the same miss in units of its statistical error, so a fixed percent miss grows like the square root of N_A. For both, top 15 is smallest and bottom 15 largest, and both take the absolute value after averaging, so misses of opposite sign cancel. Why two: if they agree, the lists do not depend on how the miss is scaled; if they disagree, some runs close in percent but not within errors, or the reverse. Expect agreement, because within a region every run has the same background events, so R2 is close to R1 times a near-constant; slide 3 tests it. Who gets ranked: DisCo alone and DisCo plus each queen, alpha above zero, through the AUC gate, AUC1 down at most 0.025 and AUC2 at most 0.05 from the region's BCE-only mean. The table gives the counts; the pool is unbalanced, DisCo alone is 13 percent of the gated endcap runs and 6 percent of the barrel's."
   },
   {
    "src": "slides/s-03.png",
    "thumb": "thumbs/s-03.jpg",
-   "notes": "Finding 1: R1 and R2 are the same ranking. Rank correlation 0.997 endcap, 0.999 barrel; the top-15 lists share 14 and 15 runs, the bottom-15 lists 14 and 13. The figure is the barrel; the endcap version is on disk but did not survive the results zip. So the planned pairs add nothing, and the rest of the deck uses the R1 lists. A second list that can disagree needs a different axis, the full-background spectrum z11 or the tail non-closure."
+   "notes": "Finding 1: R1 and R2 are the same ranking. Definitions on the slide: miss_k is N_A minus the ABCD prediction at cut pair k; R1 is the absolute value of the mean of 100 times nc over the K valid cut pairs, the band bias in percent; R2 is the absolute value of the mean pull over the same cut pairs. Both take the absolute value after averaging. Rank correlation 0.997 endcap, 0.999 barrel; the top-15 lists share 14 and 15 runs, the bottom-15 lists 14 and 13. The figure is the barrel; the endcap version is on disk but did not survive the results zip. So the planned pairs add nothing, and the rest of the deck uses the R1 lists. A second list that can disagree needs a different axis, the full-background spectrum z11 or the tail non-closure."
   },
   {
    "src": "slides/s-04.png",
    "thumb": "thumbs/s-04.jpg",
-   "notes": "Finding 2: composition against an even draw. Endcap: 1.9 DisCo-alone runs would be expected in any 15; none in the top has chance 0.12, not evidence by itself; 10 in the bottom has chance 7.7 in ten million, strong, but 8 of the 10 are DisCo alpha 8, the reference setting. Barrel: 0.95 expected, none in the top chance 0.37, two in the bottom chance 0.25, neither is evidence. The barrel bottom is mostly barely regularised runs, QB at small alpha and beta and QDR at small beta, AUC1 close to BCE only and bias 38 to 49 percent."
+   "notes": "What a low and a high R1 and R2 look like. Each box is one run's 121 cut pairs on the ranking grid, recomputed from the out-of-fold scores by qp_r1r2_boxes.py; the recomputed means reproduce r16_map's bias and pull for all 18 runs. R1 and R2 are the absolute value of the mean, the red diamond. Low runs straddle zero: the prediction is too high at some cut pairs and too low at others. High runs sit well above zero: too low almost everywhere, and in the barrel bottom five at every cut pair. For R2, low is inside the plus or minus one band, within counting noise; high is well above it. What a low R1 hides: endcap T1 has R1 0.22 percent but a middle half of -4.7 to 4.0 percent and a mean |nc| of 5.1, about double T2 to T4. Barrel T1 has R1 1.88 with mean |nc| 11.0. In both regions the number one run is the one that cancels most. Across regions compare R1, not R2: the barrel has 32 times fewer background events, so barrel B1 misses by more than endcap B1 but has the smaller pull."
   },
   {
    "src": "slides/s-05.png",
    "thumb": "thumbs/s-05.jpg",
-   "notes": "Finding 3: same block, same seed. Every top-15 queen run with a DisCo-alone partner of the same seed in the same block. Eight of nine pairs favour the queen by 4 to 17 points of band bias; the endcap QB alpha 8 seed 3004 goes from 6.39 to 0.22 percent, the barrel QB alpha 8 seed 3401 from 15.25 to minus 1.88. The ninth is tau-hat-squared alpha 8 beta 10 on seed 3103, worse than DisCo by 7 points; the same settings on seed 3102 are top number 2. These are the selection's best cases with partners, so they show the effect exists, not how often."
+   "notes": "Finding 1b: how far apart top and bottom are on R1, the one metric the lists are ranked on. Strip plot of all 30 runs per region on one log axis; ringed runs are the ones graphed on slides 8 to 15. Endcap: top 15 from 0.22 to 1.09 percent, median 0.79; bottom 15 from 6.39 to 19.38, median 7.47; gap 5.3 points. Barrel: top 1.88 to 9.51, median 8.25; bottom 38.35 to 48.86, median 39.86; gap 28.8. The graphed runs are the extremes of each list, so the per-run slides make the endcap bottom look worse and the barrel top look better than the lists are. The barrel top is not good closure: its worst run, 9.51 percent, is worse than 10 of the 15 endcap bottom runs, so compare within a region only. R1 is the absolute value of the mean non-closure, so signs cancel across the grid: the endcap top's mean |nc| on the trained band from the health card is 2.27 percent against an R1 median of 0.79. The fix is to report mean |nc| beside R1."
   },
   {
    "src": "slides/s-06.png",
    "thumb": "thumbs/s-06.jpg",
-   "notes": "Endcap, the four best runs by band bias: ROC curves for NN1 and NN2, out-of-fold, red dot at the working point. Captions give arm, alpha, beta, signed bias, FLAG count and both AUCs. T1 is QB alpha 8 at 0.22 percent bias, AUC1 0.8709; the others are tau-hat-squared and QDR. AUC1 0.861 to 0.871 against 0.879 for BCE only."
+   "notes": "Finding 2: composition against an even draw. Endcap: 1.9 DisCo-alone runs would be expected in any 15; none in the top has chance 0.12, not evidence by itself; 10 in the bottom has chance 7.7 in ten million, strong, but 8 of the 10 are DisCo alpha 8, the reference setting. Barrel: 0.95 expected, none in the top chance 0.37, two in the bottom chance 0.25, neither is evidence. The barrel bottom is mostly barely regularised runs, QB at small alpha and beta and QDR at small beta, AUC1 close to BCE only and bias 38 to 49 percent."
   },
   {
    "src": "slides/s-07.png",
    "thumb": "thumbs/s-07.jpg",
-   "notes": "Endcap, the five worst runs. These are not cheap runs: four are QDR or tau-hat-squared at alpha 8 to 23 and one is DisCo alpha 27, all strongly regularised and all below the top four in AUC1, 0.855 to 0.861. They pay in AUC and still miss closure by 10 to 19 percent."
+   "notes": "Finding 3: same block, same seed. Every top-15 queen run with a DisCo-alone partner of the same seed in the same block. Eight of nine pairs favour the queen by 4 to 17 points of band bias; the endcap QB alpha 8 seed 3004 goes from 6.39 to 0.22 percent, the barrel QB alpha 8 seed 3401 from 15.25 to minus 1.88. The ninth is tau-hat-squared alpha 8 beta 10 on seed 3103, worse than DisCo by 7 points; the same settings on seed 3102 are top number 2. These are the selection's best cases with partners, so they show the effect exists, not how often."
   },
   {
    "src": "slides/s-08.png",
    "thumb": "thumbs/s-08.jpg",
-   "notes": "Endcap ABCD planes of the four best runs, in the style of the CMS ABCDisCoTEC paper's figure 6: raw NN1 against NN2 score, background left and signal right, events per bin in viridis on a log scale, empty bins white, working-point cuts in red. 50 by 50 bins over 34,970 background events."
+   "notes": "Endcap, the four best runs by band bias: ROC curves for NN1 and NN2, out-of-fold, red dot at the working point. Captions give arm, alpha, beta, signed bias, FLAG count and both AUCs. T1 is QB alpha 8 at 0.22 percent bias, AUC1 0.8709; the others are tau-hat-squared and QDR. AUC1 0.861 to 0.871 against 0.879 for BCE only."
   },
   {
    "src": "slides/s-09.png",
    "thumb": "thumbs/s-09.jpg",
-   "notes": "Endcap ABCD planes of the five worst runs, same style. In every run, top or bottom, NN2 background sits in its lowest score bin and signal in its highest: the AUC2 of about 0.99. A linear colour scale shows nothing but that one row, which is why these use a log scale."
+   "notes": "Endcap, the five worst runs. These are not cheap runs: four are QDR or tau-hat-squared at alpha 8 to 23 and one is DisCo alpha 27, all strongly regularised and all below the top four in AUC1, 0.855 to 0.861. They pay in AUC and still miss closure by 10 to 19 percent."
   },
   {
    "src": "slides/s-10.png",
    "thumb": "thumbs/s-10.jpg",
-   "notes": "Barrel, the four best runs: QB alpha 8 at minus 1.9 percent, two tau-hat-squared and one QDR, AUC1 0.883 to 0.887 against 0.908 for BCE only, with 0 or 1 FLAG."
+   "notes": "Endcap ABCD planes of the four best runs, in the style of the CMS ABCDisCoTEC paper's figure 6: raw NN1 against NN2 score, background left and signal right, events per bin in viridis on a log scale, empty bins white, working-point cuts in red. 50 by 50 bins over 34,970 background events."
   },
   {
    "src": "slides/s-11.png",
    "thumb": "thumbs/s-11.jpg",
-   "notes": "Barrel, the five worst runs. B3 to B5 are barely regularised, beta at most 0.03, and keep AUC1 near 0.89 to 0.90. B1 and B2 are QDR at alpha 8.7 and 11.9 with AUC1 like the top four: they miss closure by 42 to 49 percent without the AUC excuse."
+   "notes": "Endcap ABCD planes of the five worst runs, same style. In every run, top or bottom, NN2 background sits in its lowest score bin and signal in its highest: the AUC2 of about 0.99. A linear colour scale shows nothing but that one row, which is why these use a log scale."
   },
   {
    "src": "slides/s-12.png",
    "thumb": "thumbs/s-12.jpg",
-   "notes": "Barrel ABCD planes of the four best runs, same style, 25 by 25 bins over 1,089 background events."
+   "notes": "Barrel, the four best runs: QB alpha 8 at minus 1.9 percent, two tau-hat-squared and one QDR, AUC1 0.883 to 0.887 against 0.908 for BCE only, with 0 or 1 FLAG."
   },
   {
    "src": "slides/s-13.png",
    "thumb": "thumbs/s-13.jpg",
-   "notes": "Barrel ABCD planes of the five worst runs. Most bins hold zero to three background events, so read the low-score corner where background concentrates rather than single bins; signal fills the upper NN2 band in all nine runs."
+   "notes": "Barrel, the five worst runs. B3 to B5 are barely regularised, beta at most 0.03, and keep AUC1 near 0.89 to 0.90. B1 and B2 are QDR at alpha 8.7 and 11.9 with AUC1 like the top four: they miss closure by 42 to 49 percent without the AUC excuse."
   },
   {
    "src": "slides/s-14.png",
    "thumb": "thumbs/s-14.jpg",
-   "notes": "Finding 4: plane health. Median FLAG count 5 versus 11 in the endcap, 2 versus 10 in the barrel. Some checks grade what we ranked on and had to separate; they are tagged. The check that matters is the spectrum z11 on the full background, no cuts at all: flagged in 1 of 15 top versus 15 of 15 bottom endcap, 0 versus 15 barrel; medians 0.99 versus 7.09 and 1.64 versus 6.11. Counter-signal: the endcap top is not better in the tail or at the Schott point, and its NN2 shape rows flag more often, which the next slide explains."
+   "notes": "Barrel ABCD planes of the four best runs, same style, 25 by 25 bins over 1,089 background events."
   },
   {
    "src": "slides/s-15.png",
    "thumb": "thumbs/s-15.jpg",
-   "notes": "Finding 5: under the AUC in the endcap. AUC2 is the same for top and bottom, but NN2 background curves differ sharply, and the split is by queen type. QB top runs: NN2 band logit span 2.4 to 2.7, no saturation, bias 0.2 to 0.9 percent. QDR and tau-hat-squared runs, top or bottom, span 3.5 to 12.5 with about a third of background past logit 13.8, up to 45 percent. DisCo alone: span 2.8 to 3.0, no saturation. So the stretch is the QDR signature, as the 19 Nov deck said, not a mark of good closure. Open: saturated scores tie in rank, so NN2 cut quantiles sit on a plateau; whether that flatters closure is untested. Figure slots on the right are filled from the per-run suites once uploaded."
+   "notes": "Barrel ABCD planes of the five worst runs. Most bins hold zero to three background events, so read the low-score corner where background concentrates rather than single bins; signal fills the upper NN2 band in all nine runs."
   },
   {
    "src": "slides/s-16.png",
    "thumb": "thumbs/s-16.jpg",
-   "notes": "Finding 6: ordering. The ROC-hull deficit is zero for a score monotone in the likelihood ratio; each run is compared with 20 relabelled copies of its own scores where the ratio is monotone by construction. Median z is negative in every region and net, the largest is 1.49, and the isotonic chi-squared of the log likelihood ratio passes in all 64 runs. No run ranks events backwards beyond noise. BCE splits into calibration and refinement; refinement is ordering information lost. In the barrel refinement correlates with FLAG count at minus 0.75 for NN1 and minus 0.62 for NN2: fewer flags, more refinement loss. In the endcap there is no relation."
+   "notes": "Finding 4: plane health. Median FLAG count 5 versus 11 in the endcap, 2 versus 10 in the barrel. Some checks grade what we ranked on and had to separate; they are tagged. The check that matters is the spectrum z11 on the full background, no cuts at all: flagged in 1 of 15 top versus 15 of 15 bottom endcap, 0 versus 15 barrel; medians 0.99 versus 7.09 and 1.64 versus 6.11. Counter-signal: the endcap top is not better in the tail or at the Schott point, and its NN2 shape rows flag more often, which the next slide explains."
   },
   {
    "src": "slides/s-17.png",
    "thumb": "thumbs/s-17.jpg",
-   "notes": "Finding 7: the price. Median AUC1 drop against BCE only: endcap 0.010 top versus 0.003 bottom, and the gate never bound; barrel 0.023 versus 0.009, with the top sitting just under the 0.025 gate and only 1,088 of 1,968 runs passing. AUC2 moves little. The barrel top 15 is a frontier: a looser gate would move further toward closure at more AUC cost, so a fair barrel comparison needs AUC-matched runs."
+   "notes": "Finding 5: under the AUC in the endcap. AUC2 is the same for top and bottom, but NN2 background curves differ sharply, and the split is by queen type. QB top runs: NN2 band logit span 2.4 to 2.7, no saturation, bias 0.2 to 0.9 percent. QDR and tau-hat-squared runs, top or bottom, span 3.5 to 12.5 with about a third of background past logit 13.8, up to 45 percent. DisCo alone: span 2.8 to 3.0, no saturation. So the stretch is the QDR signature, as the 19 Nov deck said, not a mark of good closure. Open: saturated scores tie in rank, so NN2 cut quantiles sit on a plateau; whether that flatters closure is untested. Figure slots on the right are filled from the per-run suites once uploaded."
   },
   {
    "src": "slides/s-18.png",
    "thumb": "thumbs/s-18.jpg",
-   "notes": "Limits and corrections. Winner's curse: 11 of 15 top runs in each region come from single-seed scans. Seed noise: the tau-hat-squared setting that is top 2 on one seed and bottom 2 on the next. Barrel counting noise with 1,089 background events. One-run health cards read OK or FLAG, never WARN, and healthy means no more flags than the median reference run. Corrections to the under-the-AUC labels: the likelihood-ratio failures came only from a Spearman threshold of 0.95, while the isotonic chi-squared passes everywhere, so the threshold goes; the endcap NN1 background is multimodal in every run, so that becomes a recorded property, not a failure. The two-by-two as built is therefore not to be read."
+   "notes": "Finding 6: ordering. The ROC-hull deficit is zero for a score monotone in the likelihood ratio; each run is compared with 20 relabelled copies of its own scores where the ratio is monotone by construction. Median z is negative in every region and net, the largest is 1.49, and the isotonic chi-squared of the log likelihood ratio passes in all 64 runs. No run ranks events backwards beyond noise. BCE splits into calibration and refinement; refinement is ordering information lost. In the barrel refinement correlates with FLAG count at minus 0.75 for NN1 and minus 0.62 for NN2: fewer flags, more refinement loss. In the endcap there is no relation."
   },
   {
    "src": "slides/s-19.png",
    "thumb": "thumbs/s-19.jpg",
-   "notes": "Next. Replicate: rerun the top configurations on ten fresh seeds each and rank arms, including the tau-hat-squared setting that swings. Fix the instrument: an independent second ranking, the corrected checks, and AUC-matched comparisons in the barrel. Open questions: whether NN2 saturation flatters closure through tied ranks, why the endcap top does not improve the tail or the Schott point, and whether QB's lead holds over seeds. All per-run figures are on the QN performers page."
+   "notes": "Finding 7: the price. Median AUC1 drop against BCE only: endcap 0.010 top versus 0.003 bottom, and the gate never bound; barrel 0.023 versus 0.009, with the top sitting just under the 0.025 gate and only 1,088 of 1,968 runs passing. AUC2 moves little. The barrel top 15 is a frontier: a looser gate would move further toward closure at more AUC cost, so a fair barrel comparison needs AUC-matched runs."
+  },
+  {
+   "src": "slides/s-20.png",
+   "thumb": "thumbs/s-20.jpg",
+   "notes": "Limits and corrections. Winner's curse: 11 of 15 top runs in each region come from single-seed scans. Seed noise: the tau-hat-squared setting that is top 2 on one seed and bottom 2 on the next. Barrel counting noise with 1,089 background events. One-run health cards read OK or FLAG, never WARN, and healthy means no more flags than the median reference run. Corrections to the under-the-AUC labels: the likelihood-ratio failures came only from a Spearman threshold of 0.95, while the isotonic chi-squared passes everywhere, so the threshold goes; the endcap NN1 background is multimodal in every run, so that becomes a recorded property, not a failure. The two-by-two as built is therefore not to be read."
+  },
+  {
+   "src": "slides/s-21.png",
+   "thumb": "thumbs/s-21.jpg",
+   "notes": "Next. Replicate: rerun the top configurations on ten fresh seeds each and rank arms, including the tau-hat-squared setting that swings. Fix the instrument: an independent second ranking, the corrected checks, and AUC-matched comparisons in the barrel. Open questions: whether NN2 saturation flatters closure through tied ranks, why the endcap top does not improve the tail or the Schott point, and whether QB's lead holds over seeds. All per-run figures are on the QN performers page. R3, the mean of |100 nc| over the same cut pairs, is now a third ranking in qp_select: computed by qp_cutgrid from the out-of-fold scores and checked against r16_map's bias, pull and cut count on every run; its lists come from the next full run on the home PC."
   }
  ],
  "files": {
   "pdf": {
    "path": "downloads/QN_performers_mk1.pdf",
    "name": "QN_performers_mk1.pdf",
-   "bytes": 1108442
+   "bytes": 1108387
   },
   "pptx": {
    "path": "downloads/QN_performers_mk1.pptx",
    "name": "QN_performers_mk1.pptx",
-   "bytes": 5200399
+   "bytes": 6115324
   },
   "html": {
    "path": "downloads/QN_performers_mk1_single_file.html",
    "name": "QN_performers_mk1_single_file.html",
-   "bytes": 3407291
+   "bytes": 3735258
   }
  }
 };

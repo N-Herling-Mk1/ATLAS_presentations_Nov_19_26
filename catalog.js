@@ -17,23 +17,23 @@ window.CATALOG = {
     "ABCD",
     "plane health"
    ],
-   "slides": 19,
+   "slides": 21,
    "thumb": "thumbs/s-01.jpg",
    "files": {
     "pdf": {
      "path": "downloads/QN_performers_mk1.pdf",
      "name": "QN_performers_mk1.pdf",
-     "bytes": 1108442
+     "bytes": 1108387
     },
     "pptx": {
      "path": "downloads/QN_performers_mk1.pptx",
      "name": "QN_performers_mk1.pptx",
-     "bytes": 5200399
+     "bytes": 6115324
     },
     "html": {
      "path": "downloads/QN_performers_mk1_single_file.html",
      "name": "QN_performers_mk1_single_file.html",
-     "bytes": 3407291
+     "bytes": 3735258
     }
    }
   },

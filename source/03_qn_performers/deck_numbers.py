@@ -2,8 +2,10 @@
 """deck_numbers.py - every number on the QN performers deck, read from the pipeline's data/manifest.js.
 
     python deck_numbers.py <path to 0_qn_performers\\data\\manifest.js> [--out numbers.json]
+    python deck_numbers.py --spread-only numbers.json      # (re)write only the R1-spread block from the lists
 
 Lists: the R1 lists (top 15 / bottom 15 by |bias|); R2 is near-identical (see slide 3).
+If the manifest has R3 lists (mean |100 nc|, qp_select from 20 Nov 2026), an "r3" block is written per region.
 No numbers are typed into the deck by hand; this file is their source.
 """
 from __future__ import annotations
@@ -35,11 +37,59 @@ def med(v):
     return st.median(v) if v else None
 
 
+def r1_stats(v):
+    """min / quartiles / max of a list of R1 = |band bias| values (%)"""
+    v = sorted(v)
+    q1, q2, q3 = st.quantiles(v, n=4, method="inclusive")
+    return {"n": len(v), "min": v[0], "q1": q1, "median": q2, "q3": q3, "max": v[-1]}
+
+
+def r1_spread(lists):
+    """Spread of R1 within the top-15 and bottom-15 lists of one region, from the deck's own lists.
+    R1 = |signed band bias|; the lists carry the signed value as "bias" and the signed mean pull as "pull" (R2 = |pull|).
+    r2_per_r1: R2 / R1 over the 30 listed runs, the near-constant that makes the two rankings agree within a region."""
+    t = [abs(e["bias"]) for e in lists["top"]]
+    b = [abs(e["bias"]) for e in lists["bottom"]]
+    ts, bs = r1_stats(t), r1_stats(b)
+    ratio = [abs(e["pull"]) / abs(e["bias"]) for end in ("top", "bottom") for e in lists[end] if e["bias"]]
+    return {"top": ts, "bottom": bs,
+            "r2": {end: r1_stats([abs(e["pull"]) for e in lists[end]]) for end in ("top", "bottom")},
+            "r2_per_r1": {"median": st.median(ratio), "min": min(ratio), "max": max(ratio), "n": len(ratio)},
+            "gap": bs["min"] - ts["max"],                 # best bottom run minus worst top run, points of %
+            "median_ratio": bs["median"] / ts["median"],
+            "n_negative_bias": {end: sum(1 for e in lists[end] if e["bias"] < 0) for end in ("top", "bottom")}}
+
+
+def add_spread(out):
+    """Per-region R1 spread, plus the one cross-region comparison the deck quotes."""
+    for o in out["regions"].values():
+        o["r1_spread"] = r1_spread(o["lists"])
+    if {"endcap", "barrel"} <= set(out["regions"]):
+        e, b = out["regions"]["endcap"], out["regions"]["barrel"]
+        worst_top_barrel = b["r1_spread"]["top"]["max"]
+        out["r1_cross"] = {"barrel_worst_top": worst_top_barrel,
+                           "endcap_bottom_better_than_it": sum(1 for x in e["lists"]["bottom"] if abs(x["bias"]) < worst_top_barrel),
+                           "endcap_bottom_n": len(e["lists"]["bottom"])}
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("manifest")
+    ap.add_argument("manifest", nargs="?")
     ap.add_argument("--out", default="numbers.json")
+    ap.add_argument("--spread-only", metavar="NUMBERS_JSON",
+                    help="read an existing numbers.json, (re)compute only r1_spread / r1_cross, write it back")
     a = ap.parse_args()
+    if a.spread_only:
+        print(f"[1/2] reading {a.spread_only}")
+        out = json.load(open(a.spread_only, encoding="utf-8"))
+        add_spread(out)
+        with open(a.spread_only, "w", encoding="utf-8") as fh:
+            json.dump(out, fh, indent=1)
+        print(f"[2/2] wrote r1_spread for {', '.join(out['regions'])} into {a.spread_only}")
+        return
+    if not a.manifest:
+        ap.error("manifest path required (or use --spread-only numbers.json)")
     Q = load(a.manifest)
     out = {"n": Q["meta"]["n"], "auc_budget": Q["meta"]["auc_budget"], "made": Q["meta"]["made"], "regions": {}}
     for reg, R in Q["regions"].items():
@@ -110,7 +160,20 @@ def main():
                              "span2": r["health"]["scalars"].get("logit_span2"), "sat2": r["hood"]["nets"]["NN2"]["sat_bkg"],
                              "partner": r["partner"], "partner_metrics": r.get("partner_metrics")}
                             for i, r in enumerate(L)] for end, L in (("top", top), ("bottom", bot))}
+        if "R3_top" in R["lists"]:                     # R3 = mean |100 nc| (qp_select, from 20 Nov 2026)
+            r3 = {end: [runs[e["run"]] for e in R["lists"][f"R3_{end}"]] for end in ("top", "bottom")}
+            r1 = {"top": top, "bottom": bot}
+            o["r3"] = {
+                "rank_spearman_R1_R3": R.get("rank_spearman_R1_R3"),
+                "overlap_with_R1": {end: len({x["run"] for x in r3[end]} & {x["run"] for x in r1[end]}) for end in r3},
+                "composition": {end: dict(Counter(x["group"] for x in r3[end])) for end in r3},
+                "lists": {end: [{"rank": i + 1, "run": x["run"], "group": x["group"], "alpha": x["alpha"], "beta": x["beta"],
+                                 "bias": x["rank_metrics"]["bias"], "mean_abs_nc": x["rank_metrics"].get("mean_abs_nc"),
+                                 "rank_R1": x.get("ranks", {}).get("R1"), "flags": x["health"]["counts"]["FLAG"]}
+                                for i, x in enumerate(r3[end])] for end in r3},
+            }
         out["regions"][reg] = o
+    add_spread(out)
     with open(a.out, "w", encoding="utf-8") as fh:
         json.dump(out, fh, indent=1)
     print(f"wrote {a.out}")

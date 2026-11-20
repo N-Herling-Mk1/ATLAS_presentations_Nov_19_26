@@ -75,19 +75,56 @@
   .sc .foot{color:#9a9a9a}
   .sc .foot b{font:700 11px Orbitron,sans-serif;letter-spacing:.16em;color:#fff;margin-right:8px}
 
-  /* ---------- 2: the test ---------- */
-  .s2 .grid{display:grid;grid-template-columns:560px 1fr;gap:34px;margin-top:16px}
-  .s2 .def{margin-bottom:12px}
-  .s2 .def p{margin:0;font-size:14px;line-height:1.45}
-  .s2 .eq{font-size:15px;margin:4px 0 2px}
+  /* ---------- 2: the test, two ranking metrics ---------- */
+  .s2 .grid{display:grid;grid-template-columns:740px 1fr;gap:26px;margin-top:12px}
+  .s2 .shared{border:1.5px solid #9a9a9a;background:var(--soft);padding:8px 14px}
+  .s2 .shared p{margin:0;font-size:13px;line-height:1.45}
+  .s2 .shared .eq{font-size:14.5px;margin:3px 0 3px}
+  .s2 .arrow{text-align:center;font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;color:var(--mute);margin:6px 0}
+  .s2 .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .s2 .m{border:2.5px solid var(--ink);padding:8px 12px}
+  .s2 .m.r1{border-color:var(--accent)}
+  .s2 .m .tag{font:900 26px Orbitron,sans-serif;line-height:1}
+  .s2 .m.r1 .tag{color:var(--accent)}
+  .s2 .m .nm{font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;color:var(--mute);margin-left:8px}
+  .s2 .m .eq{font-size:15px;margin:4px 0 4px;text-align:center}
+  .s2 .m dl{display:grid;grid-template-columns:70px 1fr;gap:3px 8px;margin:0;font-size:12.5px;line-height:1.35}
+  .s2 .m dt{font:700 9.5px Orbitron,sans-serif;letter-spacing:.1em;color:var(--mute);padding-top:2px}
+  .s2 .m dd{margin:0}
+  .s2 .m dd.ask{font-weight:700;font-size:14px;line-height:1.3;color:var(--accent)}
+  .s2 .m.r2 dd.ask{color:#5b3cc4}
+  .s2 .m.r2 .tag{color:#5b3cc4}
+  .s2 .gate{font-size:13px;line-height:1.45;margin-top:10px;border-top:1px solid var(--line);padding-top:6px}
+  .s2 .gate b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.12em;color:var(--accent);margin-right:6px}
+  .s2 table.t{font-size:12px}
+  .s2 table.t td{padding:3px 5px;white-space:nowrap}
+  .s2 .note{font-size:12px;color:var(--mute);margin:6px 0 0;line-height:1.4}
+  .s2 .take{font-size:13.5px}
 
   /* ---------- 3: one ranking ---------- */
-  .s3 .grid{display:grid;grid-template-columns:1fr 360px;gap:30px;margin-top:14px}
+  .s3 .grid{display:grid;grid-template-columns:1fr 360px;gap:30px;margin-top:10px}
   .s3 .stat{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
   .s3 .stat div{border:2px solid var(--ink);padding:8px 12px}
   .s3 .stat b{display:block;font:700 10.5px Orbitron,sans-serif;letter-spacing:.14em;margin-bottom:3px}
   .s3 .stat .big{font:900 30px Orbitron,sans-serif}
   .s3 .stat p{margin:2px 0 0;font-size:12.5px;color:var(--mute)}
+  .s3 .defs{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;border:2px solid var(--accent);padding:6px 14px;margin-top:10px}
+  .s3 .defs .eq{font-size:15px;white-space:nowrap}
+  .s3 .defs p{margin:0;font-size:12.5px;line-height:1.42;color:#333}
+  .s3 .defs .h3{margin:0 0 2px}
+
+  /* ---------- 3c: reading R1 and R2 ---------- */
+  .s3c .grid{display:grid;grid-template-columns:820px 1fr;gap:22px;margin-top:10px}
+  .s3c figure img{border:0}
+  .s3c .take{font-size:12.6px;line-height:1.4;margin-top:0;margin-bottom:10px}
+  /* ---------- 3b: R1 spread ---------- */
+  .s3b .grid{display:grid;grid-template-columns:740px 1fr;gap:28px;margin-top:12px}
+  .s3b svg.r1strip{display:block}
+  .s3b table.t{font-size:12.5px}
+  .s3b table.t td{padding:4px 5px}
+  .s3b table.t th{padding:4px 5px}
+  .s3b .take{font-size:13.5px;line-height:1.42;margin-top:10px}
+  .s3b tr.bt td{border-top:2px solid var(--ink)}
 
   /* ---------- 4: who lands where ---------- */
   .s4 .grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:14px}
@@ -121,10 +158,14 @@
   .readc.sm{align-self:center}
   .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:4px 26px;margin:8px 40px 0}
   .g5{display:grid;grid-template-columns:repeat(5,1fr);gap:4px 14px;margin-top:8px}
-  .plread{font-size:12.5px;color:#333;margin:6px 0 0;line-height:1.45}
+  .plread{font-size:12.5px;color:#333;margin:6px 0 0;line-height:1.45;max-width:1080px}
   .plread b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.12em;color:var(--accent);margin-right:6px}
   .pl figure img{width:100%}
   .readc .tn{font-size:13px;line-height:1.5;color:#333}
+  .armlab{display:block;margin-top:4px;padding-top:3px;border-top:1px solid var(--line);font-size:10.8px;line-height:1.35;color:#444}
+  .armlab b{color:var(--ink)}
+  .armkey{font-size:12px;color:#333;margin:8px 0 0;line-height:1.45;max-width:1080px}
+  .armkey b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.12em;color:var(--accent);margin-right:6px}
 
   .sr .slot.big{height:300px;margin-bottom:10px}
   .sr .slot.small{height:190px}
@@ -189,7 +230,7 @@
     <h2><span>D</span>THE DATA</h2>
     <p>Recorded out-of-fold scores, nothing retrained. Endcap: 383 runs (R15, R16a). Barrel: 2,907 runs (R16). DisCo alone vs DisCo + QB, QDR, \(\hat\tau^2\). The 15 best and 15 worst runs per region, each with its full graph suite, plane-health card and five checks under the AUC.</p>
     <h2><span>C</span>CONFIDENCE</h2>
-    <p>Single runs, ranks from single-seed scans: the lists show what is possible, not what is typical. The (3) labels are provisional; two of their criteria are corrected on slide 18.</p>
+    <p>Single runs, ranks from single-seed scans: the lists show what is possible, not what is typical. The (3) labels are provisional; two of their criteria are corrected on slide 20.</p>
   </div>
   <div class="con"><b>SHORT ANSWER</b><p>The worst closers are DisCo alone (endcap) or barely regularised runs (barrel). The best closers are DisCo + queen and have clearly healthier planes, including on the one check that does not reuse the ranking. Under the AUC, ordering is honest everywhere; NN2 stretch and saturation follow the QDR/\(\hat\tau^2\) arms, not closure.</p></div>
   <div class="foot"><span><b>DNCn_QN</b>Nathan "_Steve" Herling · UA ATLAS HEP · 20 Nov 2026</span><span>ANA-EXOT-2025-24 · MSVtx · internal</span></div>
@@ -197,39 +238,52 @@
 
 <!-- ================= 2 THE TEST ================= -->
 <section class="slide s2"><div class="pad">
-  <div class="kicker">THE TEST</div>
-  <h1>One grader, one gate, two rankings</h1>
-  <p class="lede">Every run graded by the same code the 13 Nov deck used; only runs that keep their AUC are ranked.</p>
+  <div class="kicker">THE TEST · TWO RANKING METRICS</div>
+  <h1>Two ways to rank closure: R1 in percent, R2 in errors</h1>
+  <p class="lede">Same grader, same cut pairs, same gated runs. The two metrics differ only in how the miss in region A is scaled.</p>
   <div class="grid">
     <div>
-      <div class="def"><div class="h3"><span class="a">POOL</span> · DISCO ALONE VS DISCO + QUEEN</div>
-        <p>Arms R (DisCo alone), QB, QBd, QDR, D (\(\hat\tau^2\)), all with \(\alpha&gt;0\). BCE only and queen alone are out. Out-of-fold logits, trained events, background only.</p></div>
-      <div class="def"><div class="h3"><span class="a">CLOSURE</span> · ON THE \(q\) GRID \([0.3,0.8]^2\), STEP 0.05</div>
-        <div class="eq">\(\widehat N_A=\dfrac{N_B N_C}{N_D},\quad nc=1-\dfrac{\widehat N_A}{N_A},\quad \mathrm{pull}=\dfrac{N_A-\widehat N_A}{\sqrt{N_A+\sigma^2}}\)</div>
-        <p>with \(\sigma=\widehat N_A\sqrt{1/N_B+1/N_C+1/N_D}\); a cut pair counts only if \(N_A\ge 20\) and \(N_B,N_C,N_D\ge 10\).</p></div>
-      <div class="def"><div class="h3"><span class="a">RANKINGS</span> · <span class="num">r16_map.grade()</span></div>
-        <p><b>R1</b> \(=|\overline{100\,nc}|\), the band bias. <b>R2</b> \(=|\overline{\mathrm{pull}}|\). Top = smallest, bottom = largest; \(N=15\) each.</p></div>
-      <div class="def"><div class="h3"><span class="a">AUC GATE</span> · R16_MAP'S PICK RULE</div>
-        <p>\(\Delta\mathrm{AUC1}\le 0.025\) and \(\Delta\mathrm{AUC2}\le 0.050\), both against the mean of the region's BCE-only runs.</p></div>
+      <div class="shared">
+        <div class="h3"><span class="a">SHARED</span> · ONE GRADER, <span class="num">r16_map.grade()</span> (13 NOV DECK) · \(q\) GRID \([0.3,0.8]^2\), STEP 0.05</div>
+        <div class="eq">\(\widehat N_A=\dfrac{N_B N_C}{N_D},\quad nc_k=1-\dfrac{\widehat N_{A,k}}{N_{A,k}},\quad \mathrm{pull}_k=\dfrac{N_{A,k}-\widehat N_{A,k}}{\sqrt{N_{A,k}+\sigma_k^2}},\quad \sigma=\widehat N_A\sqrt{\tfrac{1}{N_B}+\tfrac{1}{N_C}+\tfrac{1}{N_D}}\)</div>
+        <p>A cut pair \(k\) counts if \(N_A\ge 20\), \(N_{B,C,D}\ge 10\); \(K\) = how many count. Out-of-fold logits, trained events, background only.</p>
+      </div>
+      <div class="arrow">▼ THE SAME \(K\) CUT PAIRS, AVERAGED TWO WAYS ▼</div>
+      <div class="two">
+        <div class="m r1"><span class="tag">R1</span><span class="nm">BAND BIAS</span>
+          <div class="eq">\(R_1=\Big|\dfrac{1}{K}\sum_k 100\,nc_k\Big|\)</div>
+          <dl><dt>ASKS</dt><dd class="ask">How far off is \(\widehat N_A\), as a fraction <span style="white-space:nowrap">of \(N_A\)?</span></dd>
+              <dt>UNIT</dt><dd>% of \(N_A\), independent of event count</dd>
+              <dt>RANK</dt><dd>top 15 = smallest, bottom 15 = largest</dd>
+              <dt>BLIND TO</dt><dd>misses of opposite sign that cancel (slide 5)</dd></dl></div>
+        <div class="m r2"><span class="tag">R2</span><span class="nm">MEAN PULL</span>
+          <div class="eq">\(R_2=\Big|\dfrac{1}{K}\sum_k \mathrm{pull}_k\Big|\)</div>
+          <dl><dt>ASKS</dt><dd class="ask">Is the miss bigger than counting noise?</dd>
+              <dt>UNIT</dt><dd>standard errors; a fixed % miss grows as \(\sqrt{N_A}\)</dd>
+              <dt>RANK</dt><dd>top 15 = smallest, bottom 15 = largest</dd>
+              <dt>BLIND TO</dt><dd>the same cancellation; a large \(\sigma\) flatters it</dd></dl></div>
+      </div>
+      <div class="gate"><b>WHO GETS RANKED</b>Arms R (DisCo alone), QB, QBd, QDR, D (\(\hat\tau^2\)), all \(\alpha&gt;0\); BCE only and queen alone are out. AUC gate (r16_map's pick rule): \(\Delta\mathrm{AUC1}\le 0.025\), \(\Delta\mathrm{AUC2}\le 0.050\) against the region's BCE-only mean. \(N=15\) per list.</div>
     </div>
     <div>
       <table class="t">
         <thead><tr><th></th><th class="r">ENDCAP</th><th class="r">BARREL</th></tr></thead>
         <tbody>
-          <tr><td>blocks</td><td class="r">r15_opt, _confirm, _verify, _dr*, R16a</td><td class="r">r16_pilot, _mirror, _slices, _random, _confirm</td></tr>
-          <tr><td>score files</td><td class="r num">383</td><td class="r num">2,907</td></tr>
-          <tr><td>background events per run</td><td class="r num">34,970</td><td class="r num">1,089</td></tr>
-          <tr><td>BCE-only AUC1 / AUC2 (reference)</td><td class="r num">0.8793 / 0.9912</td><td class="r num">0.9076 / 0.9629</td></tr>
+                    <tr><td>score files</td><td class="r num">383</td><td class="r num">2,907</td></tr>
+          <tr><td>bkg events per run</td><td class="r num">34,970</td><td class="r num">1,089</td></tr>
+          <tr><td>BCE-only AUC1 / AUC2</td><td class="r num">0.8793 / 0.9912</td><td class="r num">0.9076 / 0.9629</td></tr>
           <tr><td>pool (\(\alpha&gt;0\))</td><td class="r num">329</td><td class="r num">1,968</td></tr>
           <tr><td>pass the AUC gate</td><td class="r num">329</td><td class="r num">1,088</td></tr>
           <tr><td><span class="chip c-d">DISCO</span> alone, gated</td><td class="r num">42</td><td class="r num">69</td></tr>
           <tr><td><span class="chip c-b">+QB</span> / QBd, gated</td><td class="r num">20 / –</td><td class="r num">104 / 8</td></tr>
           <tr><td><span class="chip c-q">+QDR</span>, gated</td><td class="r num">247</td><td class="r num">599</td></tr>
           <tr><td><span class="chip c-t">+\(\hat\tau^2\)</span>, gated</td><td class="r num">20</td><td class="r num">308</td></tr>
-          <tr><td>health-card reference</td><td class="r">DisCo α 8, r15_confirm</td><td class="r">DisCo α 2, r16_confirm</td></tr>
+          <tr><td>health-card reference</td><td class="r">DisCo α 8</td><td class="r">DisCo α 2</td></tr>
         </tbody>
       </table>
-      <div class="take" style="margin-top:14px"><b>READ FIRST</b>The pool is unbalanced: DisCo alone is 13 % of the gated endcap runs and 6 % of the barrel's. Counts in a top or bottom list have to be read against that (slide 4).</div>
+      <p class="note">Blocks: endcap r15_opt, _confirm, _verify, _dr*, R16a; barrel r16_pilot, _mirror, _slices, _random, _confirm. Health-card references from r15_confirm / r16_confirm. Unbalanced pool: DisCo alone is 13 % of gated endcap runs, 6 % of barrel (slide 6).</p>
+      <div class="take" style="margin-top:12px"><b>WHY TWO</b>If R1 and R2 agree, the lists don't depend on how the miss is scaled. If they disagree, some runs close in % but not within errors, or the reverse. <strong>Expect agreement:</strong> within a region every run has the same background events, so \(R_2\) is close to \(R_1\) times a near-constant. Slide 3 tests it.</div>
+      
     </div>
   </div>
   </div>
@@ -241,10 +295,15 @@
   <div class="kicker">FINDING 1 · THE PAIRS COLLAPSE</div>
   <h1>R1 and R2 are the same ranking</h1>
   <p class="lede">|bias| and |pull mean| on the same grid move together, so the planned pairs of lists add nothing.</p>
+  <div class="defs">
+    <div><div class="h3"><span class="a">R1 · R2</span> · DEFINED</div>
+      <div class="eq">\(R_1=\Big|\dfrac{1}{K}\sum_{k} 100\,\dfrac{\mathrm{miss}_k}{N_{A,k}}\Big|,\quad R_2=\Big|\dfrac{1}{K}\sum_{k}\dfrac{\mathrm{miss}_k}{\sqrt{N_{A,k}+\sigma_k^2}}\Big|\)</div></div>
+    <p>\(\mathrm{miss}_k=N_{A,k}-\widehat N_{A,k}\), with \(\widehat N_A=N_BN_C/N_D\): how far the ABCD prediction is from the true background count in A at cut pair \(k\). <b>R1</b> divides it by \(N_A\): \(nc_k=\mathrm{miss}_k/N_{A,k}\), the band bias in %. <b>R2</b> divides it by its error: \(\mathrm{pull}_k=\mathrm{miss}_k/\sqrt{N_{A,k}+\sigma_k^2}\). \(k\) runs over the \(K\) cut pairs on the \(q\) grid with \(N_A\ge20\), \(N_{B,C,D}\ge10\) (slide 2); both take the absolute value <i>after</i> averaging (slide 5).</p>
+  </div>
   <div class="grid">
     <div>
-    <figure><img src="assets/endcap_S1_r1_vs_r2.png" alt="Endcap: R1 against R2 for every gated run, and rank against rank" style="height:236px"></figure>
-    <figure style="margin-top:6px"><img src="assets/barrel_S1_r1_vs_r2.png" alt="Barrel: R1 against R2 for every gated run, and rank against rank" style="height:236px">
+    <figure><img src="assets/endcap_S1_r1_vs_r2.png" alt="Endcap: R1 against R2 for every gated run, and rank against rank" style="height:196px"></figure>
+    <figure style="margin-top:6px"><img src="assets/barrel_S1_r1_vs_r2.png" alt="Barrel: R1 against R2 for every gated run, and rank against rank" style="height:196px">
       <figcaption>Top: endcap, 329 gated runs. Bottom: barrel, 1,088. Left of each: R1 against R2 (log axes, colour = group, black = top 15); right: rank against rank.</figcaption></figure>
     </div>
     <div>
@@ -254,11 +313,176 @@
         <div><b>TOP 15 SHARED</b><span class="big num">14 · 15</span><p>endcap · barrel</p></div>
         <div><b>BOTTOM 15 SHARED</b><span class="big num">14 · 13</span><p>endcap · barrel</p></div>
       </div>
-      <div class="take"><b>SO</b>Every number from here on uses the R1 lists. For a second list that can disagree, R2 has to measure something else: the full-background spectrum \(|z_{11}|\) or the tail %|nc| are the candidates (slide 14).</div>
+      <div class="take"><b>SO</b>Every number from here on uses the R1 lists. For a second list that can disagree, R2 has to measure something else: the full-background spectrum \(|z_{11}|\) or the tail %|nc| are the candidates (slide 16).</div>
     </div>
   </div>
   </div>
   <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>qp_manifest.py · rank_spearman, in_both</span></div>
+</section>
+
+<!-- ================= 3c READING R1 AND R2 ================= -->
+<section class="slide s3c"><div class="pad">
+  <div class="kicker">READING THE METRICS · WHAT LOW AND HIGH LOOK LIKE</div>
+  <h1>What a low and a high R1 and R2 look like</h1>
+  <p class="lede">Each box is one run's 121 cut pairs on the ranking grid. R1 and R2 are the absolute value of the red diamond (the mean), printed above each box.</p>
+  <div class="grid">
+    <figure><img src="assets/r1r2_boxes.png" alt="Per-cut-pair 100 nc and pull for the top 4 and bottom 5 runs, endcap and barrel"></figure>
+    <div>
+      <div class="take"><b>LOW vs HIGH</b><strong>Low (T1–T4):</strong> the box straddles 0, so the prediction is too high at some cut pairs and too low at others. <strong>High (B1–B5):</strong> the box sits well above 0, so the prediction is too low almost everywhere. In the barrel bottom 5, every cut pair is positive. For R2, low means inside the grey ±1 band (within counting noise); high means well above it.</div>
+      <div class="take"><b>WHAT A LOW R1 HIDES</b>A low R1 is a small <i>average</i>, not a small miss at every cut. Endcap T1 has R1 0.22 %, but its middle half of cut pairs runs -4.7 to +4.0 % and its mean |nc| is 5.1 %, about double T2–T4 (1.9–2.8 %). Barrel T1: R1 1.88 %, middle half -12.6 to +7.4 %, mean |nc| 11.0 %. <strong>In both regions, #1 is the run that cancels most.</strong> The pipeline now ranks on mean |nc| too (R3, slide 21).</div>
+      <div class="take"><b>ACROSS REGIONS</b>Compare R1, not R2. The barrel has 32× fewer background events, so its errors are larger: barrel B1 misses by more than endcap B1 (48.9 vs 19.4 %) but has the smaller pull (5.5 vs 11.5).</div>
+    </div>
+  </div>
+  </div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>qp_r1r2_boxes.py: recomputed from the out-of-fold scores; reproduces r16_map's bias and pull for all 18 runs</span></div>
+</section>
+
+<!-- ================= 3b R1 SPREAD ================= -->
+<section class="slide s3b"><div class="pad">
+  <div class="kicker">FINDING 1B · HOW FAR APART</div>
+  <h1>Top and bottom by R1: how far apart, and what R1 hides</h1>
+  <p class="lede">All 30 runs of each region's two lists on one log axis. Ringed = graphed on slides 8–15; the rest are never shown on their own.</p>
+  <div class="grid">
+    <div>
+<!-- R1STRIP:BEGIN  (generated by r1_spread_fig.py from numbers.json; do not edit by hand) -->
+<svg class="r1strip" viewBox="0 0 740 502" width="740" height="502" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="R1 of the top 15 and bottom 15 runs per region on a shared log axis">
+<g transform="translate(0,0)">
+<text x="0" y="14" font-family="Orbitron" font-weight="700" font-size="11.5" letter-spacing="1.6" fill="#111111"><tspan fill="#e8230a">ENDCAP</tspan> · 329 GATED RUNS · R1 OF THE TOP 15 AND BOTTOM 15</text>
+<line x1="104.0" y1="24" x2="104.0" y2="200" stroke="#e6e6e6" stroke-width="1"/>
+<line x1="310.7" y1="24" x2="310.7" y2="200" stroke="#e6e6e6" stroke-width="1"/>
+<line x1="517.3" y1="24" x2="517.3" y2="200" stroke="#e6e6e6" stroke-width="1"/>
+<line x1="724.0" y1="24" x2="724.0" y2="200" stroke="#e6e6e6" stroke-width="1"/>
+<line x1="104" y1="200" x2="724" y2="200" stroke="#111111" stroke-width="1"/>
+<line x1="104.0" y1="200" x2="104.0" y2="204" stroke="#111111" stroke-width="1"/><text x="104.0" y="216" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">0.1</text>
+<line x1="202.6" y1="200" x2="202.6" y2="204" stroke="#111111" stroke-width="1"/><text x="202.6" y="216" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">0.3</text>
+<line x1="310.7" y1="200" x2="310.7" y2="204" stroke="#111111" stroke-width="1"/><text x="310.7" y="216" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">1</text>
+<line x1="409.3" y1="200" x2="409.3" y2="204" stroke="#111111" stroke-width="1"/><text x="409.3" y="216" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">3</text>
+<line x1="517.3" y1="200" x2="517.3" y2="204" stroke="#111111" stroke-width="1"/><text x="517.3" y="216" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">10</text>
+<line x1="615.9" y1="200" x2="615.9" y2="204" stroke="#111111" stroke-width="1"/><text x="615.9" y="216" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">30</text>
+<line x1="724.0" y1="200" x2="724.0" y2="204" stroke="#111111" stroke-width="1"/><text x="724.0" y="216" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">100</text>
+<text x="724" y="230" text-anchor="end" font-family="Inter, sans-serif" font-size="11" fill="#6b6b6b">R1 = |band bias|, % (log scale)</text>
+<text x="0" y="64" font-family="Orbitron" font-weight="700" font-size="10.5" letter-spacing="1" fill="#111111">TOP 15</text><text x="0" y="80" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">median 0.79</text>
+<line x1="175.6" y1="66" x2="318.3" y2="66" stroke="#a8a8a8" stroke-width="2"/>
+<line x1="290.0" y1="50" x2="290.0" y2="82" stroke="#111111" stroke-width="2"/>
+<g><title>T1 · +QB α 8 β 0.1 · r15_confirm s3004 · R1 0.22 % (bias +0.22) · 3 FLAG</title><circle cx="175.6" cy="66.0" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><rect x="171.5" y="61.9" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T2 · +τ̂² α 8 β 10 · r15_dr2048 s3102 · R1 0.43 % (bias +0.43) · 6 FLAG</title><circle cx="234.5" cy="66.0" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><path d="M234.5,60.0L240.2,70.2L228.9,70.2Z" fill="#2b2b2b" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T3 · +QDR α 3.09 β 0.0477 · r15_opt s5183 · R1 0.51 % (bias +0.51) · 6 FLAG</title><circle cx="249.8" cy="66.0" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><path d="M249.8,60.2L255.5,66.0L249.8,71.8L244.0,66.0Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T4 · +QDR α 7.99 β 0.0527 · r15_opt s5300 · R1 0.53 % (bias +0.53) · 5 FLAG</title><circle cx="253.3" cy="59.5" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><path d="M253.3,53.8L259.1,59.5L253.3,65.2L247.6,59.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T5 · +QB α 18.502 β 0.078869 · r15_verify s6002 · R1 0.63 % (bias +0.63) · 3 FLAG</title><rect x="265.6" y="61.9" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T6 · +QDR α 15.1 β 0.0565 · r15_opt s5542 · R1 0.76 % (bias +0.76) · 6 FLAG</title><path d="M286.1,60.2L291.8,66.0L286.1,71.8L280.3,66.0Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T7 · +QDR α 4.05 β 0.0506 · r15_opt s5182 · R1 0.77 % (bias +0.77) · 3 FLAG</title><path d="M287.3,53.8L293.0,59.5L287.3,65.2L281.5,59.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T8 · +QDR α 6.18 β 0.0961 · r15_opt s5378 · R1 0.79 % (bias +0.79) · 5 FLAG</title><path d="M290.0,66.8L295.8,72.5L290.0,78.2L284.3,72.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T9 · +QB α 18.502 β 0.078869 · r15_verify s6003 · R1 0.87 % (bias +0.87) · 3 FLAG</title><rect x="294.5" y="61.9" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T10 · +QDR α 19.3 β 0.0594 · r15_opt s5277 · R1 0.90 % (bias +0.90) · 3 FLAG</title><path d="M300.7,53.8L306.5,59.5L300.7,65.2L295.0,59.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T11 · +QDR α 5.03 β 0.0735 · r15_opt s5313 · R1 0.97 % (bias +0.97) · 6 FLAG</title><path d="M308.1,66.8L313.9,72.5L308.1,78.2L302.4,72.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T12 · +QDR α 6.73 β 0.00429 · r15_opt s5177 · R1 0.99 % (bias +0.99) · 5 FLAG</title><path d="M309.4,60.2L315.2,66.0L309.4,71.8L303.7,66.0Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T13 · +QDR α 33.5 β 0.0589 · r15_opt s5288 · R1 1.02 % (bias +1.02) · 5 FLAG</title><path d="M312.5,53.8L318.3,59.5L312.5,65.2L306.8,59.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T14 · +QDR α 5.25 β 0.055 · r15_opt s5037 · R1 1.03 % (bias +1.03) · 3 FLAG</title><path d="M313.3,47.2L319.1,53.0L313.3,58.8L307.6,53.0Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T15 · +QDR α 5.26 β 0.0639 · r15_opt s5151 · R1 1.09 % (bias +1.09) · 4 FLAG</title><path d="M318.3,66.8L324.1,72.5L318.3,78.2L312.6,72.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<text x="0" y="150" font-family="Orbitron" font-weight="700" font-size="10.5" letter-spacing="1" fill="#111111">BOTTOM 15</text><text x="0" y="166" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">median 7.47</text>
+<line x1="477.2" y1="152" x2="576.7" y2="152" stroke="#a8a8a8" stroke-width="2"/>
+<line x1="491.2" y1="136" x2="491.2" y2="168" stroke="#111111" stroke-width="2"/>
+<g><title>B1 · +QDR α 22.9 β 0.0531 · r15_opt s5563 · R1 19.38 % (bias +19.38) · 12 FLAG</title><circle cx="576.7" cy="152.0" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><path d="M576.7,146.2L582.5,152.0L576.7,157.8L571.0,152.0Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B2 · +τ̂² α 8 β 10 · r15_dr2048 s3103 · R1 10.96 % (bias +10.96) · 12 FLAG</title><circle cx="525.6" cy="139.0" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><path d="M525.6,133.0L531.3,143.2L519.9,143.2Z" fill="#2b2b2b" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B3 · DisCo alone α 27.2 β 0 · r15_opt s5030 · R1 10.79 % (bias +10.79) · 10 FLAG</title><circle cx="524.2" cy="158.5" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><circle cx="524.2" cy="158.5" r="4.6" fill="#2a78d6" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B4 · +QDR α 9.6 β 0.0823 · r15_opt s5050 · R1 10.74 % (bias +10.74) · 12 FLAG</title><circle cx="523.8" cy="145.5" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><path d="M523.8,139.8L529.5,145.5L523.8,151.2L518.0,145.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B5 · +QDR α 17.1 β 0.1 · r15_opt s5093 · R1 10.73 % (bias +10.73) · 12 FLAG</title><circle cx="523.6" cy="152.0" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><path d="M523.6,146.2L529.4,152.0L523.6,157.8L517.9,152.0Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B6 · DisCo alone α 3.29 β 0 · r15_opt s5009 · R1 8.86 % (bias +8.86) · 12 FLAG</title><circle cx="506.4" cy="145.5" r="4.6" fill="#2a78d6" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B7 · DisCo alone α 8 β 0 · r15_confirm s3001 · R1 8.80 % (bias +8.80) · 10 FLAG</title><circle cx="505.9" cy="152.0" r="4.6" fill="#2a78d6" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B8 · DisCo alone α 8 β 0 · r15_confirm s3005 · R1 7.47 % (bias +7.47) · 10 FLAG</title><circle cx="491.2" cy="145.5" r="4.6" fill="#2a78d6" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B9 · DisCo alone α 8 β 0 · r15_confirm s3006 · R1 7.40 % (bias +7.40) · 9 FLAG</title><circle cx="490.3" cy="152.0" r="4.6" fill="#2a78d6" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B10 · DisCo alone α 8 β 0 · r16_alone s7003 · R1 6.96 % (bias +6.96) · 10 FLAG</title><circle cx="484.8" cy="132.5" r="4.6" fill="#2a78d6" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B11 · DisCo alone α 8 β 0 · r16_alone s7006 · R1 6.90 % (bias +6.90) · 11 FLAG</title><circle cx="484.1" cy="165.0" r="4.6" fill="#2a78d6" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B12 · DisCo alone α 8 β 0 · r15_dr2048 s3102 · R1 6.79 % (bias +6.79) · 10 FLAG</title><circle cx="482.6" cy="139.0" r="4.6" fill="#2a78d6" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B13 · DisCo alone α 8 β 0 · r15_confirm s3003 · R1 6.73 % (bias +6.73) · 11 FLAG</title><circle cx="481.8" cy="158.5" r="4.6" fill="#2a78d6" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B14 · +QDR α 4.06 β 0.052 · r15_opt s5257 · R1 6.60 % (bias +6.60) · 12 FLAG</title><path d="M480.1,139.8L485.8,145.5L480.1,151.2L474.3,145.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B15 · DisCo alone α 8 β 0 · r15_confirm s3004 · R1 6.39 % (bias +6.39) · 10 FLAG</title><circle cx="477.2" cy="152.0" r="4.6" fill="#2a78d6" stroke="#ffffff" stroke-width="1.6"/></g>
+<line x1="318.3" y1="66" x2="318.3" y2="109.0" stroke="#e8230a" stroke-width="1" stroke-dasharray="2 2"/><line x1="477.2" y1="109.0" x2="477.2" y2="152" stroke="#e8230a" stroke-width="1" stroke-dasharray="2 2"/><line x1="318.3" y1="109.0" x2="477.2" y2="109.0" stroke="#e8230a" stroke-width="1.6" stroke-dasharray="5 3"/><text x="397.7" y="104.0" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11.5" fill="#e8230a" stroke="#ffffff" stroke-width="3" paint-order="stroke">gap 5.3 pts</text>
+</g>
+<g transform="translate(0,240)">
+<text x="0" y="14" font-family="Orbitron" font-weight="700" font-size="11.5" letter-spacing="1.6" fill="#111111"><tspan fill="#e8230a">BARREL</tspan> · 1,088 GATED RUNS · R1 OF THE TOP 15 AND BOTTOM 15</text>
+<line x1="104.0" y1="24" x2="104.0" y2="200" stroke="#e6e6e6" stroke-width="1"/>
+<line x1="310.7" y1="24" x2="310.7" y2="200" stroke="#e6e6e6" stroke-width="1"/>
+<line x1="517.3" y1="24" x2="517.3" y2="200" stroke="#e6e6e6" stroke-width="1"/>
+<line x1="724.0" y1="24" x2="724.0" y2="200" stroke="#e6e6e6" stroke-width="1"/>
+<line x1="104" y1="200" x2="724" y2="200" stroke="#111111" stroke-width="1"/>
+<line x1="104.0" y1="200" x2="104.0" y2="204" stroke="#111111" stroke-width="1"/><text x="104.0" y="216" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">0.1</text>
+<line x1="202.6" y1="200" x2="202.6" y2="204" stroke="#111111" stroke-width="1"/><text x="202.6" y="216" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">0.3</text>
+<line x1="310.7" y1="200" x2="310.7" y2="204" stroke="#111111" stroke-width="1"/><text x="310.7" y="216" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">1</text>
+<line x1="409.3" y1="200" x2="409.3" y2="204" stroke="#111111" stroke-width="1"/><text x="409.3" y="216" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">3</text>
+<line x1="517.3" y1="200" x2="517.3" y2="204" stroke="#111111" stroke-width="1"/><text x="517.3" y="216" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">10</text>
+<line x1="615.9" y1="200" x2="615.9" y2="204" stroke="#111111" stroke-width="1"/><text x="615.9" y="216" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">30</text>
+<line x1="724.0" y1="200" x2="724.0" y2="204" stroke="#111111" stroke-width="1"/><text x="724.0" y="216" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">100</text>
+<text x="724" y="230" text-anchor="end" font-family="Inter, sans-serif" font-size="11" fill="#6b6b6b">R1 = |band bias|, % (log scale)</text>
+<text x="0" y="64" font-family="Orbitron" font-weight="700" font-size="10.5" letter-spacing="1" fill="#111111">TOP 15</text><text x="0" y="80" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">median 8.25</text>
+<line x1="367.2" y1="66" x2="512.8" y2="66" stroke="#a8a8a8" stroke-width="2"/>
+<line x1="500.1" y1="50" x2="500.1" y2="82" stroke="#111111" stroke-width="2"/>
+<g><title>T1 · +QB α 8 β 0.03 · r16_slices s3401 · R1 1.88 % (bias -1.88) · 0 FLAG</title><circle cx="367.2" cy="66.0" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><rect x="363.0" y="61.9" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T2 · +τ̂² α 7.57 β 2.16 · r16_random s70011 · R1 3.05 % (bias +3.05) · 1 FLAG</title><circle cx="410.7" cy="66.0" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><path d="M410.7,60.0L416.4,70.2L405.0,70.2Z" fill="#2b2b2b" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T3 · +τ̂² α 2 β 12 · r16_confirm s3504 · R1 3.23 % (bias +3.23) · 0 FLAG</title><circle cx="415.8" cy="59.5" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><path d="M415.8,53.5L421.5,63.7L410.1,63.7Z" fill="#2b2b2b" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T4 · +QDR α 11.1 β 0.149 · r16_random s50417 · R1 3.95 % (bias +3.95) · 1 FLAG</title><circle cx="433.9" cy="66.0" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><path d="M433.9,60.2L439.6,66.0L433.9,71.8L428.1,66.0Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T5 · +QDR α 1.63 β 1.83 · r16_random s50187 · R1 3.96 % (bias +3.96) · 3 FLAG</title><path d="M434.1,53.8L439.9,59.5L434.1,65.2L428.4,59.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T6 · +τ̂² α 6.32 β 0.844 · r16_random s70089 · R1 6.55 % (bias +6.55) · 2 FLAG</title><path d="M479.4,60.0L485.1,70.2L473.7,70.2Z" fill="#2b2b2b" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T7 · +QDR α 0.117 β 1.92 · r16_random s50673 · R1 6.92 % (bias +6.92) · 6 FLAG</title><path d="M484.2,53.8L490.0,59.5L484.2,65.2L478.5,59.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T8 · +QDR α 2 β 3 · r16_confirm s3507 · R1 8.25 % (bias +8.25) · 2 FLAG</title><path d="M500.1,60.2L505.8,66.0L500.1,71.8L494.3,66.0Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T9 · +QDR α 7.07 β 0.0112 · r16_random s50568 · R1 8.52 % (bias +8.52) · 0 FLAG</title><path d="M503.0,53.8L508.7,59.5L503.0,65.2L497.2,59.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T10 · +QB α 5.77 β 0.0217 · r16_random s60136 · R1 8.62 % (bias +8.62) · 0 FLAG</title><rect x="499.8" y="68.4" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T11 · +τ̂² α 1.63 β 17.3 · r16_random s70186 · R1 8.82 % (bias +8.82) · 3 FLAG</title><path d="M506.0,47.0L511.7,57.2L500.3,57.2Z" fill="#2b2b2b" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T12 · +QDR α 2.14 β 1.97 · r16_random s50052 · R1 9.10 % (bias +9.10) · 1 FLAG</title><path d="M508.9,73.2L514.6,79.0L508.9,84.8L503.1,79.0Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T13 · +QDR α 4.21 β 0.7 · r16_random s50305 · R1 9.15 % (bias +9.15) · 3 FLAG</title><path d="M509.3,40.8L515.1,46.5L509.3,52.2L503.6,46.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T14 · +QDR α 8.47 β 0.0702 · r16_random s50489 · R1 9.15 % (bias +9.15) · 3 FLAG</title><path d="M509.3,79.8L515.1,85.5L509.3,91.2L503.6,85.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>T15 · +τ̂² α 8 β 3 · r16_slices s3401 · R1 9.51 % (bias +9.51) · 3 FLAG</title><path d="M512.8,60.0L518.5,70.2L507.1,70.2Z" fill="#2b2b2b" stroke="#ffffff" stroke-width="1.6"/></g>
+<text x="0" y="150" font-family="Orbitron" font-weight="700" font-size="10.5" letter-spacing="1" fill="#111111">BOTTOM 15</text><text x="0" y="166" font-family="Share Tech Mono, monospace" font-size="11" fill="#6b6b6b">median 39.86</text>
+<line x1="638.0" y1="152" x2="659.7" y2="152" stroke="#a8a8a8" stroke-width="2"/>
+<line x1="641.5" y1="136" x2="641.5" y2="168" stroke="#111111" stroke-width="2"/>
+<g><title>B1 · +QDR α 8.66 β 0.0156 · r16_random s50298 · R1 48.86 % (bias +48.86) · 10 FLAG</title><circle cx="659.7" cy="152.0" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><path d="M659.7,146.2L665.5,152.0L659.7,157.8L654.0,152.0Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B2 · +QDR α 11.9 β 0.315 · r16_random s50129 · R1 42.00 % (bias +42.00) · 10 FLAG</title><circle cx="646.1" cy="106.5" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><path d="M646.1,100.8L651.9,106.5L646.1,112.2L640.4,106.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B3 · +QB α 0.157 β 0.018 · r16_random s60120 · R1 41.71 % (bias +41.71) · 12 FLAG</title><circle cx="645.5" cy="191.0" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><rect x="641.4" y="186.9" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B4 · +QB α 0.125 β 0.0134 · r16_random s60242 · R1 41.29 % (bias +41.29) · 11 FLAG</title><circle cx="644.6" cy="113.0" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><rect x="640.5" y="108.9" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B5 · +QDR α 4.41 β 0.0288 · r16_random s50064 · R1 41.25 % (bias +41.25) · 8 FLAG</title><circle cx="644.5" cy="184.5" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><path d="M644.5,178.8L650.3,184.5L644.5,190.2L638.8,184.5Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B6 · +QB α 0.246 β 0.0209 · r16_random s60061 · R1 40.87 % (bias +40.87) · 11 FLAG</title><rect x="639.5" y="115.4" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B7 · +QB α 0.125 β 0.0134 · r16_random s60240 · R1 40.30 % (bias +40.30) · 10 FLAG</title><rect x="638.3" y="173.9" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B8 · +QB α 0.235 β 0.0116 · r16_random s60301 · R1 39.86 % (bias +39.86) · 11 FLAG</title><rect x="637.3" y="121.9" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B9 · DisCo alone α 8 β 0 · r16_confirm s3505 · R1 39.78 % (bias +39.78) · 10 FLAG</title><circle cx="641.3" cy="171.5" r="4.6" fill="#2a78d6" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B10 · DisCo alone α 0.5 β 0 · r16_slices s3406 · R1 39.42 % (bias +39.42) · 10 FLAG</title><circle cx="640.5" cy="132.5" r="4.6" fill="#2a78d6" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B11 · +QDR α 7.57 β 0.0188 · r16_random s50011 · R1 38.83 % (bias +38.83) · 9 FLAG</title><path d="M639.1,159.2L644.8,165.0L639.1,170.8L633.3,165.0Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B12 · +QB α 1.49 β 0.0125 · r16_random s60091 · R1 38.62 % (bias +38.62) · 11 FLAG</title><rect x="634.5" y="134.9" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B13 · +QB α 0.125 β 0.0134 · r16_random s60241 · R1 38.45 % (bias +38.45) · 10 FLAG</title><rect x="634.1" y="154.4" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B14 · +QB α 0.554 β 0.0108 · r16_random s60152 · R1 38.45 % (bias +38.45) · 12 FLAG</title><rect x="634.1" y="141.4" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/></g>
+<g><title>B15 · +QB α 0.188 β 0.0325 · r16_random s60169 · R1 38.35 % (bias +38.35) · 10 FLAG</title><rect x="633.8" y="147.9" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/></g>
+<line x1="512.8" y1="66" x2="512.8" y2="109.0" stroke="#e8230a" stroke-width="1" stroke-dasharray="2 2"/><line x1="638.0" y1="109.0" x2="638.0" y2="152" stroke="#e8230a" stroke-width="1" stroke-dasharray="2 2"/><line x1="512.8" y1="109.0" x2="638.0" y2="109.0" stroke="#e8230a" stroke-width="1.6" stroke-dasharray="5 3"/><text x="575.4" y="104.0" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="11.5" fill="#e8230a" stroke="#ffffff" stroke-width="3" paint-order="stroke">gap 28.8 pts</text>
+</g>
+<g transform="translate(0,492)" font-family="Inter, sans-serif" font-size="12" fill="#6b6b6b">
+<circle cx="6.0" cy="0.0" r="4.6" fill="#2a78d6" stroke="#ffffff" stroke-width="1.6"/><text x="16" y="4">DisCo alone</text>
+<rect x="111.1" y="-4.1" width="8.3" height="8.3" rx="1.2" fill="#eb6834" stroke="#ffffff" stroke-width="1.6"/><text x="125.2" y="4">+QB</text>
+<path d="M166.8,-5.8L172.6,0.0L166.8,5.8L161.1,0.0Z" fill="#1baf7a" stroke="#ffffff" stroke-width="1.6"/><text x="176.8" y="4">+QDR</text>
+<path d="M225.6,-6.0L231.3,4.2L219.9,4.2Z" fill="#2b2b2b" stroke="#ffffff" stroke-width="1.6"/><text x="235.60000000000002" y="4">+τ̂²</text>
+<circle cx="286.40000000000003" cy="0" r="8.0" fill="none" stroke="#e8230a" stroke-width="1.6"/><text x="300.40000000000003" y="4">shown on the ROC / plane slides</text>
+<line x1="508.40000000000003" y1="0" x2="524.4000000000001" y2="0" stroke="#a8a8a8" stroke-width="2"/><text x="530.4000000000001" y="4">range</text>
+<line x1="582.4000000000001" y1="-8" x2="582.4000000000001" y2="8" stroke="#111111" stroke-width="2"/><text x="590.4000000000001" y="4">median</text>
+</g>
+</svg>
+<!-- R1STRIP:END -->
+    </div>
+    <div>
+      <table class="t">
+        <thead><tr><th>R1 = |BAND BIAS|, %</th><th class="r" colspan="2">ENDCAP</th><th class="r" colspan="2">BARREL</th></tr>
+               <tr><th></th><th class="r">TOP</th><th class="r">BOT</th><th class="r">TOP</th><th class="r">BOT</th></tr></thead>
+        <tbody>
+          <tr><td>min</td><td class="r num">0.22</td><td class="r num">6.39</td><td class="r num">1.88</td><td class="r num">38.35</td></tr>
+          <tr><td>median</td><td class="r num">0.79</td><td class="r num">7.47</td><td class="r num">8.25</td><td class="r num">39.86</td></tr>
+          <tr><td>max</td><td class="r num">1.09</td><td class="r num">19.38</td><td class="r num">9.51</td><td class="r num">48.86</td></tr>
+          <tr class="bt"><td>gap, best bot − worst top</td><td class="r num" colspan="2">5.3 pts</td><td class="r num" colspan="2">28.8 pts</td></tr>
+          <tr><td>median ratio, bot / top</td><td class="r num" colspan="2">9.4×</td><td class="r num" colspan="2">4.8×</td></tr>
+          <tr class="hl bt"><td>mean |nc| (health card), median</td><td class="r num">2.27</td><td class="r num">7.25</td><td class="r num">8.41</td><td class="r num">39.68</td></tr>
+        </tbody>
+      </table>
+      <div class="take"><b>READ</b>The graphed runs are the ends of each list. Endcap: the top is tight (all ≤ 1.09 %), and the bottom 15 is mostly DisCo alone: 9 of its 10 DisCo runs sit at 6.4–8.9 %. The five graphed are the 10.7–19.4 % tail. Barrel: "top" is not good closure. The median top run misses by 8.25 %, and the worst (9.51 %) is worse than 10 of the 15 endcap bottom runs. Compare within a region only.</div>
+      <div class="take"><b>ONE HEALTH METRIC</b>R1 measures closure bias on the trained band, the quantity we ranked on, and nothing else. It is \(|\overline{nc}|\), so opposite signs across the grid cancel. The endcap top's mean |nc| is 2.27 %, about 3× its R1 median; the other three lists show no such gap. The rest of the card is on slide 16.</div>
+    </div>
+  </div>
+  </div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>deck_numbers.py · r1_spread, r1_cross · r1_spread_fig.py</span></div>
 </section>
 
 <!-- ================= 4 WHO LANDS WHERE ================= -->
@@ -339,8 +563,8 @@
 <section class="slide sr"><div class="pad">
   <div class="kicker">THE RUNS · ENDCAP · AUC</div>
   <h1>Endcap: ROC of the top 4</h1>
-  <p class="lede">Best four runs by band bias (R1). NN1 left, NN2 right in each panel; red dot = WP. BCE only: AUC1 0.8793, AUC2 0.9912.</p>
-  <div class="g22"><figure><img src="assets/endcap_T1_F3.png" alt="r15_confirm_QB_a8_b0.1_s3004"><figcaption><b>T1</b> <span class="chip c-b">QB</span> α 8 · β 0.1 · bias <b>+0.22 %</b> · 3 FLAG · AUC1 0.8709 · AUC2 0.9891</figcaption></figure><figure><img src="assets/endcap_T2_F3.png" alt="r15_dr2048_D_a8_b10_s3102"><figcaption><b>T2</b> <span class="chip c-t">τ̂²</span> α 8 · β 10 · bias <b>+0.43 %</b> · 6 FLAG · AUC1 0.8609 · AUC2 0.9884</figcaption></figure><figure><img src="assets/endcap_T3_F3.png" alt="r15_opt_t0183_QDR_a3.09_b0.0477_s5183"><figcaption><b>T3</b> <span class="chip c-q">QDR</span> α 3.09 · β 0.0477 · bias <b>+0.51 %</b> · 6 FLAG · AUC1 0.8693 · AUC2 0.9891</figcaption></figure><figure><img src="assets/endcap_T4_F3.png" alt="r15_opt_t0300_QDR_a7.99_b0.0527_s5300"><figcaption><b>T4</b> <span class="chip c-q">QDR</span> α 7.99 · β 0.0527 · bias <b>+0.53 %</b> · 5 FLAG · AUC1 0.8708 · AUC2 0.9889</figcaption></figure></div>
+  <p class="lede">Ranks 1–4 of the top 15 by R1 (list: 0.22–1.09 %, median 0.79 %). NN1 left, NN2 right in each panel; red dot = WP. BCE only: AUC1 0.8793, AUC2 0.9912.</p>
+  <div class="g22"><figure><img src="assets/endcap_T1_F3.png" alt="r15_confirm_QB_a8_b0.1_s3004"><figcaption><b>T1</b> <span class="chip c-b">QB</span> α 8 · β 0.1 · R1 <b>0.22 %</b> · 3 FLAG · AUC1 0.8709 · AUC2 0.9891</figcaption></figure><figure><img src="assets/endcap_T2_F3.png" alt="r15_dr2048_D_a8_b10_s3102"><figcaption><b>T2</b> <span class="chip c-t">τ̂²</span> α 8 · β 10 · R1 <b>0.43 %</b> · 6 FLAG · AUC1 0.8609 · AUC2 0.9884</figcaption></figure><figure><img src="assets/endcap_T3_F3.png" alt="r15_opt_t0183_QDR_a3.09_b0.0477_s5183"><figcaption><b>T3</b> <span class="chip c-q">QDR</span> α 3.09 · β 0.0477 · R1 <b>0.51 %</b> · 6 FLAG · AUC1 0.8693 · AUC2 0.9891</figcaption></figure><figure><img src="assets/endcap_T4_F3.png" alt="r15_opt_t0300_QDR_a7.99_b0.0527_s5300"><figcaption><b>T4</b> <span class="chip c-q">QDR</span> α 7.99 · β 0.0527 · R1 <b>0.53 %</b> · 5 FLAG · AUC1 0.8708 · AUC2 0.9889</figcaption></figure></div>
   </div>
   <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>qp_suite.py F3 · out-of-fold, trained events</span></div>
 </section>
@@ -349,8 +573,8 @@
 <section class="slide sr"><div class="pad">
   <div class="kicker">THE RUNS · ENDCAP · AUC</div>
   <h1>Endcap: ROC of the bottom 5</h1>
-  <p class="lede">Worst five runs by band bias (B1 = worst). Same panels as the previous slide.</p>
-  <div class="g32"><figure><img src="assets/endcap_B1_F3.png" alt="r15_opt_t0563_QDR_a22.9_b0.0531_s5563"><figcaption><b>B1</b> <span class="chip c-q">QDR</span> α 22.9 · β 0.0531 · bias <b>+19.38 %</b> · 12 FLAG · AUC1 0.8594 · AUC2 0.9868</figcaption></figure><figure><img src="assets/endcap_B2_F3.png" alt="r15_dr2048_D_a8_b10_s3103"><figcaption><b>B2</b> <span class="chip c-t">τ̂²</span> α 8 · β 10 · bias <b>+10.96 %</b> · 12 FLAG · AUC1 0.8597 · AUC2 0.9869</figcaption></figure><figure><img src="assets/endcap_B3_F3.png" alt="r15_opt_t0030_R_a27.2_b0_s5030"><figcaption><b>B3</b> <span class="chip c-d">DISCO</span> α 27.2 · β 0 · bias <b>+10.79 %</b> · 10 FLAG · AUC1 0.8614 · AUC2 0.9874</figcaption></figure><figure><img src="assets/endcap_B4_F3.png" alt="r15_opt_t0050_QDR_a9.6_b0.0823_s5050"><figcaption><b>B4</b> <span class="chip c-q">QDR</span> α 9.6 · β 0.0823 · bias <b>+10.74 %</b> · 12 FLAG · AUC1 0.8612 · AUC2 0.9877</figcaption></figure><figure><img src="assets/endcap_B5_F3.png" alt="r15_opt_t0093_QDR_a17.1_b0.1_s5093"><figcaption><b>B5</b> <span class="chip c-q">QDR</span> α 17.1 · β 0.1 · bias <b>+10.73 %</b> · 12 FLAG · AUC1 0.8550 · AUC2 0.9866</figcaption></figure>
+  <p class="lede">Ranks 1–5 of the bottom 15 by R1, B1 = worst (list: 6.39–19.38 %, median 7.47 %). Same panels as the previous slide.</p>
+  <div class="g32"><figure><img src="assets/endcap_B1_F3.png" alt="r15_opt_t0563_QDR_a22.9_b0.0531_s5563"><figcaption><b>B1</b> <span class="chip c-q">QDR</span> α 22.9 · β 0.0531 · R1 <b>19.38 %</b> · 12 FLAG · AUC1 0.8594 · AUC2 0.9868</figcaption></figure><figure><img src="assets/endcap_B2_F3.png" alt="r15_dr2048_D_a8_b10_s3103"><figcaption><b>B2</b> <span class="chip c-t">τ̂²</span> α 8 · β 10 · R1 <b>10.96 %</b> · 12 FLAG · AUC1 0.8597 · AUC2 0.9869</figcaption></figure><figure><img src="assets/endcap_B3_F3.png" alt="r15_opt_t0030_R_a27.2_b0_s5030"><figcaption><b>B3</b> <span class="chip c-d">DISCO</span> α 27.2 · β 0 · R1 <b>10.79 %</b> · 10 FLAG · AUC1 0.8614 · AUC2 0.9874</figcaption></figure><figure><img src="assets/endcap_B4_F3.png" alt="r15_opt_t0050_QDR_a9.6_b0.0823_s5050"><figcaption><b>B4</b> <span class="chip c-q">QDR</span> α 9.6 · β 0.0823 · R1 <b>10.74 %</b> · 12 FLAG · AUC1 0.8612 · AUC2 0.9877</figcaption></figure><figure><img src="assets/endcap_B5_F3.png" alt="r15_opt_t0093_QDR_a17.1_b0.1_s5093"><figcaption><b>B5</b> <span class="chip c-q">QDR</span> α 17.1 · β 0.1 · R1 <b>10.73 %</b> · 12 FLAG · AUC1 0.8550 · AUC2 0.9866</figcaption></figure>
     <div class="readc"><div class="h3"><span class="a">AUC1</span> · TOP 4 VS BOTTOM 5</div>
       <p>top 4: <span class="num">0.8609–0.8709</span><br>bottom 5: <span class="num">0.8550–0.8614</span><br>BCE only: <span class="num">0.8793</span></p>
       <p class="tn">The bottom 5 are not cheap runs: four are QDR / τ̂² at α 8–23 and one is DisCo α 27, all strongly regularised, all below the top 4 in AUC1. They pay in AUC and still miss closure.</p></div>
@@ -364,7 +588,8 @@
   <div class="kicker">THE RUNS · ENDCAP · ABCD PLANE</div>
   <h1>Endcap: ABCD planes of the top 4</h1>
   <p class="lede">Raw NN1 vs NN2 scores, background | signal, events per bin on a log viridis scale, white = empty; red = WP cuts. 50×50 bins, 34,970 background events. Style after CMS ABCDisCoTEC (MLST 7, 045071), Fig. 6.</p>
-  <div class="g4 pl"><figure><img src="assets/endcap_T1_D3v.png" alt="r15_confirm_QB_a8_b0.1_s3004"><figcaption><b>T1</b> <span class="chip c-b">QB</span> α 8 · β 0.1 · bias <b>+0.22 %</b> · 3 FLAG</figcaption></figure><figure><img src="assets/endcap_T2_D3v.png" alt="r15_dr2048_D_a8_b10_s3102"><figcaption><b>T2</b> <span class="chip c-t">τ̂²</span> α 8 · β 10 · bias <b>+0.43 %</b> · 6 FLAG</figcaption></figure><figure><img src="assets/endcap_T3_D3v.png" alt="r15_opt_t0183_QDR_a3.09_b0.0477_s5183"><figcaption><b>T3</b> <span class="chip c-q">QDR</span> α 3.09 · β 0.0477 · bias <b>+0.51 %</b> · 6 FLAG</figcaption></figure><figure><img src="assets/endcap_T4_D3v.png" alt="r15_opt_t0300_QDR_a7.99_b0.0527_s5300"><figcaption><b>T4</b> <span class="chip c-q">QDR</span> α 7.99 · β 0.0527 · bias <b>+0.53 %</b> · 5 FLAG</figcaption></figure></div>
+  <div class="g4 pl"><figure><img src="assets/endcap_T1_D3v.png" alt="r15_confirm_QB_a8_b0.1_s3004"><figcaption><b>T1</b> <span class="chip c-b">QB</span> α 8 · β 0.1 · R1 <b>0.22 %</b> · 3 FLAG<span class="armlab"><b>DisCo + QB</b>: queen on the training batch, 3 cuts</span></figcaption></figure><figure><img src="assets/endcap_T2_D3v.png" alt="r15_dr2048_D_a8_b10_s3102"><figcaption><b>T2</b> <span class="chip c-t">τ̂²</span> α 8 · β 10 · R1 <b>0.43 %</b> · 6 FLAG<span class="armlab"><b>DisCo + τ̂²</b>: τ̂² form of QDR: background draw, 9 cuts</span></figcaption></figure><figure><img src="assets/endcap_T3_D3v.png" alt="r15_opt_t0183_QDR_a3.09_b0.0477_s5183"><figcaption><b>T3</b> <span class="chip c-q">QDR</span> α 3.09 · β 0.0477 · R1 <b>0.51 %</b> · 6 FLAG<span class="armlab"><b>DisCo + QDR</b>: queen on a background draw, 9 cuts</span></figcaption></figure><figure><img src="assets/endcap_T4_D3v.png" alt="r15_opt_t0300_QDR_a7.99_b0.0527_s5300"><figcaption><b>T4</b> <span class="chip c-q">QDR</span> α 7.99 · β 0.0527 · R1 <b>0.53 %</b> · 5 FLAG<span class="armlab"><b>DisCo + QDR</b>: queen on a background draw, 9 cuts</span></figcaption></figure></div>
+  <p class="armkey"><b>KEY</b>α = DisCo weight, β = queen weight. Every run is DisCo alone or DisCo + a queen; queen-only (α = 0) and BCE-only runs are not in the pool (slide 2). QB uses the training batch (3 cuts); QDR and τ̂² use a 4,096-event background draw (9 cuts).</p>
   </div>
   <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>qp_deckfigs.py D3 · out-of-fold, trained events · log colour</span></div>
 </section>
@@ -374,8 +599,9 @@
   <div class="kicker">THE RUNS · ENDCAP · ABCD PLANE</div>
   <h1>Endcap: ABCD planes of the bottom 5</h1>
   <p class="lede">Raw NN1 vs NN2 scores, background | signal, events per bin on a log viridis scale, white = empty; red = WP cuts. 50×50 bins, 34,970 background events. Style after CMS ABCDisCoTEC (MLST 7, 045071), Fig. 6.</p>
-  <div class="g5 pl"><figure><img src="assets/endcap_B1_D3v.png" alt="r15_opt_t0563_QDR_a22.9_b0.0531_s5563"><figcaption><b>B1</b> <span class="chip c-q">QDR</span> α 22.9 · β 0.0531 · bias <b>+19.38 %</b> · 12 FLAG</figcaption></figure><figure><img src="assets/endcap_B2_D3v.png" alt="r15_dr2048_D_a8_b10_s3103"><figcaption><b>B2</b> <span class="chip c-t">τ̂²</span> α 8 · β 10 · bias <b>+10.96 %</b> · 12 FLAG</figcaption></figure><figure><img src="assets/endcap_B3_D3v.png" alt="r15_opt_t0030_R_a27.2_b0_s5030"><figcaption><b>B3</b> <span class="chip c-d">DISCO</span> α 27.2 · β 0 · bias <b>+10.79 %</b> · 10 FLAG</figcaption></figure><figure><img src="assets/endcap_B4_D3v.png" alt="r15_opt_t0050_QDR_a9.6_b0.0823_s5050"><figcaption><b>B4</b> <span class="chip c-q">QDR</span> α 9.6 · β 0.0823 · bias <b>+10.74 %</b> · 12 FLAG</figcaption></figure><figure><img src="assets/endcap_B5_D3v.png" alt="r15_opt_t0093_QDR_a17.1_b0.1_s5093"><figcaption><b>B5</b> <span class="chip c-q">QDR</span> α 17.1 · β 0.1 · bias <b>+10.73 %</b> · 12 FLAG</figcaption></figure>
+  <div class="g5 pl"><figure><img src="assets/endcap_B1_D3v.png" alt="r15_opt_t0563_QDR_a22.9_b0.0531_s5563"><figcaption><b>B1</b> <span class="chip c-q">QDR</span> α 22.9 · β 0.0531 · R1 <b>19.38 %</b> · 12 FLAG<span class="armlab"><b>DisCo + QDR</b>: queen on a background draw, 9 cuts</span></figcaption></figure><figure><img src="assets/endcap_B2_D3v.png" alt="r15_dr2048_D_a8_b10_s3103"><figcaption><b>B2</b> <span class="chip c-t">τ̂²</span> α 8 · β 10 · R1 <b>10.96 %</b> · 12 FLAG<span class="armlab"><b>DisCo + τ̂²</b>: τ̂² form of QDR: background draw, 9 cuts</span></figcaption></figure><figure><img src="assets/endcap_B3_D3v.png" alt="r15_opt_t0030_R_a27.2_b0_s5030"><figcaption><b>B3</b> <span class="chip c-d">DISCO</span> α 27.2 · β 0 · R1 <b>10.79 %</b> · 10 FLAG<span class="armlab"><b>DisCo alone</b>: no queen (β = 0)</span></figcaption></figure><figure><img src="assets/endcap_B4_D3v.png" alt="r15_opt_t0050_QDR_a9.6_b0.0823_s5050"><figcaption><b>B4</b> <span class="chip c-q">QDR</span> α 9.6 · β 0.0823 · R1 <b>10.74 %</b> · 12 FLAG<span class="armlab"><b>DisCo + QDR</b>: queen on a background draw, 9 cuts</span></figcaption></figure><figure><img src="assets/endcap_B5_D3v.png" alt="r15_opt_t0093_QDR_a17.1_b0.1_s5093"><figcaption><b>B5</b> <span class="chip c-q">QDR</span> α 17.1 · β 0.1 · R1 <b>10.73 %</b> · 12 FLAG<span class="armlab"><b>DisCo + QDR</b>: queen on a background draw, 9 cuts</span></figcaption></figure>
   </div>
+  <p class="armkey"><b>KEY</b>α = DisCo weight, β = queen weight. Every run is DisCo alone or DisCo + a queen; queen-only (α = 0) and BCE-only runs are not in the pool (slide 2). QB uses the training batch (3 cuts); QDR and τ̂² use a 4,096-event background draw (9 cuts).</p>
   <p class="plread"><b>READ</b> In every run, top and bottom, NN2 background sits in its lowest bin (score &lt; 0.02) and signal in its highest: the AUC2 ≈ 0.99 split. That is why a linear colour scale shows nothing here, and why these panels use a log scale.</p>
   </div>
   <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>qp_deckfigs.py D3 · out-of-fold, trained events · log colour</span></div>
@@ -386,8 +612,8 @@
 <section class="slide sr"><div class="pad">
   <div class="kicker">THE RUNS · BARREL · AUC</div>
   <h1>Barrel: ROC of the top 4</h1>
-  <p class="lede">Best four runs by band bias (R1). NN1 left, NN2 right in each panel; red dot = WP. BCE only: AUC1 0.9076, AUC2 0.9629.</p>
-  <div class="g22"><figure><img src="assets/barrel_T1_F3.png" alt="r16_slices_QB_a8_b0.03_s3401"><figcaption><b>T1</b> <span class="chip c-b">QB</span> α 8 · β 0.03 · bias <b>-1.88 %</b> · 0 FLAG · AUC1 0.8834 · AUC2 0.9515</figcaption></figure><figure><img src="assets/barrel_T2_F3.png" alt="r16_rand_D_a7.57_b2.16_s70011"><figcaption><b>T2</b> <span class="chip c-t">τ̂²</span> α 7.57 · β 2.16 · bias <b>+3.05 %</b> · 1 FLAG · AUC1 0.8842 · AUC2 0.9436</figcaption></figure><figure><img src="assets/barrel_T3_F3.png" alt="r16_confirm_D_a2_b12_s3504"><figcaption><b>T3</b> <span class="chip c-t">τ̂²</span> α 2 · β 12 · bias <b>+3.23 %</b> · 0 FLAG · AUC1 0.8865 · AUC2 0.9586</figcaption></figure><figure><img src="assets/barrel_T4_F3.png" alt="r16_rand_QDR_a11.1_b0.149_s50417"><figcaption><b>T4</b> <span class="chip c-q">QDR</span> α 11.1 · β 0.149 · bias <b>+3.95 %</b> · 1 FLAG · AUC1 0.8848 · AUC2 0.9575</figcaption></figure></div>
+  <p class="lede">Ranks 1–4 of the top 15 by R1 (list: 1.88–9.51 %, median 8.25 %). NN1 left, NN2 right in each panel; red dot = WP. BCE only: AUC1 0.9076, AUC2 0.9629.</p>
+  <div class="g22"><figure><img src="assets/barrel_T1_F3.png" alt="r16_slices_QB_a8_b0.03_s3401"><figcaption><b>T1</b> <span class="chip c-b">QB</span> α 8 · β 0.03 · R1 <b>1.88 %</b> (bias −1.88 %) · 0 FLAG · AUC1 0.8834 · AUC2 0.9515</figcaption></figure><figure><img src="assets/barrel_T2_F3.png" alt="r16_rand_D_a7.57_b2.16_s70011"><figcaption><b>T2</b> <span class="chip c-t">τ̂²</span> α 7.57 · β 2.16 · R1 <b>3.05 %</b> · 1 FLAG · AUC1 0.8842 · AUC2 0.9436</figcaption></figure><figure><img src="assets/barrel_T3_F3.png" alt="r16_confirm_D_a2_b12_s3504"><figcaption><b>T3</b> <span class="chip c-t">τ̂²</span> α 2 · β 12 · R1 <b>3.23 %</b> · 0 FLAG · AUC1 0.8865 · AUC2 0.9586</figcaption></figure><figure><img src="assets/barrel_T4_F3.png" alt="r16_rand_QDR_a11.1_b0.149_s50417"><figcaption><b>T4</b> <span class="chip c-q">QDR</span> α 11.1 · β 0.149 · R1 <b>3.95 %</b> · 1 FLAG · AUC1 0.8848 · AUC2 0.9575</figcaption></figure></div>
   </div>
   <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>qp_suite.py F3 · out-of-fold, trained events</span></div>
 </section>
@@ -396,8 +622,8 @@
 <section class="slide sr"><div class="pad">
   <div class="kicker">THE RUNS · BARREL · AUC</div>
   <h1>Barrel: ROC of the bottom 5</h1>
-  <p class="lede">Worst five runs by band bias (B1 = worst). Same panels as the previous slide.</p>
-  <div class="g32"><figure><img src="assets/barrel_B1_F3.png" alt="r16_rand_QDR_a8.66_b0.0156_s50298"><figcaption><b>B1</b> <span class="chip c-q">QDR</span> α 8.66 · β 0.0156 · bias <b>+48.86 %</b> · 10 FLAG · AUC1 0.8879 · AUC2 0.9566</figcaption></figure><figure><img src="assets/barrel_B2_F3.png" alt="r16_rand_QDR_a11.9_b0.315_s50129"><figcaption><b>B2</b> <span class="chip c-q">QDR</span> α 11.9 · β 0.315 · bias <b>+42.00 %</b> · 10 FLAG · AUC1 0.8826 · AUC2 0.9558</figcaption></figure><figure><img src="assets/barrel_B3_F3.png" alt="r16_rand_QB_a0.157_b0.018_s60120"><figcaption><b>B3</b> <span class="chip c-b">QB</span> α 0.157 · β 0.018 · bias <b>+41.71 %</b> · 12 FLAG · AUC1 0.8982 · AUC2 0.9616</figcaption></figure><figure><img src="assets/barrel_B4_F3.png" alt="r16_rand_QB_a0.125_b0.0134_s60242"><figcaption><b>B4</b> <span class="chip c-b">QB</span> α 0.125 · β 0.0134 · bias <b>+41.29 %</b> · 11 FLAG · AUC1 0.9012 · AUC2 0.9628</figcaption></figure><figure><img src="assets/barrel_B5_F3.png" alt="r16_rand_QDR_a4.41_b0.0288_s50064"><figcaption><b>B5</b> <span class="chip c-q">QDR</span> α 4.41 · β 0.0288 · bias <b>+41.25 %</b> · 8 FLAG · AUC1 0.8927 · AUC2 0.9582</figcaption></figure>
+  <p class="lede">Ranks 1–5 of the bottom 15 by R1, B1 = worst (list: 38.35–48.86 %, median 39.86 %). Same panels as the previous slide.</p>
+  <div class="g32"><figure><img src="assets/barrel_B1_F3.png" alt="r16_rand_QDR_a8.66_b0.0156_s50298"><figcaption><b>B1</b> <span class="chip c-q">QDR</span> α 8.66 · β 0.0156 · R1 <b>48.86 %</b> · 10 FLAG · AUC1 0.8879 · AUC2 0.9566</figcaption></figure><figure><img src="assets/barrel_B2_F3.png" alt="r16_rand_QDR_a11.9_b0.315_s50129"><figcaption><b>B2</b> <span class="chip c-q">QDR</span> α 11.9 · β 0.315 · R1 <b>42.00 %</b> · 10 FLAG · AUC1 0.8826 · AUC2 0.9558</figcaption></figure><figure><img src="assets/barrel_B3_F3.png" alt="r16_rand_QB_a0.157_b0.018_s60120"><figcaption><b>B3</b> <span class="chip c-b">QB</span> α 0.157 · β 0.018 · R1 <b>41.71 %</b> · 12 FLAG · AUC1 0.8982 · AUC2 0.9616</figcaption></figure><figure><img src="assets/barrel_B4_F3.png" alt="r16_rand_QB_a0.125_b0.0134_s60242"><figcaption><b>B4</b> <span class="chip c-b">QB</span> α 0.125 · β 0.0134 · R1 <b>41.29 %</b> · 11 FLAG · AUC1 0.9012 · AUC2 0.9628</figcaption></figure><figure><img src="assets/barrel_B5_F3.png" alt="r16_rand_QDR_a4.41_b0.0288_s50064"><figcaption><b>B5</b> <span class="chip c-q">QDR</span> α 4.41 · β 0.0288 · R1 <b>41.25 %</b> · 8 FLAG · AUC1 0.8927 · AUC2 0.9582</figcaption></figure>
     <div class="readc"><div class="h3"><span class="a">AUC1</span> · TOP 4 VS BOTTOM 5</div>
       <p>top 4: <span class="num">0.8834–0.8865</span><br>bottom 5: <span class="num">0.8826–0.9012</span><br>BCE only: <span class="num">0.9076</span></p>
       <p class="tn">B3–B5 are barely regularised (β ≤ 0.03) and keep AUC1 near 0.89–0.90. B1 and B2 are QDR at α 8.7 and 11.9 with AUC1 like the top 4: they miss closure without the AUC excuse.</p></div>
@@ -411,7 +637,8 @@
   <div class="kicker">THE RUNS · BARREL · ABCD PLANE</div>
   <h1>Barrel: ABCD planes of the top 4</h1>
   <p class="lede">Raw NN1 vs NN2 scores, background | signal, events per bin on a log viridis scale, white = empty; red = WP cuts. 25×25 bins, 1,089 background events. Style after CMS ABCDisCoTEC (MLST 7, 045071), Fig. 6.</p>
-  <div class="g4 pl"><figure><img src="assets/barrel_T1_D3v.png" alt="r16_slices_QB_a8_b0.03_s3401"><figcaption><b>T1</b> <span class="chip c-b">QB</span> α 8 · β 0.03 · bias <b>-1.88 %</b> · 0 FLAG</figcaption></figure><figure><img src="assets/barrel_T2_D3v.png" alt="r16_rand_D_a7.57_b2.16_s70011"><figcaption><b>T2</b> <span class="chip c-t">τ̂²</span> α 7.57 · β 2.16 · bias <b>+3.05 %</b> · 1 FLAG</figcaption></figure><figure><img src="assets/barrel_T3_D3v.png" alt="r16_confirm_D_a2_b12_s3504"><figcaption><b>T3</b> <span class="chip c-t">τ̂²</span> α 2 · β 12 · bias <b>+3.23 %</b> · 0 FLAG</figcaption></figure><figure><img src="assets/barrel_T4_D3v.png" alt="r16_rand_QDR_a11.1_b0.149_s50417"><figcaption><b>T4</b> <span class="chip c-q">QDR</span> α 11.1 · β 0.149 · bias <b>+3.95 %</b> · 1 FLAG</figcaption></figure></div>
+  <div class="g4 pl"><figure><img src="assets/barrel_T1_D3v.png" alt="r16_slices_QB_a8_b0.03_s3401"><figcaption><b>T1</b> <span class="chip c-b">QB</span> α 8 · β 0.03 · R1 <b>1.88 %</b> (bias −1.88 %) · 0 FLAG<span class="armlab"><b>DisCo + QB</b>: queen on the training batch, 3 cuts</span></figcaption></figure><figure><img src="assets/barrel_T2_D3v.png" alt="r16_rand_D_a7.57_b2.16_s70011"><figcaption><b>T2</b> <span class="chip c-t">τ̂²</span> α 7.57 · β 2.16 · R1 <b>3.05 %</b> · 1 FLAG<span class="armlab"><b>DisCo + τ̂²</b>: τ̂² form of QDR: background draw, 9 cuts</span></figcaption></figure><figure><img src="assets/barrel_T3_D3v.png" alt="r16_confirm_D_a2_b12_s3504"><figcaption><b>T3</b> <span class="chip c-t">τ̂²</span> α 2 · β 12 · R1 <b>3.23 %</b> · 0 FLAG<span class="armlab"><b>DisCo + τ̂²</b>: τ̂² form of QDR: background draw, 9 cuts</span></figcaption></figure><figure><img src="assets/barrel_T4_D3v.png" alt="r16_rand_QDR_a11.1_b0.149_s50417"><figcaption><b>T4</b> <span class="chip c-q">QDR</span> α 11.1 · β 0.149 · R1 <b>3.95 %</b> · 1 FLAG<span class="armlab"><b>DisCo + QDR</b>: queen on a background draw, 9 cuts</span></figcaption></figure></div>
+  <p class="armkey"><b>KEY</b>α = DisCo weight, β = queen weight. Every run is DisCo alone or DisCo + a queen; queen-only (α = 0) and BCE-only runs are not in the pool (slide 2). QB uses the training batch (3 cuts); QDR and τ̂² use a 4,096-event background draw (9 cuts).</p>
   </div>
   <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>qp_deckfigs.py D3 · out-of-fold, trained events · log colour</span></div>
 </section>
@@ -421,8 +648,9 @@
   <div class="kicker">THE RUNS · BARREL · ABCD PLANE</div>
   <h1>Barrel: ABCD planes of the bottom 5</h1>
   <p class="lede">Raw NN1 vs NN2 scores, background | signal, events per bin on a log viridis scale, white = empty; red = WP cuts. 25×25 bins, 1,089 background events. Style after CMS ABCDisCoTEC (MLST 7, 045071), Fig. 6.</p>
-  <div class="g5 pl"><figure><img src="assets/barrel_B1_D3v.png" alt="r16_rand_QDR_a8.66_b0.0156_s50298"><figcaption><b>B1</b> <span class="chip c-q">QDR</span> α 8.66 · β 0.0156 · bias <b>+48.86 %</b> · 10 FLAG</figcaption></figure><figure><img src="assets/barrel_B2_D3v.png" alt="r16_rand_QDR_a11.9_b0.315_s50129"><figcaption><b>B2</b> <span class="chip c-q">QDR</span> α 11.9 · β 0.315 · bias <b>+42.00 %</b> · 10 FLAG</figcaption></figure><figure><img src="assets/barrel_B3_D3v.png" alt="r16_rand_QB_a0.157_b0.018_s60120"><figcaption><b>B3</b> <span class="chip c-b">QB</span> α 0.157 · β 0.018 · bias <b>+41.71 %</b> · 12 FLAG</figcaption></figure><figure><img src="assets/barrel_B4_D3v.png" alt="r16_rand_QB_a0.125_b0.0134_s60242"><figcaption><b>B4</b> <span class="chip c-b">QB</span> α 0.125 · β 0.0134 · bias <b>+41.29 %</b> · 11 FLAG</figcaption></figure><figure><img src="assets/barrel_B5_D3v.png" alt="r16_rand_QDR_a4.41_b0.0288_s50064"><figcaption><b>B5</b> <span class="chip c-q">QDR</span> α 4.41 · β 0.0288 · bias <b>+41.25 %</b> · 8 FLAG</figcaption></figure>
+  <div class="g5 pl"><figure><img src="assets/barrel_B1_D3v.png" alt="r16_rand_QDR_a8.66_b0.0156_s50298"><figcaption><b>B1</b> <span class="chip c-q">QDR</span> α 8.66 · β 0.0156 · R1 <b>48.86 %</b> · 10 FLAG<span class="armlab"><b>DisCo + QDR</b>: queen on a background draw, 9 cuts</span></figcaption></figure><figure><img src="assets/barrel_B2_D3v.png" alt="r16_rand_QDR_a11.9_b0.315_s50129"><figcaption><b>B2</b> <span class="chip c-q">QDR</span> α 11.9 · β 0.315 · R1 <b>42.00 %</b> · 10 FLAG<span class="armlab"><b>DisCo + QDR</b>: queen on a background draw, 9 cuts</span></figcaption></figure><figure><img src="assets/barrel_B3_D3v.png" alt="r16_rand_QB_a0.157_b0.018_s60120"><figcaption><b>B3</b> <span class="chip c-b">QB</span> α 0.157 · β 0.018 · R1 <b>41.71 %</b> · 12 FLAG<span class="armlab"><b>DisCo + QB</b>: queen on the training batch, 3 cuts</span></figcaption></figure><figure><img src="assets/barrel_B4_D3v.png" alt="r16_rand_QB_a0.125_b0.0134_s60242"><figcaption><b>B4</b> <span class="chip c-b">QB</span> α 0.125 · β 0.0134 · R1 <b>41.29 %</b> · 11 FLAG<span class="armlab"><b>DisCo + QB</b>: queen on the training batch, 3 cuts</span></figcaption></figure><figure><img src="assets/barrel_B5_D3v.png" alt="r16_rand_QDR_a4.41_b0.0288_s50064"><figcaption><b>B5</b> <span class="chip c-q">QDR</span> α 4.41 · β 0.0288 · R1 <b>41.25 %</b> · 8 FLAG<span class="armlab"><b>DisCo + QDR</b>: queen on a background draw, 9 cuts</span></figcaption></figure>
   </div>
+  <p class="armkey"><b>KEY</b>α = DisCo weight, β = queen weight. Every run is DisCo alone or DisCo + a queen; queen-only (α = 0) and BCE-only runs are not in the pool (slide 2). QB uses the training batch (3 cuts); QDR and τ̂² use a 4,096-event background draw (9 cuts).</p>
   <p class="plread"><b>READ</b> With 1,089 background events most bins hold 0–3 events; read the low-score corner where background concentrates, not single bins. Signal fills the upper NN2 band in all nine runs.</p>
   </div>
   <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>qp_deckfigs.py D3 · out-of-fold, trained events · log colour</span></div>
@@ -472,7 +700,7 @@
   <div class="grid">
     <div>
       <table class="t">
-        <thead><tr><th>endcap runs, R1 lists</th><th class="r">n</th><th class="r">NN2 BKG LOGIT SPAN<br>q 0.3–0.8</th><th class="r">BKG AT \(|z|&gt;13.8\)</th><th class="r">|BIAS| %</th></tr></thead>
+        <thead><tr><th>endcap runs, R1 lists</th><th class="r">n</th><th class="r">NN2 BKG LOGIT SPAN<br>q 0.3–0.8</th><th class="r">BKG AT \(|z|&gt;13.8\)</th><th class="r">R1 = |BIAS| %</th></tr></thead>
         <tbody>
           <tr><td><span class="chip c-b">QB</span> top 15</td><td class="r num">3</td><td class="r num">2.4–2.7</td><td class="r num">0</td><td class="r num">0.2–0.9</td></tr>
           <tr><td><span class="chip c-q">QDR</span> / <span class="chip c-t">τ̂²</span> top 15</td><td class="r num">12</td><td class="r num">3.5–12.5</td><td class="r num">0–45 %</td><td class="r num">0.4–1.1</td></tr>
@@ -481,15 +709,15 @@
         </tbody>
       </table>
       <div class="take" style="margin-top:14px"><b>SO</b>QDR and \(\hat\tau^2\) push about a third of NN2's background (up to 45 %) past \(|z|=13.8\), a score within \(10^{-6}\) of 0 or 1, whether the run closes well or badly; QB reaches the best endcap closure (0.22 %) with a normal NN2. The 19 Nov deck's "QDR costs a 2.4–3.3× stretch of NN2" holds here at the run level. The barrel shows no saturation in any of its 32 runs.</div>
-      <p style="font-size:12.5px;color:var(--mute);margin:10px 0 0">Saturated scores tie in rank, so cut quantiles on NN2 sit on a plateau for these runs. Whether that flatters their closure is open (slide 19).</p>
+      <p style="font-size:12.5px;color:var(--mute);margin:10px 0 0">Saturated scores tie in rank, so cut quantiles on NN2 sit on a plateau for these runs. Whether that flatters their closure is open (slide 21).</p>
     </div>
     <div>
       <div class="h3"><span class="a">F4</span> · NN2 LOGIT SPACE · BLUE BKG, RED SIGNAL, BEIGE = QUEEN BAND</div>
       <div class="slots">
-        <figure><img src="assets/endcap_T1_F4_nn2logit.png" alt=""><figcaption><b>T1</b> <span class="chip c-b">QB</span> α 8 · bias 0.22 % · span 2.67 · 0 % saturated</figcaption></figure>
-        <figure><img src="assets/endcap_T3_F4_nn2logit.png" alt=""><figcaption><b>T3</b> <span class="chip c-q">QDR</span> α 3.09 · bias 0.51 % · span 8.15 · 17 % saturated</figcaption></figure>
-        <figure><img src="assets/endcap_Rs3004_F4_nn2logit.png" alt=""><figcaption><span class="chip c-d">DISCO</span> α 8, T1's seed (bottom #15) · bias 6.39 % · span 2.83</figcaption></figure>
-        <figure><img src="assets/endcap_B2_F4_nn2logit.png" alt=""><figcaption><b>B2</b> <span class="chip c-t">τ̂²</span> α 8, β 10 (T2's settings) · bias 10.96 % · span 10.53 · 32 % saturated</figcaption></figure></div>
+        <figure><img src="assets/endcap_T1_F4_nn2logit.png" alt=""><figcaption><b>T1</b> <span class="chip c-b">QB</span> α 8 · R1 0.22 % · span 2.67 · 0 % saturated</figcaption></figure>
+        <figure><img src="assets/endcap_T3_F4_nn2logit.png" alt=""><figcaption><b>T3</b> <span class="chip c-q">QDR</span> α 3.09 · R1 0.51 % · span 8.15 · 17 % saturated</figcaption></figure>
+        <figure><img src="assets/endcap_Rs3004_F4_nn2logit.png" alt=""><figcaption><span class="chip c-d">DISCO</span> α 8, T1's seed (bottom #15) · R1 6.39 % · span 2.83</figcaption></figure>
+        <figure><img src="assets/endcap_B2_F4_nn2logit.png" alt=""><figcaption><b>B2</b> <span class="chip c-t">τ̂²</span> α 8, β 10 (T2's settings) · R1 10.96 % · span 10.53 · 32 % saturated</figcaption></figure></div>
     </div>
   </div>
   </div>
@@ -600,6 +828,7 @@
     </ul></div>
     <div class="box"><h3>FIX THE INSTRUMENT</h3><ul>
       <li>R2 → an independent axis: spectrum \(|z_{11}|\) or tail %|nc|.</li>
+      <li><b>R3</b> \(=\overline{|100\,nc|}\), the miss without cancellation, is now in <span class="num">qp_select</span>, checked against r16_map on every run. Its lists come from the next full run.</li>
       <li>(3): drop the \(\rho\) cut, record NN1 modes, rebuild the 2×2 on NN2 saturation.</li>
       <li>Barrel: compare at matched AUC1, not under one gate.</li>
     </ul></div>
@@ -616,7 +845,7 @@
 
 </div></div>
 
-<div class="nav"><button id="prev" aria-label="Previous">‹</button><span id="count">1 / 19</span><button id="next" aria-label="Next">›</button></div>
+<div class="nav"><button id="prev" aria-label="Previous">‹</button><span id="count">1 / 21</span><button id="next" aria-label="Next">›</button></div>
 <div class="prog" id="prog"></div>
 
 <script>
