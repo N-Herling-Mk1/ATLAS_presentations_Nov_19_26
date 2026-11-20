@@ -5,7 +5,8 @@
   "use strict";
   const SLOTS = [
     { num: 1, id: "2026-11-19_unknot-overview" },
-    { num: 2, id: "2026-11-19_atlas-ml-overview" },  ];
+    { num: 2, id: "2026-11-19_atlas-ml-overview" },
+    { num: 3, id: "2026-11-20_qn-performers" },  ];
   const cat = (window.CATALOG && window.CATALOG.decks) || [];
   const byId = Object.fromEntries(cat.map((d) => [d.id, d]));
   const host = document.getElementById("decks");

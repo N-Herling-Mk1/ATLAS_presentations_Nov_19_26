@@ -2,6 +2,42 @@
 window.CATALOG = {
  "decks": [
   {
+   "id": "2026-11-20_qn-performers",
+   "title": "DisCo alone vs DisCo + queen: top and bottom performers",
+   "subtitle": "The 15 best and 15 worst runs per region: who closes, plane health, what sits under the AUC, and what closure costs",
+   "author": "Nathan Herling",
+   "date": "2026-11-20",
+   "updated": "",
+   "description": "First results of the QN performers pipeline on the R15/R16a endcap and R16 barrel runs: the 15 best and 15 worst DisCo-alone and DisCo + queen runs per region by band bias, their composition against an even draw, same-seed DisCo vs queen pairs, plane health top vs bottom, the five checks under the AUC (ordering, likelihood ratio, partial AUC, shapes, BCE decomposition), the AUC cost of closure, and the limits and corrections. Internal, draft.",
+   "tags": [
+    "ATLAS",
+    "LLP",
+    "DNCn_QN",
+    "DisCo",
+    "ABCD",
+    "plane health"
+   ],
+   "slides": 19,
+   "thumb": "thumbs/s-01.jpg",
+   "files": {
+    "pdf": {
+     "path": "downloads/QN_performers_mk1.pdf",
+     "name": "QN_performers_mk1.pdf",
+     "bytes": 1108442
+    },
+    "pptx": {
+     "path": "downloads/QN_performers_mk1.pptx",
+     "name": "QN_performers_mk1.pptx",
+     "bytes": 5200399
+    },
+    "html": {
+     "path": "downloads/QN_performers_mk1_single_file.html",
+     "name": "QN_performers_mk1_single_file.html",
+     "bytes": 3407291
+    }
+   }
+  },
+  {
    "id": "2026-11-19_atlas-ml-overview",
    "title": "Arizona ATLAS ML projects: overview",
    "subtitle": "Thirteen projects since August 2026: the project anatomy, the INFO 555 techniques, the main spine, and the queen (DNCn_QN) with DisCo",

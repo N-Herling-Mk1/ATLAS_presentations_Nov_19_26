@@ -1,0 +1,20 @@
+{
+ "endcap_T1": "r15_confirm_QB_a8_b0.1_s3004",
+ "endcap_T2": "r15_dr2048_D_a8_b10_s3102",
+ "endcap_T3": "r15_opt_t0183_QDR_a3.09_b0.0477_s5183",
+ "endcap_T4": "r15_opt_t0300_QDR_a7.99_b0.0527_s5300",
+ "endcap_B1": "r15_opt_t0563_QDR_a22.9_b0.0531_s5563",
+ "endcap_B2": "r15_dr2048_D_a8_b10_s3103",
+ "endcap_B3": "r15_opt_t0030_R_a27.2_b0_s5030",
+ "endcap_B4": "r15_opt_t0050_QDR_a9.6_b0.0823_s5050",
+ "endcap_B5": "r15_opt_t0093_QDR_a17.1_b0.1_s5093",
+ "barrel_T1": "r16_slices_QB_a8_b0.03_s3401",
+ "barrel_T2": "r16_rand_D_a7.57_b2.16_s70011",
+ "barrel_T3": "r16_confirm_D_a2_b12_s3504",
+ "barrel_T4": "r16_rand_QDR_a11.1_b0.149_s50417",
+ "barrel_B1": "r16_rand_QDR_a8.66_b0.0156_s50298",
+ "barrel_B2": "r16_rand_QDR_a11.9_b0.315_s50129",
+ "barrel_B3": "r16_rand_QB_a0.157_b0.018_s60120",
+ "barrel_B4": "r16_rand_QB_a0.125_b0.0134_s60242",
+ "barrel_B5": "r16_rand_QDR_a4.41_b0.0288_s50064"
+}

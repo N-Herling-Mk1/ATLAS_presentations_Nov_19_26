@@ -14,6 +14,7 @@ Open `index.html` (the splash page) and pick a deck. Inside a deck, the ⌂ butt
 |---|---|---|---|---|
 | 1 | 19 Nov 2026 | [UNKNOT: project overview](decks/2026-11-19_unknot-overview/index.html) | 10 | locked |
 | 2 | 19 Nov 2026 | [Arizona ATLAS ML projects: overview](decks/2026-11-19_atlas-ml-overview/index.html) | 10 | draft |
+| 3 | 20 Nov 2026 | [DisCo alone vs DisCo + queen: top and bottom performers](decks/2026-11-20_qn-performers/index.html) | 19 | draft |
 
 Deck 1, slides 1–5 are the vetted overview; slide 6 marks the end of vetted work, and slides 7–10 are working material carried over from the mk1 deck.
 
@@ -31,6 +32,8 @@ Deck 2 covers the whole project line in the [Gallery of Rogues](https://n-herlin
 | 8 | Barrel pull figure, annotated |
 | 9 | The queen's two mk2 variants: QB and QDR / τ̂² |
 | 10 | The loss in full, and where she should work |
+
+Deck 3 is the first read of the QN performers pipeline (the 15 best and 15 worst runs per region, endcap R15/R16a and barrel R16). Every number on it comes from `source/03_qn_performers/deck_numbers.py`, which reads the pipeline's `data/manifest.js` and writes `numbers.json`. Figures are in `source/03_qn_performers/assets/` (`figure_sources.json` maps each to its run); the ABCD planes come from `qp_deckfigs.py` in the QN performers repo.
 
 > **Internal, exploratory.** UNKNOT numbers are mk1 results on background data only. DNCn_QN / DisCo numbers are internal studies. None of this is an ATLAS result.
 
