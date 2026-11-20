@@ -76,24 +76,24 @@ window.DECK = {
   {
    "src": "slides/s-10.png",
    "thumb": "thumbs/s-10.jpg",
-   "notes": "The loss in full. Every arm: BCE for both networks plus alpha times distance correlation squared on background plus beta times the queen term; the epoch is chosen without the queen term. Per cut pair: z-squared is the squared closure residual over its propagated counting variance, held fixed for the gradient; z-squared near one is noise. QB averages the hinge max(0, z-squared minus 1) over 3 cuts; QDR averages it over 9; tau-hat-squared is the pooled excess of Q over its shuffle null, normalised. Where she should work: QB when the working point is locked and score shapes should not stretch; QDR or tau-hat-squared when cuts are scanned, there are several signal regions, or the analysis region is in the tail. Both only on top of DisCo, inside the trained band, and on a background mix like the training one. Beta is region-specific: in the barrel the 4,096 draw exceeds a fold's background, so the same beta is about five times weaker."
+   "notes": "The loss in full. Every arm: BCE for both networks plus alpha times distance correlation squared on background plus beta times the queen term; the epoch is chosen without the queen term. Per cut pair: z-squared is the squared closure residual over its propagated counting variance, held fixed for the gradient; z-squared near one is noise. QB averages the hinge max(0, z-squared minus 1) over 3 cuts; QDR averages it over 9; tau-hat-squared is the pooled excess of Q over its shuffle null, normalised. Where she should work: QB when the working point is locked and score shapes should not stretch; QDR or tau-hat-squared when cuts are scanned, there are several signal regions, or the analysis region is in the tail. Both only on top of DisCo, inside the trained band, and on a background mix like the training one. Beta is region-specific: in the barrel the 4,096 draw exceeds a fold's background, so the same beta is about five times weaker. The right-hand column defines every symbol on the slide; W, the normaliser of tau-hat-squared, is the sum over cut pairs of the squared ABCD prediction over its counting variance, both held fixed, taken from the 7 Nov queen mk2 spec."
   }
  ],
  "files": {
   "pdf": {
    "path": "downloads/ATLAS_ML_projects_overview_mk1.pdf",
    "name": "ATLAS_ML_projects_overview_mk1.pdf",
-   "bytes": 3895541
+   "bytes": 3975211
   },
   "pptx": {
    "path": "downloads/ATLAS_ML_projects_overview_mk1.pptx",
    "name": "ATLAS_ML_projects_overview_mk1.pptx",
-   "bytes": 3296444
+   "bytes": 3463345
   },
   "html": {
    "path": "downloads/ATLAS_ML_projects_overview_mk1_single_file.html",
    "name": "ATLAS_ML_projects_overview_mk1_single_file.html",
-   "bytes": 2360318
+   "bytes": 2429628
   }
  }
 };

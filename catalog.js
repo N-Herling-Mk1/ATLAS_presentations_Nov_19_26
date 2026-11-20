@@ -23,17 +23,17 @@ window.CATALOG = {
     "pdf": {
      "path": "downloads/ATLAS_ML_projects_overview_mk1.pdf",
      "name": "ATLAS_ML_projects_overview_mk1.pdf",
-     "bytes": 3895541
+     "bytes": 3975211
     },
     "pptx": {
      "path": "downloads/ATLAS_ML_projects_overview_mk1.pptx",
      "name": "ATLAS_ML_projects_overview_mk1.pptx",
-     "bytes": 3296444
+     "bytes": 3463345
     },
     "html": {
      "path": "downloads/ATLAS_ML_projects_overview_mk1_single_file.html",
      "name": "ATLAS_ML_projects_overview_mk1_single_file.html",
-     "bytes": 2360318
+     "bytes": 2429628
     }
    }
   },

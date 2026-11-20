@@ -494,16 +494,25 @@
   .qb .v dd{margin:0}
   .qb .shared{margin-top:14px;display:grid;grid-template-columns:200px 1fr;gap:14px;align-items:start;font-size:14px}
   .qb .shared>b{font:700 12px Orbitron,sans-serif;letter-spacing:.12em;padding-top:8px}
-  .qc .cgrid{display:grid;grid-template-columns:1.25fr 1fr;gap:24px;margin-top:14px}
-  .qc .eqb{background:var(--soft);padding:9px 14px 10px;margin-bottom:12px}
-  .qc .eqb h3{margin:0 0 2px;font:700 11px Orbitron,sans-serif;letter-spacing:.12em}
-  .qc .eqb p{margin:4px 0 0;font-size:12.8px;line-height:1.4;color:#333}
-  .qc .eqb mjx-container[display="true"]{margin:5px 0!important}
-  .qc .where h3{margin:0 0 8px;font:700 12px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent)}
-  .qc .where .w{border:2px solid var(--c);border-left-width:6px;padding:8px 12px;margin-bottom:10px;font-size:13.8px;line-height:1.42}
-  .qc .where .w b{font:700 11px Orbitron,sans-serif;letter-spacing:.08em;display:block;margin-bottom:2px}
-  .qc .where .x{border:1.5px dashed #9a9a9a;padding:8px 12px;font-size:13.3px;line-height:1.42}
-  .qc .where .x b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.12em;color:var(--mute);display:block;margin-bottom:2px}
+  .qc .cgrid{display:grid;grid-template-columns:604px 1fr;gap:18px;margin-top:10px;align-items:start}
+  .qc .eqb{background:var(--soft);padding:7px 14px 8px;margin-bottom:8px}
+  .qc .eqb h3{margin:0 0 1px;font:700 11px Orbitron,sans-serif;letter-spacing:.12em}
+  .qc .eqb p{margin:3px 0 0;font-size:12.5px;line-height:1.38;color:#333}
+  .qc .eqb mjx-container[display="true"]{margin:4px 0!important}
+  .qc .where{margin-top:2px}
+  .qc .where h3{margin:0 0 6px;font:700 12px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent)}
+  .qc .where .wrow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+  .qc .where .w{border:2px solid var(--c);border-left-width:6px;padding:5px 10px;font-size:12.6px;line-height:1.36}
+  .qc .where .w b{font:700 10.5px Orbitron,sans-serif;letter-spacing:.08em;display:block;margin-bottom:1px}
+  .qc .where .x{border:1.5px dashed #9a9a9a;padding:5px 10px;font-size:12.4px;line-height:1.36}
+  .qc .where .x b{font:700 10px Orbitron,sans-serif;letter-spacing:.12em;color:var(--mute);display:block;margin-bottom:1px}
+  .qc .legend{border-left:3px solid var(--ink);padding:0 0 0 12px}
+  .qc .legend>h3{margin:0 0 4px;font:700 12px Orbitron,sans-serif;letter-spacing:.14em;color:var(--accent)}
+  .qc .legend h4{margin:6px 0 2px;font:700 9.5px Orbitron,sans-serif;letter-spacing:.14em;color:var(--mute);border-bottom:1px solid #d3d6d9;padding-bottom:2px}
+  .qc .legend dl{margin:0;display:grid;grid-template-columns:96px 1fr;gap:1px 10px;font-size:11.6px;line-height:1.3}
+  .qc .legend dt{text-align:right;white-space:nowrap}
+  .qc .legend dd{margin:0;color:#222}
+  .qc .legend mjx-container{font-size:100%!important}
   /* queen figures */
   .qf h1{font-size:28px;margin:6px 0 2px}
   .qf .fgrid{display:grid;grid-template-columns:auto 1fr;gap:22px;margin-top:10px;align-items:start}
@@ -811,21 +820,62 @@
         \[L = \mathrm{BCE}_1 + \mathrm{BCE}_2 + \alpha\,\mathrm{dCor}^2(s_1, s_2 \mid \mathrm{bkg}) + \beta\,L_Q\]
         <p>The epoch is chosen on \(\mathrm{BCE}_1 + \mathrm{BCE}_2 + \alpha\,\mathrm{dCor}^2\); \(L_Q\) never picks it.</p></div>
       <div class="eqb"><h3>PER CUT PAIR k · SOFT COUNTS, NOISE FLOOR HELD FIXED</h3>
-        \[z_k^2 = \frac{g_k^2}{\tilde F_k},\qquad g_k = N_A - \frac{N_B N_C}{N_D},\qquad N_X = \sum_i w_i\, m_X(i)\]
-        <p>\(\tilde F_k\): the variance of \(g_k\) propagated from the four soft counts. \(z_k^2 \approx 1\) is what counting noise alone gives.</p></div>
+        \[z_k^2 = \frac{g_k^2}{\tilde F_k},\qquad g_k = N_A - \frac{N_B N_C}{N_D},\qquad N_X = \sum_i w_i\, m_X(i)\]</div>
       <div class="eqb"><h3>THE TWO VARIANTS</h3>
-        \[L_{\mathrm{QB}} = \tfrac13\sum_{k=1}^{3}\max(0,\,z_k^2 - 1)\qquad L_{\mathrm{QDR}} = \tfrac1K\sum_{k=1}^{K}\max(0,\,z_k^2 - 1)\qquad L_{\tau^2} = \hat\tau^2 = \frac{\max(0,\,Q - Q_{\mathrm{null}})}{W}\]
-        <p>\(Q = \sum_k z_k^2\); \(Q_{\mathrm{null}}\) = mean of \(Q\) over 4 shuffles of NN2. QB: training batch, probabilities, 3 cuts. QDR / \(\hat\tau^2\): 4,096-event background draw, logits, \(K = 9\) cuts in \([0.3, 0.8]^2\) (background quantiles).</p></div>
+        \[L_{\mathrm{QB}} = \tfrac13\sum_{k=1}^{3}\max(0,\,z_k^2 - 1)\qquad L_{\mathrm{QDR}} = \tfrac1K\sum_{k=1}^{K}\max(0,\,z_k^2 - 1)\]
+        \[L_{\tau^2} = \hat\tau^2 = \frac{\max(0,\,Q - Q_{\mathrm{null}})}{W},\qquad Q = \sum_k z_k^2,\qquad W = \sum_k \frac{\tilde P_k^2}{\tilde F_k}\]
+        <p>QB: training batch, probabilities, 3 cuts. QDR / \(\hat\tau^2\): 4,096-event background draw, logits, \(K = 9\) cuts in \([0.3, 0.8]^2\) (background quantiles).</p></div>
+      <div class="where">
+        <h3>WHERE SHE SHOULD WORK</h3>
+        <div class="wrow">
+          <div class="w" style="--c:#ff7a2a"><b>QB</b>The working point is locked, and you want less bias without stretching the score shapes.</div>
+          <div class="w" style="--c:#1ba86a"><b>QDR / \(\hat\tau^2\)</b>The working point is not locked: you scan cuts, use several signal regions, or the analysis region sits in the tail.</div>
+        </div>
+        <div class="x"><b>BOTH, AND ONLY</b>On top of DisCo; on cuts inside the band she trains on; on a background mix like the one she trained on (she does not survive an \(H_T^{\mathrm{miss}}\) shift). \(\beta\) is set per region: in the barrel the 4,096-event draw is larger than a fold's ~740 background events, so the same \(\beta\) is about 5× weaker.</div>
+      </div>
     </div>
-    <div class="where">
-      <h3>WHERE SHE SHOULD WORK</h3>
-      <div class="w" style="--c:#ff7a2a"><b>QB</b>The working point is locked, and you want less bias without stretching the score shapes.</div>
-      <div class="w" style="--c:#1ba86a"><b>QDR / \(\hat\tau^2\)</b>The working point is not locked: you scan cuts, use several signal regions, or the analysis region sits in the tail.</div>
-      <div class="x"><b>BOTH, AND ONLY</b>On top of DisCo; on cuts inside the band she trains on; on a background mix like the one she trained on (she does not survive an HTmiss shift). β is set per region: in the barrel the 4,096-event draw is larger than a fold's ~740 background events, so the same β is about 5× weaker.</div>
+    <div class="legend">
+      <h3>EVERY SYMBOL ON THIS PAGE</h3>
+      <h4>THE LOSS</h4>
+      <dl>
+        <dt>\(L\)</dt><dd>total training loss of one arm</dd>
+        <dt>\(s_1,\ s_2\)</dt><dd>NN1, NN2 output scores: the two ABCD axes</dd>
+        <dt>\(\mathrm{BCE}_1,\ \mathrm{BCE}_2\)</dt><dd>binary cross-entropy of NN1, NN2 (signal vs background)</dd>
+        <dt>\(\mathrm{dCor}^2(\cdot \mid \mathrm{bkg})\)</dt><dd>squared distance correlation of \(s_1, s_2\), background events only (DisCo)</dd>
+        <dt>\(\alpha\)</dt><dd>DisCo weight</dd>
+        <dt>\(\beta\)</dt><dd>queen weight; set per region</dd>
+        <dt>\(L_Q\)</dt><dd>the queen term: \(L_{\mathrm{QB}}\), \(L_{\mathrm{QDR}}\) or \(L_{\tau^2}\), one per arm</dd>
+      </dl>
+      <h4>PER CUT PAIR</h4>
+      <dl>
+        <dt>\(k\)</dt><dd>cut pair: one cut on \(s_1\), one on \(s_2\)</dd>
+        <dt>\(A,B,C,D\)</dt><dd>the four regions a cut pair makes. \(A\): both pass (signal region); \(B, C\): one passes; \(D\): neither</dd>
+        <dt>\(X\)</dt><dd>any one region, \(X \in \{A,B,C,D\}\)</dd>
+        <dt>\(i\)</dt><dd>background event index</dd>
+        <dt>\(w_i\)</dt><dd>weight of event \(i\)</dd>
+        <dt>\(m_X(i)\)</dt><dd>soft membership of event \(i\) in region \(X\), between 0 and 1</dd>
+        <dt>\(N_X\)</dt><dd>soft background count in region \(X\)</dd>
+        <dt>\(g_k\)</dt><dd>closure residual: \(N_A\) minus the ABCD prediction \(N_B N_C / N_D\)</dd>
+        <dt>\(\tilde F_k\)</dt><dd>variance of \(g_k\) propagated from the four soft counts (counting noise)</dd>
+        <dt>\(\tilde F,\ \tilde P\)</dt><dd>tilde = held fixed: no gradient flows through it</dd>
+        <dt>\(z_k^2\)</dt><dd>\(g_k^2\) in units of its noise; \(z_k^2 \approx 1\) is counting noise alone</dd>
+        <dt>\(\max(0,\,z_k^2-1)\)</dt><dd>hinge: only the excess over noise is penalised</dd>
+      </dl>
+      <h4>THE VARIANTS</h4>
+      <dl>
+        <dt>\(K\)</dt><dd>cut pairs per step (QDR, \(\hat\tau^2\): 9; QB: 3)</dd>
+        <dt>\([0.3,\,0.8]^2\)</dt><dd>range the cuts are drawn in, as background quantiles of \(s_1, s_2\)</dd>
+        <dt>\(Q\)</dt><dd>\(z_k^2\) summed over the cut pairs</dd>
+        <dt>\(Q_{\mathrm{null}}\)</dt><dd>mean of \(Q\) over 4 shuffles of NN2 (dependence removed)</dd>
+        <dt>\(\tilde P_k\)</dt><dd>ABCD prediction \(N_B N_C / N_D\) at cut pair \(k\)</dd>
+        <dt>\(W\)</dt><dd>normaliser, held fixed; grows with the events seen, so \(\hat\tau^2\) does not</dd>
+        <dt>\(\hat\tau^2\)</dt><dd>excess non-closure variance: pooled excess of \(Q\) over its null</dd>
+        <dt>\(H_T^{\mathrm{miss}}\)</dt><dd>magnitude of the negative vector sum of the jets' \(p_T\)</dd>
+      </dl>
     </div>
   </div>
 </div>
-  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>Equations from the 3 Nov DisCo vs queen deck (slide 3)</span></div>
+  <div class="foot"><span>Nathan "_Steve" Herling · UA ATLAS HEP · Nov 2026</span><span>Equations from the 3 Nov DisCo vs queen deck (slide 3); \(W\) from the 7 Nov queen mk2 spec</span></div>
 </section>
 
 
